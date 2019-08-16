@@ -3,7 +3,7 @@
  * ButtonFormBuilderTest.php
  *
  * @version $Id: $
- * @package VirtualInvite
+ * @package FormBuilder
  * @copyright 2011-2016
  */
 
@@ -46,6 +46,29 @@ class ButtonFormBuilderTest extends TestCase
 
     public function testGetOnClick()
     {
-        $this->markTestIncomplete("setAutofocus test not implemented");
+        $attr = array(
+            'id'=>'name-id',
+            'name'=>'name',
+            'value'=>'Big Bob',
+            'class'=>'name',
+            'onclick'=>'foo'
+        );
+        $form = new ButtonFormBuilder($attr);
+        $onclick = $form->getOnClick();
+        $this->assertEquals($onclick, 'foo');
     }
+
+    public function testGetOnClickNotSet()
+    {
+        $attr = array(
+            'id'=>'name-id',
+            'name'=>'name',
+            'value'=>'Big Bob',
+            'class'=>'name',
+        );
+        $form = new ButtonFormBuilder($attr);
+        $onclick = $form->getOnClick();
+        $this->assertFalse($onclick);
+    }
+
 }

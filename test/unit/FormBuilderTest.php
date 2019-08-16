@@ -3,7 +3,7 @@
  * FormBuilderTest.php
  *
  * @version $Id: $
- * @package VirtualInvite
+ * @package FormBuilder
  * @copyright 2011-2016
  */
 
@@ -272,22 +272,22 @@ class FormBuilderTest extends TestCase
 
     public function testSetFormAttributes()
     {
-        $this->markTestIncomplete("setAutofocus test not implemented");
+        $this->markTestIncomplete("setFormAttributes test not implemented");
     }
 
     public function testGetFormAttributes()
     {
-        $this->markTestIncomplete("setAutofocus test not implemented");
+        $this->markTestIncomplete("getFormAttributes test not implemented");
     }
 
     public function testRender()
     {
-        $this->markTestIncomplete("setAutofocus test not implemented");
+        $this->markTestIncomplete("render test not implemented");
     }
 
     public function testRenderFieldset()
     {
-        $this->markTestIncomplete("setAutofocus test not implemented");
+        $this->markTestIncomplete("renderFieldset test not implemented");
     }
 
     public function testSetDependency()
@@ -300,6 +300,6 @@ class FormBuilderTest extends TestCase
 
     public function testGetDependency()
     {
-        $this->markTestIncomplete("setAutofocus test not implemented");
+        $this->markTestIncomplete("getDependency test not implemented");
     }
 }

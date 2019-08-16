@@ -52,7 +52,7 @@ class TextAutocompleteFormBuilder extends ElementFormBuilder {
     /**
      * getSource
      * This sets the data source for the autocomplete
-     * With VirtualInvite additional values are passed in the request, so the 
+     * With FormBuilder additional values are passed in the request, so the
      * default 'ajax.php' won't have them, and the request will fail.
      * @return string the name of the data source
      */

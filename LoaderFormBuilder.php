@@ -4,7 +4,7 @@
  * LoaderFormBuilder.php
  *
  * @version $Id: LoaderFormBuilder.php 303 2016-02-03 00:44:09Z chris@ourgourmetlife.com $
- * @package VirtualInvite
+ * @package FormBuilder
  * @copyright 2011-2016 Chris Hubbard
  */
 
