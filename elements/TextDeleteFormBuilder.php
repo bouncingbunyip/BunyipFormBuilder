@@ -16,7 +16,9 @@ class TextDeleteFormBuilder extends ElementFormBuilder
     protected $class;
     protected $error;
     public $template = 'TextDeleteDefaultTemplate';
-    
+    protected $method;
+    protected $form_name;
+
     /**
      * 
      */
@@ -55,4 +57,7 @@ class TextDeleteFormBuilder extends ElementFormBuilder
         return $this->deleteId;
     }
     
+    public function getFormName() {
+        return $this->form_name;
+    }
 }

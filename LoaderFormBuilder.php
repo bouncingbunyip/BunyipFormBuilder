@@ -38,12 +38,20 @@ class LoaderFormBuilder
             case 'FormBuilder\FieldsetFormBuilder':
                 $retval = 'FormBuilder/FieldsetFormBuilder.php';
                 break;
+            case 'FormBuilder\Validator':
+                $retval = 'FormBuilder/Validator.php';
+                break;
+            case 'FormBuilder\ValidationResults':
+                $retval = 'FormBuilder/ValidationResults.php';
+                break;
             default:
                 $classname = str_replace("FormBuilder\\", '', $classname);
                 if (stristr($classname, 'Decorator')) {
                     $retval =  'FormBuilder/decorators/'. $classname .'.php';
                 } elseif (stristr($classname, 'Template')) {
                     $retval = 'FormBuilder/templates/'. $classname .'.php';
+                } elseif (stristr($classname, 'ValidationStrategy')) {
+                    $retval = 'FormBuilder/'. $classname .'.php';
                 } else {
 //                    echo 'classname= '. $classname .'<br>';
                     $retval =  'FormBuilder/elements/'. $classname .'.php';

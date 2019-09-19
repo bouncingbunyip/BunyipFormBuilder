@@ -71,13 +71,30 @@ class TextAutocompleteDefaultTemplate
 //    }
 
     public function getHtml($elem) {
+        $label = $elem->getLabel();
+        if ($label) {
+            $label_html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
+        } else {
+            $label_html = '';
+        }
+
         $html = '<div class="ui-widget">
-  <label for="'. $elem->getName() .'">Tags: </label>
-  <input id="'. $elem->getName() .'">
-</div>';
+  '. $label_html .'
+  <input id="'. $elem->getId() .'" name="'. $elem->getName() .'" required="required">
+</div>'.PHP_EOL;
         $html .= '<script>'. PHP_EOL;
-        $html .= $elem->getSource();
+        $html .= '$( function() {
+      $( "#'. $elem->getId() .'" ).autocomplete({
+      source: "'. $elem->getSource() .'",
+      minLength: 2,
+      select: function( event, ui ) {
+        $("#'. $elem->getId() .'_id").val(ui.item.id);
+      }
+    });
+    } );';
+
         $html .= '</script>'. PHP_EOL;
+        $html .= '<input type="hidden" id="'. $elem->getId() .'_id" name="'. $elem->getId() .'_id" value="">'.PHP_EOL;
         return $html;
     }
 }

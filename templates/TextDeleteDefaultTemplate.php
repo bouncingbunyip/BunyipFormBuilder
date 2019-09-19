@@ -24,7 +24,7 @@ class TextDeleteDefaultTemplate
             $str = null;
         }
         $html .= '<input type="text" id="'. $elem->getId() .'" name="'. $elem->getName() .'" value="'. $elem->getValue() .'"'. $str .'>'.PHP_EOL;
-        $html .= '<a href="index.php?p=delete_email&id=' . $elem->getId() . '"><img src="images/icn_round_delete.png" class="icn_with_input"></a>' . PHP_EOL;
+        $html .= '<a href="index.php?p='. $elem->getAction() .'&id=' . $elem->getId() . '"><img src="images/icn_round_delete.png" class="icn_with_input"></a>' . PHP_EOL;
         
         if (!empty($elem->getError())) {
             $html .= '<span class="'. $elem->getCssError() .'">'. $elem->getError() .'</span>';

@@ -26,6 +26,7 @@ class TextDeletePostTemplate
         $html .= '<input type="text" id="'. $elem->getId() .'" name="'. $elem->getName() .'" value="'. $elem->getValue() .'"'. $str .'>'.PHP_EOL;
         $html .= '<form action="'. $elem->getAction() .'" method="'. $elem->getMethod() .'">';
         $html .= '<input type="hidden" name="id" value="'. $elem->getDeleteId() .'">';
+        $html .= '<input type="hidden" name="form_name" value="'. $elem->getFormName() .'">';
         $html .= '<input type="image" src="images/icn_round_delete.png" alt="Submit" width="16" height="16">';
         $html .= '</form>';
         

@@ -107,6 +107,14 @@ class ElementFormBuilder
             return false;
         }
     }
+    public function getHelpText()
+    {
+        if (!empty($this->help_text)) {
+            return $this->help_text;
+        } else {
+            return false;
+        }
+    }
     
     public function getAutofocus() {
         if (!empty($this->autofocus) && ($this->autofocus == $this->name)) {

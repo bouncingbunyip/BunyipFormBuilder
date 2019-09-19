@@ -15,6 +15,9 @@
  */
 namespace FormBuilder;
 
+use \FormBuilder\ValidatorResults;
+use \FormBuilder\Validator;
+
 class FormBuilder {
 
     protected $strict = true;
@@ -30,7 +33,7 @@ class FormBuilder {
     protected $uidHelper;
     protected $dependencies = array();
     protected $theme = 'default';
-
+    protected $validator;
     const VICSRF = 'vicsrf';
 
     protected $attributes = array('accept-charset', 'action', 'autocomplete', 'enctype', 'id', 'method', 'name', 'novalidate', 'target');
@@ -56,6 +59,14 @@ class FormBuilder {
         if(!is_null($attrs)) {
             $this->setFormAttributes($attrs);
         }
+    }
+
+    public function setValidator(Validator $validator) {
+        $this->validator = $validator;
+    }
+
+    public function getValidator() {
+        return $this->validator;
     }
 
     /**
@@ -138,10 +149,10 @@ class FormBuilder {
      * @param string $title Will be used as the <legend>$title</legend> for the fieldset
      * @param string $id The Id for the fieldset e.g.: id="my-id"
      * @param string $name The Name for the fieldset e.g.: name="my-name"
-     * @return \FieldsetFormBuilder
+     * @return FieldsetFormBuilder
      */
     public function addFieldset($title = null, $id = null, $name = null, $class = null) {
-        $fieldset = new \FormBuilder\FieldsetFormBuilder($title, $id, $name, $class);
+        $fieldset = new FieldsetFormBuilder($title, $id, $name, $class);
         return $fieldset;
     }
 
@@ -183,7 +194,7 @@ class FormBuilder {
     }
 
     public static function getCsrf() {
-        $fb = new \FormBuilder\FormBuilder();
+        $fb = new FormBuilder();
         return $fb->getUid();
     }
 
