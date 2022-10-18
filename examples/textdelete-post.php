@@ -1,18 +1,18 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\TextDeleteFormbuilder;
 include 'helpers.php';
 
-include '../../../BunyipFormBuilder/ElementFormBuilder.php';
-include '../../../BunyipFormBuilder/elements/TextDeleteFormBuilder.php';
-include '../../../BunyipFormBuilder/templates/TextDeletePostTemplate.php';
 writeHeader();
 
 $attr = array(
     'label'=>'Name',
     'id'=>'name-id',
     'name'=>'name',
-    'action'=>'delete.php',
+    'action'=>'echo.php',
     'deleteId'=>123,
+    'form_name'=>'deletepost',
     'method'=>'foo',
     'value'=>'Big Bob',
     'required'=>true,
@@ -25,6 +25,3 @@ $form->setTemplate('TextDeletePostTemplate');
 writeCode($form->render());
 writeHtml($form->render());
 writeFooter();
-
-
-?>

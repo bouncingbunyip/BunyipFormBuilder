@@ -1,10 +1,11 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the TextFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
+
 namespace BunyipFormBuilder\templates;
 
 class TextDefaultTemplate

@@ -1,11 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add a text input with delete into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/text.php
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class TextDeleteFormBuilder extends ElementFormBuilder
 {
