@@ -4,10 +4,10 @@
  *
  * @version $Id: $
  * @package FormBulider
- * @copyright 2011-2016
+ * @copyright 2011 - 2020
  */
 
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class EmailBootstrapTemplate
 {

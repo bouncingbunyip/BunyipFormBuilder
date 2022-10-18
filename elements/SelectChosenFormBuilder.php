@@ -1,11 +1,15 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add a select input into a form and add the Chosen library to it
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/select-chosen.php
+ * @deprecated
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class SelectChosenFormBuilder extends ElementFormBuilder
 {

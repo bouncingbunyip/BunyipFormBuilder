@@ -4,11 +4,11 @@
  * ElementFormBuilderTest.php
  *
  * @version $Id: $
- * @package FormBuilder
+ * @package BunyipFormBuilder
  * @copyright 2011-2019
  */
 
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 include '../../FormBuilder.php';
 include '../../ElementFormBuilder.php';
 
@@ -20,7 +20,7 @@ class ElementFormBuilderTest extends TestCase
     /**
      * Prepares the environment before running a test.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->data = array(
             'label' => 'Label',
@@ -37,7 +37,7 @@ class ElementFormBuilderTest extends TestCase
     /**
      * Cleans up the environment after running a test.
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
     }

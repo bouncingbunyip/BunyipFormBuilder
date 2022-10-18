@@ -5,20 +5,15 @@
  * @author jackal
  *        
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder\templates;
 
 class TextHintTemplate
 {
 
     /**
-     */
-    function __construct()
-    {}
-    
-    /**
      * for more info on hint: http://kushagragour.in/lab/hint/
      */
-    function getHtml(TextFormBuilder $elem) {
+    function getHtml( $elem) {
         $html = '<label>'. $elem->getLabel() .'</label>'. PHP_EOL;
         $attrs = $elem->getAttributes();
         if ($attrs) {

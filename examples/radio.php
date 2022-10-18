@@ -1,12 +1,8 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\RadioFormbuilder;
 include 'helpers.php';
-
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/RadioFormBuilder.php';
-include '../../../FormBuilder/templates/RadioDefaultTemplate.php';
-
-use \FormBuilder\RadioFormBuilder;
 
 writeHeader();
 

@@ -1,12 +1,9 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\TextBlockFormBuilder;
+
 include 'helpers.php';
-
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextBlockFormBuilder.php';
-include '../../../FormBuilder/templates/TextBlockDefaultTemplate.php';
-
-use \FormBuilder\TextBlockFormBuilder;
 
 writeHeader();
 $attr = array(
@@ -59,5 +56,3 @@ writeHtml($actual);
 writeExpect($expect, $actual);
 
 writeFooter();
-
-?>

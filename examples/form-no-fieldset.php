@@ -1,26 +1,24 @@
 <?php
+require_once '../Autoloader.php';
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\elements\TextFormBuilder;
 
 include 'helpers.php';
 
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextFormBuilder.php';
-include '../../../FormBuilder/templates/TextDefaultTemplate.php';
-use \FormBuilder\FormBuilder;
-use \FormBuilder\TextFormBuilder;
 
-$attr = array(
+
+$attr = [
     'label'=>'Name',
     'id'=>'name-id',
     'name'=>'name'
-);
+];
 $form = new FormBuilder($attr);
 
-$attr = array(
+$attr = [
     'label'=>'Name',
     'id'=>'name-id',
     'name'=>'name'
-);
+];
 $form->addElem(new TextFormBuilder($attr));
 writeHeader();
 writeCode($form->render());

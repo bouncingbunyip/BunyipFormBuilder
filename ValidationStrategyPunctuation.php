@@ -3,18 +3,17 @@
 /**
  * ValidationStrategyPunctuation
  * 
- * @version $Id: ValidationStrategyPunctuation.php 303 2016-02-03 00:44:09Z chris@ourgourmetlife.com $
- * @package VirtualInvite
- * @copyright 2011-2016 Chris Hubbard
+ * @package BunyipFormBuilder
+ * @copyright 2011 - 2022 Chris Hubbard 
  */
 
 /**
  * Description of ValidationStrategyPunctuation
  *
- * @author Chris Hubbard <chris@ourgourmetlife.com>
+ * @author Chris Hubbard <chris@ibunyip.com>
  */
 
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class ValidationStrategyPunctuation implements ValidationStrategyInterface {
     

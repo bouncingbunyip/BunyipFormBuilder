@@ -1,11 +1,13 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the SelectChosenFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @deprecated
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class SelectChosenTemplate
 {
@@ -13,11 +15,11 @@ class SelectChosenTemplate
     /**
      * Chosen: https://harvesthq.github.io/chosen/
      *  <select data-placeholder="Choose a country..." multiple class="chosen-select">
-     * @todo Might need to be something like: $(".chosen-select").chosen();
+     * @todo Replace Chosen (which is deprecated) with something like https://selectize.dev/docs.html
      * @param SelectChosenFormBuilder $elem
      * @return string
      */
-    function getHtml(SelectChosenFormBuilder $elem) {
+    public function getHtml( $elem) {
         $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         $placeholder = $elem->getPlaceholder();
 

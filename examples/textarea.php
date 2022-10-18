@@ -1,12 +1,8 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\TextareaFormbuilder;
 include 'helpers.php';
-
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextareaFormBuilder.php';
-include '../../../FormBuilder/templates/TextareaDefaultTemplate.php';
-use \FormBuilder\FormBuilder;
-use \FormBuilder\TextAreaFormBuilder;
 
 writeHeader();
 

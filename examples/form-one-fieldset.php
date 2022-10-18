@@ -1,15 +1,10 @@
 <?php
 
-include 'helpers.php';
+require_once '../Autoloader.php';
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\elements\TextFormBuilder;
 
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/FieldsetFormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextFormBuilder.php';
-include '../../../FormBuilder/templates/TextDefaultTemplate.php';
-//include '../../../FormBuilder/decorators/HintDecorator.php';
-use \FormBuilder\FormBuilder;
-use \FormBuilder\TextFormBuilder;
+include 'helpers.php';
 
 $form = new FormBuilder();
 // $attributes = array('class'=>'hint--right', 'trigger'=>'Hint', 'text'=> 'This is the tooltip text');

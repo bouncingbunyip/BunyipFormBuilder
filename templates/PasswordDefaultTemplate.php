@@ -1,21 +1,17 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the PasswordFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class PasswordDefaultTemplate
 {
-
-    /**
-     */
-    function __construct()
-    {}
     
-    function getHtml(PasswordFormBuilder $elem) {
+    public function getHtml($elem) {
         $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         $attrs = $elem->getAttributes();
         if ($attrs) {

@@ -5,7 +5,7 @@
  * @author jackal
  *        
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class TextAutocompleteDefaultTemplate
 {
@@ -80,7 +80,7 @@ class TextAutocompleteDefaultTemplate
 
         $html = '<div class="ui-widget">
   '. $label_html .'
-  <input id="'. $elem->getId() .'" name="'. $elem->getName() .'" required="required">
+  <input type="text" id="'. $elem->getId() .'" name="'. $elem->getName() .'" required="required">
 </div>'.PHP_EOL;
         $html .= '<script>'. PHP_EOL;
         $html .= '$( function() {

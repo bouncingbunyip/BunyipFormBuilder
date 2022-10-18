@@ -3,11 +3,11 @@
  * TelBootstrapTemplate.php
  *
  * @version $Id: $
- * @package FormBuilder
- * @copyright 2011-2016
+ * @package BunyipFormBuilder
+ * @copyright 2011 - 2020
  */
 
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class TelBootstrapTemplate
 {

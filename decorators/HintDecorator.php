@@ -1,14 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add a 'tooltip' hint into a form element
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
 
 /**
  * Hint CSS library for tooltips
- * for more info on hint: http://kushagragour.in/lab/hint/
+ * for more info on hint: https://kushagra.dev/lab/hint/
  * 
  * Class attributes:
  * hint--top
@@ -28,7 +28,7 @@
  * 
  * Can any of the above
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder\decorators;
 
 class HintDecorator
 {
@@ -50,16 +50,17 @@ class HintDecorator
     }
     
     public function render() {
-        $html = '<div class="'. $this->class.'" data-hint="'. $this->text.'">'.$this->trigger.'</div>'.PHP_EOL;
+        $html = '<div class="'. $this->class.'" aria-label="'. $this->text.'">'.$this->trigger.'</div>'.PHP_EOL;
         return $html;
     }
     /**
      * getDependencies
      * For this to work, the decorator needs to be contained within a form, won't work if it's just on an element
+     * <link href="https://unpkg.com/hint.css@2.7.0/hint.min.css" media="screen" rel="stylesheet" type="text/css" />
      * @return multitype:multitype:string
      */
     public function getDependencies() {
-        $depend = array(0=>array('path'=>'addons/hint/hint.min.css', 'type'=>'css'));
+        $depend = array(0=>array('path'=>'https://unpkg.com/hint.css@2.7.0/hint.min.css', 'type'=>'css'));
         return $depend;
     }
 }

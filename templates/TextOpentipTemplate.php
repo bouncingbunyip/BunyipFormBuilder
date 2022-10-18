@@ -5,20 +5,15 @@
  * @author jackal
  *        
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder\templates;
 
 class TextOpentipTemplate
 {
-
-    /**
-     */
-    function __construct()
-    {}
     
     /**
      * for more info on opentip: http://www.opentip.org/index.html
      */
-    function getHtml(TextFormBuilder $elem) {
+    function getHtml( $elem) {
         $html = '<label>'. $elem->getLabel() .'</label>'. PHP_EOL;
         $attrs = $elem->getAttributes();
         if ($attrs) {

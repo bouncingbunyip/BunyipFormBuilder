@@ -1,11 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add a color picker into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/color.php
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class ColorFormBuilder extends ElementFormBuilder
 {
@@ -15,10 +18,7 @@ class ColorFormBuilder extends ElementFormBuilder
     protected $error;
     protected $value = '#ff0000';
     public $template = 'ColorDefaultTemplate';
-    
-    /**
-     * 
-     */
+
     public function getAttributes() {
         $attrs = array();
         $req = $this->getRequired();

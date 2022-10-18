@@ -2,10 +2,10 @@
 
 include 'helpers.php';
 
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextAutocompleteFormBuilder.php';
-include '../../../FormBuilder/templates/TextAutocompleteDefaultTemplate.php';
+include '../../../BunyipFormBuilder/BunyipFormBuilder.php';
+include '../../../BunyipFormBuilder/ElementFormBuilder.php';
+include '../../../BunyipFormBuilder/elements/TextAutocompleteFormBuilder.php';
+include '../../../BunyipFormBuilder/templates/TextAutocompleteDefaultTemplate.php';
 
 use \FormBuilder\FormBuilder;
 use \FormBuilder\TextAutocompleteFormBuilder;
@@ -23,7 +23,7 @@ $name = 'tags';
 
 $source = '
     $( "'. $name .'" ).autocomplete({
-      source: "http://sites.local/packages/FormBuilder/test/examples/addons/search.php",
+      source: "http://sites.local/packages/BunyipFormBuilder/test/examples/addons/search.php",
       minLength: 1,
     });';
 

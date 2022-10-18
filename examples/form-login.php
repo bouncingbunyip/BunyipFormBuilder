@@ -1,27 +1,14 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\decorators\HintDecorator;
+use BunyipFormBuilder\elements\SubmitFormBuilder;
+use BunyipFormBuilder\elements\TextFormBuilder;
+use BunyipFormBuilder\elements\PasswordFormBuilder;
+use BunyipFormBuilder\elements\HiddenCsrfFormBuilder;
+
 include 'helpers.php';
-
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/FieldsetFormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextFormBuilder.php';
-include '../../../FormBuilder/templates/TextDefaultTemplate.php';
-include '../../../FormBuilder/elements/PasswordFormBuilder.php';
-include '../../../FormBuilder/templates/PasswordDefaultTemplate.php';
-include '../../../FormBuilder/decorators/HintDecorator.php';
-include '../../../FormBuilder/elements/HiddenCsrfFormBuilder.php';
-include '../../../FormBuilder/templates/HiddenCsrfDefaultTemplate.php';
-
-include '../../../FormBuilder/elements/SubmitFormBuilder.php';
-include '../../../FormBuilder/templates/SubmitDefaultTemplate.php';
-
-use \FormBuilder\FormBuilder;
-use \FormBuilder\HintDecorator;
-use \FormBuilder\TextFormBuilder;
-use \FormBuilder\PasswordFormBuilder;
-use \FormBuilder\HiddenCsrfFormBuilder;
-use \FormBuilder\SubmitFormBuilder;
 
 $attr = array(
     'action'=>'echo.php',

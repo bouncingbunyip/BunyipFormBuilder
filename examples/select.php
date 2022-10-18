@@ -1,12 +1,8 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\SelectFormbuilder;
 include 'helpers.php';
-
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/SelectFormBuilder.php';
-include '../../../FormBuilder/templates/SelectDefaultTemplate.php';
-
-use \FormBuilder\SelectFormBuilder;
 
 writeHeader();
 

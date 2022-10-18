@@ -1,21 +1,17 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the DatePickerFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  * @todo add in support for DatePicker options: https://jqueryui.com/datepicker/
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class DatePickerDefaultTemplate
 {
 
-    /**
-     */
-    function __construct()
-    {}
-    
     /**
      * getHtml
      * Note the datepicker selector is using the element id to attach the datepicker.  
@@ -23,7 +19,7 @@ class DatePickerDefaultTemplate
      * @param DatePickerFormBuilder $elem
      * @return string
      */
-    function getHtml(DatePickerFormBuilder $elem) {
+    public function getHtml($elem) {
         $html = '<script>
 	$(function() {
 		$( "#datepicker_'. $elem->getId() .'" ).datepicker();

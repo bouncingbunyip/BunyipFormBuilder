@@ -1,10 +1,10 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\CheckboxFormBuilder;
+
 include 'helpers.php';
 
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/CheckboxFormBuilder.php';
-include '../../../FormBuilder/templates/CheckboxDefaultTemplate.php';
 writeHeader();
 
 $attr = array(
@@ -18,8 +18,23 @@ $attr = array(
         3 => array('value'=>'xl', 'label'=>'Extra Large', 'selected'=>false)
     )
 );
-$form = new \FormBuilder\CheckboxFormBuilder($attr);
-//writeCode(var_export($attr, true));
+$form = new CheckboxFormBuilder($attr);
+writeCode($form->render());
+writeHtml($form->render());
+
+$attr = array(
+    'label'    => 'Size',
+    'required' => false,
+    'name'     => 'size',
+    'options'  => array(
+        0 => array('value'=>'s', 'label'=>'Small', 'selected'=>true),
+        1 => array('value'=>'m', 'label'=>'Medium', 'selected'=>false),
+        2 => array('value'=>'l', 'label'=>'Large', 'selected'=>false),
+        3 => array('value'=>'xl', 'label'=>'Extra Large', 'selected'=>false)
+    )
+);
+$form = new CheckboxFormBuilder($attr);
+$form->setTemplate('CheckboxBrTemplate');
 writeCode($form->render());
 writeHtml($form->render());
 
@@ -36,9 +51,7 @@ $attr = array(
         3 => array('value'=>'xl', 'label'=>'Extra Large', 'selected'=>false)
     )
 );
-$form = new \FormBuilder\CheckboxFormBuilder($attr);
+$form = new CheckboxFormBuilder($attr);
 writeCode($form->render());
 writeHtml($form->render());
 writeFooter();
-
-?>

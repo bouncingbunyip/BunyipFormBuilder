@@ -3,11 +3,11 @@
  * ColorFormBuilderTest.php
  *
  * @version $Id: $
- * @package FormBuilder
- * @copyright 2011-2016
+ * @package BunyipFormBuilder
+ * @copyright 2011 - 2020
  */
 
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 include '../../../ElementFormBuilder.php';
 include '../../../elements/ColorFormBuilder.php';
 use PHPUnit\Framework\TestCase;

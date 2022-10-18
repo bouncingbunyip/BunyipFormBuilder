@@ -5,7 +5,7 @@
  * @author jackal
  *        
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class BootstrapSelectTemplate
 {
@@ -29,7 +29,7 @@ class BootstrapSelectTemplate
      * @return string
      */
     function getHtml(ElementFormBuilder $elem) {
-        //$html = '<div class="form-group row">'. PHP_EOL;
+        //$html = '<div class="form-group"><div class="input-group"'. PHP_EOL;
         $html = '';
         if($elem->getLabelSize()) { $label_size = $elem->getLabelSize(); } else { $label_size = 'col-sm-2';}
         if($elem->getElementSize()) { $element_size = $elem->getElementSize(); } else { $element_size = 'col-sm-10';}
@@ -61,7 +61,7 @@ class BootstrapSelectTemplate
 //        if (!empty($error)) {
 //            $html .= '<span class="'. $elem->getCssError() .'">'. $error .'</span>'.PHP_EOL;
 //        }
-        //$html .= '</div>' . PHP_EOL;
+//        $html .= '</div></div>' . PHP_EOL;
         return $html;        
     }
     

@@ -1,11 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add one or more checkboxes into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/checkbox.php
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class CheckboxFormBuilder extends ElementFormBuilder
 {

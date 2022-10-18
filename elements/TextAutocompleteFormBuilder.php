@@ -1,9 +1,10 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add an autocomplete input into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/text-autocomplete.php
+ * @package BunyipformBuilder
  */
 
 /**
@@ -19,7 +20,7 @@
  * $autoComplete = array('first_name_0_id'=>'key', 'last_name_0_id'=>'key_name');
  * will put the value of 'key' into 'first_name_0_id' and 'key_name' into 'last_name_0_id'
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class TextAutocompleteFormBuilder extends ElementFormBuilder {
 
@@ -52,7 +53,7 @@ class TextAutocompleteFormBuilder extends ElementFormBuilder {
     /**
      * getSource
      * This sets the data source for the autocomplete
-     * With FormBuilder additional values are passed in the request, so the
+     * With BunyipFormBuilder additional values are passed in the request, so the
      * default 'ajax.php' won't have them, and the request will fail.
      * @return string the name of the data source
      */

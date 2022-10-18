@@ -2,13 +2,13 @@
 
 include 'helpers.php';
 
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextareaTinyEditorFormBuilder.php';
-include '../../../FormBuilder/templates/TextareaTinyEditorTemplate.php';
+include '../../../BunyipFormBuilder/BunyipFormBuilder.php';
+include '../../../BunyipFormBuilder/ElementFormBuilder.php';
+include '../../../BunyipFormBuilder/elements/TextareaTinyEditorFormBuilder.php';
+include '../../../BunyipFormBuilder/templates/TextareaTinyEditorTemplate.php';
 
-include '../../../FormBuilder/elements/SubmitFormBuilder.php';
-include '../../../FormBuilder/templates/SubmitDefaultTemplate.php';
+include '../../../BunyipFormBuilder/elements/SubmitFormBuilder.php';
+include '../../../BunyipFormBuilder/templates/SubmitDefaultTemplate.php';
 
 use \FormBuilder\FormBuilder;
 use \FormBuilder\TextareaTinyEditorFormBuilder;

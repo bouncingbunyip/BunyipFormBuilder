@@ -3,22 +3,19 @@
 /**
  * LoaderFormBuilder.php
  *
- * @version $Id: LoaderFormBuilder.php 303 2016-02-03 00:44:09Z chris@ourgourmetlife.com $
- * @package FormBuilder
- * @copyright 2011-2016 Chris Hubbard
+ * @package BunyipFormBuilder
+ * @copyright 2011 - 2022 Chris Hubbard 
  */
 
 /**
  * Description of LoaderFormBuilder
- * @author Chris Hubbard <chris@ourgourmetlife.com>
+ * @deprecated This class has been replaced by Autoloader.php
+ * @author Chris Hubbard <chris@ibunyip.com>
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class LoaderFormBuilder
 {
-
-    function __construct()
-    { }
     
     /**
      * 
@@ -26,35 +23,35 @@ class LoaderFormBuilder
      */
     public static function load($classname) {
         switch ($classname) {
-            case 'FormBuilder':
+            case 'BunyipFormBuilder':
             case 'FormBuilder\FormBuilder':
-                $retval = 'FormBuilder/FormBuilder.php';
+                $retval = 'BunyipFormBuilder/BunyipFormBuilder.php';
                 break;
             case 'ElementFormBuilder':
             case 'FormBuilder\ElementFormBuilder':
-                $retval = 'FormBuilder/ElementFormBuilder.php';
+                $retval = 'BunyipFormBuilder/ElementFormBuilder.php';
                 break;
             case 'FieldsetFormBuilder':
             case 'FormBuilder\FieldsetFormBuilder':
-                $retval = 'FormBuilder/FieldsetFormBuilder.php';
+                $retval = 'BunyipFormBuilder/FieldsetFormBuilder.php';
                 break;
             case 'FormBuilder\Validator':
-                $retval = 'FormBuilder/Validator.php';
+                $retval = 'BunyipFormBuilder/Validator.php';
                 break;
             case 'FormBuilder\ValidationResults':
-                $retval = 'FormBuilder/ValidationResults.php';
+                $retval = 'BunyipFormBuilder/ValidationResults.php';
                 break;
             default:
-                $classname = str_replace("FormBuilder\\", '', $classname);
+                $classname = str_replace("BunyipFormBuilder\\", '', $classname);
                 if (stristr($classname, 'Decorator')) {
-                    $retval =  'FormBuilder/decorators/'. $classname .'.php';
+                    $retval =  'BunyipFormBuilder/decorators/'. $classname .'.php';
                 } elseif (stristr($classname, 'Template')) {
-                    $retval = 'FormBuilder/templates/'. $classname .'.php';
+                    $retval = 'BunyipFormBuilder/templates/'. $classname .'.php';
                 } elseif (stristr($classname, 'ValidationStrategy')) {
-                    $retval = 'FormBuilder/'. $classname .'.php';
+                    $retval = 'BunyipFormBuilder/'. $classname .'.php';
                 } else {
 //                    echo 'classname= '. $classname .'<br>';
-                    $retval =  'FormBuilder/elements/'. $classname .'.php';
+                    $retval =  'BunyipFormBuilder/elements/'. $classname .'.php';
                 }
         }
         return $retval;

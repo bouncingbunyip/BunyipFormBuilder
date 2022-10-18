@@ -1,12 +1,8 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\TextFormbuilder;
 include 'helpers.php';
-
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextFormBuilder.php';
-include '../../../FormBuilder/templates/TextAlternateTemplate.php';
-//use \FormBuilder\FormBuilder;
-use \FormBuilder\TextFormBuilder;
 
 writeHeader();
 
@@ -44,4 +40,3 @@ writeCode($form->render());
 writeHtml($form->render());
 
 writeFooter();
-?>

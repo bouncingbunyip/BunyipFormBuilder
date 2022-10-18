@@ -1,22 +1,19 @@
 <?php
 
 /**
- *
- * @author jackal
- * @todo Added some <br> and <div> tags to get this to render vaguely accurately, they need to be removed at some point
+ * This is the template for the CheckboxFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
+ * @todo remove the <br> tags
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class CheckboxDefaultTemplate
 {
 
-    /**
-     * 
-     */
-    function __construct()
-    {}
-    
-    function getHtml(CheckboxFormBuilder $elem) {
+    public function getHtml($elem): string
+    {
         $html = '<div>'. PHP_EOL;
         $html .= '<label for="'. $elem->getId() .'" '. $elem->getCssClass(). '>'. $elem->getLabel() .'</label><br>'. PHP_EOL;
         $options = $elem->getOptions();

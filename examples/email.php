@@ -1,15 +1,14 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\EmailFormBuilder;
 include 'helpers.php';
 
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/EmailFormBuilder.php';
-include '../../../FormBuilder/templates/EmailDefaultTemplate.php';
 writeHeader();
 $attr = array(
     'name'=>'name'
 );
-$form = new \FormBuilder\EmailFormBuilder($attr);
+$form = new EmailFormBuilder($attr);
 writeCode($form->render());
 writeHtml($form->render());
 
@@ -19,12 +18,8 @@ $attr = array(
     'name'=>'name',
     'value'=>'me@mail.com'
 );
-$form = new \FormBuilder\EmailFormBuilder($attr);
+$form = new EmailFormBuilder($attr);
 writeCode($form->render());
 writeHtml($form->render());
 
-
 writeFooter();
-
-
-?>

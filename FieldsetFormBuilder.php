@@ -2,19 +2,18 @@
 /**
  * FieldsetFormBuilder.php
  *
- * @version $Id: FieldsetFormBuilder.php 311 2016-02-12 02:08:26Z chris@ourgourmetlife.com $
- * @package FormBuilder
- * @copyright 2011-2019 Chris Hubbard
+ * @package BunyipFormBuilder
+ * @copyright 2011-2022 Chris Hubbard
  */
 
 /**
  * Description of Fieldset
  * This class creates a fieldset that can contain form elements or other fieldsets
  * 
- * @author Chris Hubbard <chris@ourgourmetlife.com>
+ * @author Chris Hubbard <chris@ibunyip.com>
  */
 
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class FieldsetFormBuilder {
     
@@ -63,7 +62,7 @@ class FieldsetFormBuilder {
     /**
      * addElem
      * Use this to add form elements to the fieldset.
-     * @param object $obj Should be a child of a FormBuilder instance
+     * @param object $obj Should be a child of a BunyipFormBuilder instance
      */
     public function addElem($obj) {
         $this->elements[] = $obj;

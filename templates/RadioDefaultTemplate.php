@@ -1,21 +1,17 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the RadioFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class RadioDefaultTemplate
 {
-
-    /**
-     */
-    function __construct()
-    {}
     
-    function getHtml(RadioFormBuilder $elem) {
+    public function getHtml($elem) {
         $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         $selected_value = $elem->getSelected();
         

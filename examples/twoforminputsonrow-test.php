@@ -1,22 +1,10 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\SelectFormbuilder;
+use BunyipFormBuilder\elements\TextFormbuilder;
+use BunyipFormBuilder\elements\TwoFormInputsOnRowFormBuilder;
 include 'helpers.php';
-
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TwoFormInputsOnRowFormBuilder.php';
-include '../../../FormBuilder/templates/TwoFormInputsOnRowTemplate.php';
-
-include '../../../FormBuilder/elements/TextFormBuilder.php';
-include '../../../FormBuilder/templates/TextDefaultTemplate.php';
-
-include '../../../FormBuilder/elements/SelectFormBuilder.php';
-include '../../../FormBuilder/templates/SelectDefaultTemplate.php';
-
-include '../../../FormBuilder/templates/AdhocTestTemplate.php';
-
-use \FormBuilder\TextFormBuilder;
-use \FormBuilder\SelectFormBuilder;
-use \FormBuilder\TwoFormInputsOnRowFormBuilder;
 
 writeHeader();
 
@@ -60,6 +48,4 @@ $form3 = new TwoFormInputsOnRowFormBuilder($attr);
 writeCode($form3->render());
 writeHtml($form3->render());
 
-
 writeFooter();
-?>

@@ -1,22 +1,22 @@
 <?php
 
+require_once '../Autoloader.php';
+
+use BunyipFormBuilder\elements\AdHocFormBuilder;
+
 include 'helpers.php';
-
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/AdHocTestFormBuilder.php';
-include '../../../FormBuilder/templates/AdHocTestTemplate.php';
-
-use \FormBuilder\AdHocTestFormBuilder;
 
 writeHeader();
 
 $attr = array(
     'html'=>'<p><b>this is some bold text</b></p><br><p>some regular text</p>'
 );
-$form = new AdHocTestFormBuilder($attr);
-$form->setTemplate('AdhocTestTemplate');
+$form = new AdHocFormBuilder($attr);
+$form->setTemplate('AdHocTemplate');
 writeCode($form->render());
 writeHtml($form->render());
+
+
 
 $attr = array('html'=>'<style>
 input {
@@ -34,10 +34,9 @@ input#right {
   <input id="right" class="inputbold" type="text" name="" placeholder="blah" />
 </div>'
 );
-$form = new AdHocTestFormBuilder($attr);
-$form->setTemplate('AdhocTestTemplate');
+$form = new AdHocFormBuilder($attr);
+$form->setTemplate('AdHocTemplate');
 writeCode($form->render());
 writeHtml($form->render());
 
 writeFooter();
-?>

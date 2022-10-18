@@ -1,11 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add one or more radio inputs into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/radio.php
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class RadioFormBuilder extends ElementFormBuilder
 {

@@ -1,11 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add a number input into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/number.php
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class NumberFormBuilder extends ElementFormBuilder
 {

@@ -1,21 +1,18 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the HiddenCsrfFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class HiddenCsrfDefaultTemplate
 {
-
-    /**
-     */
-    function __construct()
-    {}
     
-    function getHtml(HiddenCsrfFormBuilder $elem) {
+    public function getHtml($elem): string
+    {
         $html = '<input type="hidden" id="'. $elem->getId() .'" name="'. $elem->getName() .'" value="'. $elem->getValue() .'">'.PHP_EOL;
         return $html;
     }

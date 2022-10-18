@@ -1,10 +1,9 @@
 <?php
 
 /**
- *
- * @author jackal
- *
- * @todo Finish this beast
+ * This date picker can add a jQuery datepicker into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
 
 /**
@@ -13,7 +12,7 @@
  * 
  * Options:
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder\decorators;
 
 class DatePickerDecorator
 {

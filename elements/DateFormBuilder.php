@@ -1,11 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add Date element into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/date.php
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class DateFormBuilder extends ElementFormBuilder
 {
@@ -15,9 +18,7 @@ class DateFormBuilder extends ElementFormBuilder
     protected $error;
     public $template = 'DateDefaultTemplate';
     
-    /**
-     * 
-     */
+
     public function getAttributes() {
         $attrs = array();
         $req = $this->getRequired();

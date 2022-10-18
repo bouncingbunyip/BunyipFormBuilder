@@ -1,11 +1,11 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\elements\SelectChosenFormbuilder;
+
 include 'helpers.php';
 
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/SelectChosenFormBuilder.php';
-include '../../../FormBuilder/templates/SelectChosenTemplate.php';
 writeHeader();
 
 $attr = array(
@@ -15,7 +15,7 @@ $attr = array(
     'method'=>'post'
 );
 
-$form = new \FormBuilder\FormBuilder($attr);
+$form = new FormBuilder($attr);
 $form->registerExternal('https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', 'js');
 $form->registerExternal('addons/chosen/chosen.jquery.js', 'js');
 $form->registerExternal('addons/chosen/chosen.css', 'css');
@@ -35,11 +35,9 @@ $attr = array(
     )
 );
 
-$form->addElem(new \FormBuilder\SelectChosenFormBuilder($attr));
+$form->addElem(new SelectChosenFormBuilder($attr));
 
 writeCode($form->render());
 writeHtml($form->render());
 
 writeFooter();
-
-?>

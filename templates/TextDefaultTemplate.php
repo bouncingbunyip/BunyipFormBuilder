@@ -5,22 +5,17 @@
  * @author jackal
  *        
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder\templates;
 
 class TextDefaultTemplate
 {
 
     /**
-     * 
-     */
-    function __construct()
-    {}
-    
-    /**
      * getHtml
      * @todo The tooltip probably needs to be repositioned.
      */
-    function getHtml(TextFormBuilder $elem) {
+    function getHtml($elem): string
+    {
         $label = $elem->getLabel();
         if ($label) {
             $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;

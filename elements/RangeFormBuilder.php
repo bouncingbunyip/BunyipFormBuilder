@@ -1,11 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add a range input into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/range.php
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class RangeFormBuilder extends ElementFormBuilder
 {
@@ -26,9 +29,7 @@ class RangeFormBuilder extends ElementFormBuilder
     public function getMax() {
         return $this->max;
     }
-    /**
-     * 
-     */
+
     public function getAttributes() {
         $attrs = array();
         $req = $this->getRequired();

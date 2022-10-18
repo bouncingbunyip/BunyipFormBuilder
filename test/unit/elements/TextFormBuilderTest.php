@@ -1,51 +1,32 @@
 <?php
-require_once 'lib/FormBuilder/elements/TextFormBuilder.php';
-require_once 'lib/FormBuilder/templates/TextDefaultTemplate.php';
 
-require_once 'PHPUnit/Framework/TestCase.php';
 
+namespace BunyipFormBuilder;
+
+include '../../../ElementFormBuilder.php';
+include '../../../elements/TextFormBuilder.php';
+include '../../../templates/TextDefaultTemplate.php';
+
+use PHPUnit\Framework\TestCase;
 /**
  * TextFormBuilder test case.
  */
-class TextFormBuilderTest extends PHPUnit_Framework_TestCase
+class TextFormBuilderTest extends TestCase
 {
 
-    /**
-     *
-     * @var TextFormBuilder
-     */
-    private $TextFormBuilder;
-
-    /**
-     * Prepares the environment before running a test.
-     */
-    protected function setUp()
-    {
-        parent::setUp();
-        
-        // TODO Auto-generated TextFormBuilderTest::setUp()
-        
-        $this->TextFormBuilder = new TextFormBuilder(/* parameters */);
+    public function testBasicButton() {
+        $attr = array(
+            'value'=>'Name',
+            'id'=>'name-id',
+            'name'=>'name'
+        );
+        $form = new ButtonFormBuilder($attr);
+        $expect = '<input type="button" id="name-id" name="name" value="Name">';
+        $actual = $form->render();
+        $this->assertEquals(trim($expect), trim($actual));
     }
 
-    /**
-     * Cleans up the environment after running a test.
-     */
-    protected function tearDown()
-    {
-        // TODO Auto-generated TextFormBuilderTest::tearDown()
-        $this->TextFormBuilder = null;
-        
-        parent::tearDown();
-    }
 
-    /**
-     * Constructs the test case.
-     */
-    public function __construct()
-    {
-        // TODO Auto-generated constructor
-    }
     
     public function testRender() {
         $attr = array(
@@ -58,7 +39,8 @@ class TextFormBuilderTest extends PHPUnit_Framework_TestCase
             'class'=>'name',
             'error'=>'There is an error here',
         );
-        
+        $form = new TextFormBuilder($attr);
+
         $expected = '<label for="name-id">Name</label>
 <input type="text" id="name-id" name="name" value="Big Bob" required="required" autofocus class="name error">';
         

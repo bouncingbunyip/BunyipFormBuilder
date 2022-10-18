@@ -3,11 +3,11 @@
  * ButtonFormBuilderTest.php
  *
  * @version $Id: $
- * @package FormBuilder
- * @copyright 2011-2016
+ * @package BunyipFormBuilder
+ * @copyright 2011 - 2020
  */
 
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 include '../../../ElementFormBuilder.php';
 include '../../../elements/ButtonFormBuilder.php';
@@ -55,7 +55,7 @@ class ButtonFormBuilderTest extends TestCase
         );
         $form = new ButtonFormBuilder($attr);
         $onclick = $form->getOnClick();
-        $this->assertEquals($onclick, 'foo');
+        $this->assertEquals('foo', $onclick);
     }
 
     public function testGetOnClickNotSet()

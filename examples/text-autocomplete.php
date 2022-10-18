@@ -1,14 +1,9 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\Formbuilder;
+use BunyipFormBuilder\elements\TextAutocompleteFormbuilder;
 include 'helpers.php';
-
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextAutocompleteFormBuilder.php';
-include '../../../FormBuilder/templates/TextAutocompleteDefaultTemplate.php';
-
-use \FormBuilder\FormBuilder;
-use \FormBuilder\TextAutocompleteFormBuilder;
 
 writeHeader();
 

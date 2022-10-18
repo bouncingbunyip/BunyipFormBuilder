@@ -3,18 +3,17 @@
 /**
  * ValidationStrategyMixedCase.php
  * 
- * @version $Id: ValidationStrategyUpperCase.php 303 2016-02-03 00:44:09Z chris@ourgourmetlife.com $
- * @package VirtualInvite
- * @copyright 2011-2016 Chris Hubbard
+ * @package BunyipFormBuilder
+ * @copyright 2011 - 2022 Chris Hubbard 
  */
 
 /**
  * Description of ValidationStrategyMixedCase
  *
- * @author Chris Hubbard <chris@ourgourmetlife.com>
+ * @author Chris Hubbard <chris@ibunyip.com>
  */
 
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class ValidationStrategyUpperCase implements ValidationStrategyInterface {
     

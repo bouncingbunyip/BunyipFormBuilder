@@ -3,9 +3,8 @@
 /**
  * Validator.php
  * 
- * @version $Id: Validator.php 314 2016-02-19 17:37:02Z chris@ourgourmetlife.com $
- * @package VirtualInvite 
- * @copyright 2011-2016 Chris Hubbard 
+ * @package BunyipFormBuilder
+ * @copyright 2011 - 2022 Chris Hubbard 
  */
 
 /**
@@ -14,9 +13,9 @@
  * The isValid* methods validate generic data types.
  * The validate* methods validate application specific data types.
  * 
- * @author Chris Hubbard <chris@ourgourmetlife.com>
+ * @author Chris Hubbard <chris@ibunyip.com>
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 include_once 'ValidationStrategyInterface.php';
 
@@ -59,7 +58,8 @@ class Validator {
         }
     }
     
-    public function isValidNumber($number) {
+    public function isValidNumber($number): bool
+    {
         if ((filter_var($number, FILTER_VALIDATE_INT)) || (filter_var($number, FILTER_VALIDATE_FLOAT))) {
             return true;
         } else {
@@ -76,7 +76,7 @@ class Validator {
      * @return boolean 
      */
     public function isValidDate($date, $in_future = false) {
-        $dt = new ViDateTime($date);
+        $dt = new \ViDateTime($date);
         if ($dt->date) {
             $retval = true;
         } else {
@@ -84,7 +84,7 @@ class Validator {
             $retval = false;
         }
         if ($in_future) {
-            $today = new ViDateTime();
+            $today = new \DateTime();
             if ($dt < $today) {
                 $this->fails['date'][] = 'Date is not in the future';
                 $retval = false;
@@ -187,8 +187,8 @@ class Validator {
     
     /**
      * isStrongPassword
-     * The code that calls this method is responsible for setting the whichever validatation strategies are required.
-     * Otherwise defaults to a 8 character count.
+     * The code that calls this method is responsible for setting the whichever validation strategies are required.
+     * Otherwise, defaults to an 8 character count.
      * 
      * @param string $password The password to test
      * @return boolean Return true if we consider the password strong, otherwise return false

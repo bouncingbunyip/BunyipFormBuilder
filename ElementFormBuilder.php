@@ -2,18 +2,17 @@
 /**
  * ElementFormBuilder.php
  *
- * @version $Id: ElementFormBuilder.php 306 2016-02-06 03:01:45Z chris@ourgourmetlife.com $
- * @package FormBuilder
- * @copyright 2011-2019 Chris Hubbard
+ * @package BunyipFormBuilder
+ * @copyright 2011-2022 Chris Hubbard
  */
 
 /**
  * Description of Element
  * This is the parent class that all the 'element' classes extend
  * 
- * @author Chris Hubbard <chris@ourgourmetlife.com>
+ * @author Chris Hubbard <chris@ibunyip.com>
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class ElementFormBuilder
 {
@@ -30,9 +29,9 @@ class ElementFormBuilder
      * __construct
      * In general usage, this class will never be called directly.  It should be called through it's 
      * child classes.
-     * @param array $attrs An array of the attributes to pass to the Element class
+     * @param array|null $attrs An array of the attributes to pass to the Element class
      */
-    function __construct($attrs = null) {
+    function __construct(array $attrs = []) {
         if (is_array($attrs)) {
             foreach ($attrs as $key=>$value) {
                 $this->$key = $value;
@@ -61,7 +60,8 @@ class ElementFormBuilder
     }    
 
     public function render() {
-        $template = '\FormBuilder\\'. $this->template;
+        $template = 'BunyipFormBuilder\templates\\'. $this->template;
+        //echo 'TEMPLATE:' .$template .'<br>';
         $tpl = new $template;
         $html = $tpl->getHtml($this);
         return $html;

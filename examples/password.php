@@ -1,11 +1,8 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\PasswordFormbuilder;
 include 'helpers.php';
-
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/PasswordFormBuilder.php';
-include '../../../FormBuilder/templates/PasswordDefaultTemplate.php';
-use \FormBuilder\PasswordFormBuilder;
 
 writeHeader();
 $attr = array(
@@ -25,8 +22,4 @@ $form = new PasswordFormBuilder($attr);
 writeCode($form->render());
 writeHtml($form->render());
 
-
 writeFooter();
-
-
-?>

@@ -4,8 +4,8 @@
  * ValidationStrategyPhoneUsaTest.php
  *
  * @version $Id: $
- * @package VirtualInvite
- * @copyright 2011-2016
+ * @package BunyipFormBuilder
+ * @copyright 2011 - 2020
  */
 include OGL_PATH . 'lib/ValidationStrategyInterface.php';
 include OGL_PATH . 'lib/ValidationStrategyPhoneUsa.php';

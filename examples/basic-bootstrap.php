@@ -1,17 +1,17 @@
 <?php
 /**
- * tests the ability of FormBuilder to create Bootstrap compliant forms
+ * tests the ability of BunyipFormBuilder to create Bootstrap compliant forms
  * The 'expect' HTML comes from: http://v4-alpha.getbootstrap.com/components/forms/
  */
 
 include 'helpers.php';
 
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/FieldsetFormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextFormBuilder.php';
-include '../../../FormBuilder/templates/TextDefaultTemplate.php';
-include '../../../FormBuilder/decorators/HintDecorator.php';
+include '../../../BunyipFormBuilder/BunyipFormBuilder.php';
+include '../../../BunyipFormBuilder/FieldsetFormBuilder.php';
+include '../../../BunyipFormBuilder/ElementFormBuilder.php';
+include '../../../BunyipFormBuilder/elements/TextFormBuilder.php';
+include '../../../BunyipFormBuilder/templates/TextDefaultTemplate.php';
+include '../../../BunyipFormBuilder/decorators/HintDecorator.php';
 
 $form = new FormBuilder();
 
@@ -21,7 +21,7 @@ $attr = array(
     'label'=>'Name',
     'id'=>'name-id',
     'name'=>'name',
-    'tooltip'=>$tooltip
+//    'tooltip'=>$tooltip
 );
 $form->addElem(new TextFormBuilder($attr), $fieldset);
 $form->setFieldset($fieldset);

@@ -2,9 +2,9 @@
 
 include 'helpers.php';
 
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextDeleteFormBuilder.php';
-include '../../../FormBuilder/templates/TextDeleteDefaultTemplate.php';
+include '../../../BunyipFormBuilder/ElementFormBuilder.php';
+include '../../../BunyipFormBuilder/elements/TextDeleteFormBuilder.php';
+include '../../../BunyipFormBuilder/templates/TextDeleteDefaultTemplate.php';
 
 use \FormBuilder\TextDeleteFormBuilder;
 

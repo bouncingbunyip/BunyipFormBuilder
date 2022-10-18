@@ -1,11 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add a password input into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/password.php
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class PasswordFormBuilder extends ElementFormBuilder
 {
@@ -14,10 +17,7 @@ class PasswordFormBuilder extends ElementFormBuilder
     protected $class;
     protected $error;
     public $template = 'PasswordDefaultTemplate';
-    
-    /**
-     * 
-     */
+
     public function getAttributes() {
         $attrs = array();
         $req = $this->getRequired();

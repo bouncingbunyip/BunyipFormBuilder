@@ -1,12 +1,8 @@
 <?php
-
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\NumberFormbuilder;
 include 'helpers.php';
 
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/NumberFormBuilder.php';
-include '../../../FormBuilder/templates/NumberDefaultTemplate.php';
-
-use \FormBuilder\NumberFormBuilder;
 
 writeHeader();
 $attr = array(
@@ -30,6 +26,3 @@ writeHtml($form->render());
 
 
 writeFooter();
-
-
-?>

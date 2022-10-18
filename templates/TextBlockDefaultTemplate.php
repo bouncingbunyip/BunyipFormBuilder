@@ -5,17 +5,13 @@
  * @author jackal
  *        
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder\templates;
 
 class TextBlockDefaultTemplate
 {
 
-    /**
-     */
-    function __construct()
-    {}
     
-    function getHtml(TextBlockFormBuilder $elem) {
+    function getHtml( $elem) {
         $css = $elem->getCssClass();
         if (!empty($css)) {
             $class = ' '. $css;

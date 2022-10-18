@@ -3,25 +3,21 @@
 /**
  * ValidationStrategyFileExists.php
  * 
- * @version $Id: ValidationStrategyFileExists.php 303 2016-02-03 00:44:09Z chris@ourgourmetlife.com $
- * @package VirtualInvite
- * @copyright 2011-2016 Chris Hubbard
+ * @package BunyipFormBuilder
+ * @copyright 2011 - 2022 Chris Hubbard 
  */
 
 /**
  * Description of ValidationStrategyFileExists
- *
- * @author Chris Hubbard <chris@ourgourmetlife.com>
+ * @todo remove PATH_TO_VI and replace with something else
+ * @author Chris Hubbard <chris@ibunyip.com>
  */
 
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class ValidationStrategyFileExists implements ValidationStrategyInterface {
 
     protected $path;
-    
-    public function __construct() {
-    }
     
     public function test($path) {
         $this->path = $path;
@@ -37,5 +33,3 @@ class ValidationStrategyFileExists implements ValidationStrategyInterface {
         return 'did not find a file located at: '. $this->path['orig'];
     }
 }
-
-?>

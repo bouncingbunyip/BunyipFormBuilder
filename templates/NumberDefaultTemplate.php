@@ -1,21 +1,17 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the NumberFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class NumberDefaultTemplate
 {
 
-    /**
-     */
-    function __construct()
-    {}
-    
-    function getHtml(NumberFormBuilder $elem) {
+    public function getHtml( $elem) {
         $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         $attrs = $elem->getAttributes();
         if ($attrs) {

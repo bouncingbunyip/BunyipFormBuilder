@@ -1,21 +1,17 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the CheckboxFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class CheckboxBrTemplate
 {
-
-    /**
-     */
-    function __construct()
-    {}
     
-    function getHtml(CheckboxFormBuilder $elem) {
+    public function getHtml($elem) {
         $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         $options = $elem->getOptions();
         foreach ($options as $option) {
@@ -33,4 +29,3 @@ class CheckboxBrTemplate
         return $html;        
     }
 }
-

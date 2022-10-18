@@ -1,15 +1,14 @@
 <?php
 
-include 'helpers.php';
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\ColorFormBuilder;
 
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/ColorFormBuilder.php';
-include '../../../FormBuilder/templates/ColorDefaultTemplate.php';
+include 'helpers.php';
 writeHeader();
 $attr = array(
     'name'=>'name'
 );
-$form = new \FormBuilder\ColorFormBuilder($attr);
+$form = new ColorFormBuilder($attr);
 writeCode($form->render());
 writeHtml($form->render());
 
@@ -19,12 +18,8 @@ $attr = array(
     'name'=>'name',
     'value'=>'#ff00ff'
 );
-$form = new \FormBuilder\ColorFormBuilder($attr);
+$form = new ColorFormBuilder($attr);
 writeCode($form->render());
 writeHtml($form->render());
 
-
 writeFooter();
-
-
-?>

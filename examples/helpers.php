@@ -14,7 +14,7 @@ function writeHeader() {
     $html = '<html>
 <head>
 <meta charset="UTF-8">
-<title>FormBuilder Tests</title>
+<title>BunyipFormBuilder Tests</title>
     <style>
     .incomplete {
     	color: grey;
@@ -32,7 +32,7 @@ function writeHeader() {
 }
 
 function writeFooter() {
-    $html = '<div><a href="index.php">back to examples</a></div><br></body>
+    $html = '<br /><div><a href="index.php">back to examples</a></div><br></body>
 </html>';
     echo $html;
 }

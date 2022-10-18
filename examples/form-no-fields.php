@@ -1,7 +1,9 @@
 <?php
 
+require_once '../Autoloader.php';
+use \BunyipFormBuilder\FormBuilder;
+
 include 'helpers.php';
-include '../../../FormBuilder/FormBuilder.php';
 
 // array('accept-charset', 'action', 'autocomplete', 'enctype', 'id', 'method', 'name', 'novalidate', 'target')
 
@@ -12,8 +14,8 @@ $attr = array(
     'id'=>'name-id',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" action="index.php" id="name-id" method="post" name="name">
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" action="index.php" id="name-id" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -27,8 +29,8 @@ $attr = array(
     'accept-charset'=>'UTF-8',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" accept-charset="UTF-8" action="index.php" method="post" name="name">
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" accept-charset="UTF-8" action="index.php" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -42,8 +44,8 @@ $attr = array(
     'action'=>'form.php',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" action="form.php" method="post" name="name">
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" action="form.php" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -56,8 +58,8 @@ $attr = array(
     'autocomplete'=>'on',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" action="index.php" autocomplete="on" method="post" name="name">
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" action="index.php" autocomplete="on" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -70,8 +72,8 @@ $attr = array(
     'autocomplete'=>'foo',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" action="index.php" autocomplete="off" method="post" name="name">
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" action="index.php" autocomplete="off" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -84,8 +86,8 @@ $attr = array(
     'enctype'=>'application/x-www-form-urlencoded',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" action="index.php" enctype="application/x-www-form-urlencoded" method="post" name="name">
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" action="index.php" enctype="application/x-www-form-urlencoded" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -98,8 +100,8 @@ $attr = array(
     'enctype'=>'foo',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" action="index.php" enctype="application/x-www-form-urlencoded" method="post" name="name">
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" action="index.php" enctype="application/x-www-form-urlencoded" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -113,8 +115,8 @@ $attr = array(
     'id'=>'name-id',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" action="form.php" id="name-id" method="get" name="name">
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" action="form.php" id="name-id" method="get" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -125,8 +127,8 @@ $attr = array(
     'id'=>'name-id',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" action="form.php" id="name-id" method="post" name="name">
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" action="form.php" id="name-id" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -140,8 +142,8 @@ $attr = array(
     'novalidate'=>true,
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" action="form.php" method="post" name="name" novalidate>
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" action="form.php" method="post" name="name" novalidate>
 </form>
 ';
 $actual = $form->render();
@@ -155,8 +157,8 @@ $attr = array(
     'novalidate'=>'foo',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" action="form.php" method="post" name="name" novalidate>
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" action="form.php" method="post" name="name" novalidate>
 </form>
 ';
 $actual = $form->render();
@@ -170,8 +172,8 @@ $attr = array(
     'target'=>'foo',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" action="form.php" method="post" name="name" target="_self">
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" action="form.php" method="post" name="name" target="_self">
 </form>
 ';
 $actual = $form->render();
@@ -185,8 +187,8 @@ $attr = array(
     'foo'=>'bar',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
-$expect = '<form class="vi-form" action="form.php" method="post" name="name">
+$form = new FormBuilder($attr);
+$expect = '<form class="bunyipform" action="form.php" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -200,10 +202,10 @@ $attr = array(
     'foo'=>'bar',
     'name'=>'name'
 );
-$form = new \FormBuilder\FormBuilder($attr);
+$form = new FormBuilder($attr);
 $form->setStrict(false);
 $form->setFormAttributes(array('foo'=>'bar'));
-$expect = '<form class="vi-form" action="form.php" method="post" name="name" foo="bar">
+$expect = '<form class="bunyipform" action="form.php" method="post" name="name" foo="bar">
 </form>
 ';
 $actual = $form->render();
@@ -223,8 +225,8 @@ writeExpect($expect, $actual);
 //    'id'=>'name-id',
 //    'name'=>'name'
 //);
-//$form = new FormBuilder($attr);
-//$expect = '<form class="vi-form" action="form.php" autocomplete="off" id="name-id" method="post" name="name" novalidate target="_self">
+//$form = new BunyipFormBuilder($attr);
+//$expect = '<form class="bunyipform" action="form.php" autocomplete="off" id="name-id" method="post" name="name" novalidate target="_self">
 //</form>
 //';
 //$actual = $form->render();

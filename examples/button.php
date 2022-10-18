@@ -1,10 +1,9 @@
 <?php
-
+require_once '../Autoloader.php';
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\elements\ButtonFormBuilder;
 include 'helpers.php';
 
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/ButtonFormBuilder.php';
-include '../../../FormBuilder/templates/ButtonDefaultTemplate.php';
 
 writeHeader();
 
@@ -15,7 +14,7 @@ $attr = array(
 );
 $expect = '<input type="button" id="name-id" name="name" value="Name">
 ';
-$form = new \FormBuilder\ButtonFormBuilder($attr);
+$form = new ButtonFormBuilder($attr);
 writeCode($form->render());
 writeHtml($form->render());
 writeExpect($expect, $form->render());
@@ -29,10 +28,8 @@ $attr = array(
 );
 $expect = '<input type="button" id="name-id" name="name" value="Big Bob" class="name" onclick="alert(\'Hello World!\')">
 ';
-$form = new \FormBuilder\ButtonFormBuilder($attr);
+$form = new ButtonFormBuilder($attr);
 writeCode($form->render());
 writeHtml($form->render());
 writeExpect($expect, $form->render());
 writeFooter();
-
-?>

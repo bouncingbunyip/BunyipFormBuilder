@@ -1,25 +1,12 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\Formbuilder;
+use BunyipFormBuilder\elements\SelectFormbuilder;
+use BunyipFormBuilder\elements\TextFormbuilder;
+use BunyipFormBuilder\elements\TwoFormInputsOnRowFormBuilder;
+
 include 'helpers.php';
-
-include '../../../FormBuilder/FormBuilder.php';
-
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TwoFormInputsOnRowFormBuilder.php';
-include '../../../FormBuilder/templates/BootstrapTwoTextInputsTemplate.php';
-
-include '../../../FormBuilder/elements/TextFormBuilder.php';
-include '../../../FormBuilder/templates/TextDefaultTemplate.php';
-
-include '../../../FormBuilder/elements/SelectFormBuilder.php';
-include '../../../FormBuilder/templates/SelectDefaultTemplate.php';
-
-//include '../../../FormBuilder/templates/AdhocTestTemplate.php';
-
-use \FormBuilder\FormBuilder;
-use \FormBuilder\TextFormBuilder;
-use \FormBuilder\SelectFormBuilder;
-use \FormBuilder\TwoFormInputsOnRowFormBuilder;
 
 // <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 

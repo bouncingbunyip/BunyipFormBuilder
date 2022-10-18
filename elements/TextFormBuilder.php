@@ -1,11 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add a text input into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/text.php
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class TextFormBuilder extends ElementFormBuilder
 {
@@ -14,10 +17,7 @@ class TextFormBuilder extends ElementFormBuilder
     protected $class;
     protected $error;
     public $template = 'TextDefaultTemplate';
-    
-    /**
-     * 
-     */
+
     public function getAttributes() {
         $attrs = array();
         $req = $this->getRequired();

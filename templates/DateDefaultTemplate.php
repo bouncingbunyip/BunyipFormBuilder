@@ -1,21 +1,16 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the DateFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class DateDefaultTemplate {
 
-    /**
-     */
-    function __construct() {
-        
-    }
-
-    function getHtml(DateFormBuilder $elem) {
+    public function getHtml( $elem): string {
         $html = '<label>' . $elem->getLabel() . '</label>' . PHP_EOL;
         $attrs = $elem->getAttributes();
         if ($attrs) {
@@ -28,8 +23,7 @@ class DateDefaultTemplate {
         if (!empty($error)) {
             $html .= '<span class="'. $elem->getCssError() .'">' . $error . '</span>';
         }
-
+        $html .= '<br style="clear:both" />';
         return $html;
     }
-
 }

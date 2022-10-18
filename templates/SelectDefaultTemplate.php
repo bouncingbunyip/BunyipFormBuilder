@@ -1,21 +1,22 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the SelectFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class SelectDefaultTemplate
 {
 
     /**
      * 
-     * @param SelectFormBuilder $elem
+     * @param $elem
      * @return string
      */
-    function getHtml(SelectFormBuilder $elem) {
+    public function getHtml($elem): string {
         $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         $class = $elem->getCssClass();
         $html .= '<select name="'. $elem->getName() .'" '. $elem->getRequired() . $class .'>'.PHP_EOL;
@@ -40,7 +41,7 @@ class SelectDefaultTemplate
         return $html;        
     }
     
-    public function renderOptions($options) {
+    public function renderOptions($options): string {
         $retval = '';
         foreach ($options as $option) {
             if ($this->selected_value && ($this->selected_value == $option['value'])) {

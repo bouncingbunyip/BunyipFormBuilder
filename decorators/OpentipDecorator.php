@@ -1,9 +1,9 @@
 <?php
 
 /**
- *
- * @author jackal
- * 
+ * Use this to add an OpenTip tooltip into a form element
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
 
 /**
@@ -32,7 +32,7 @@
  *  
  *  @todo look at using the Javascript object implementation instead of the html attribute one
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder\decorators;
 
 class OpentipDecorator
 {

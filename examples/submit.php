@@ -1,11 +1,8 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\SubmitFormbuilder;
 include 'helpers.php';
-
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/SubmitFormBuilder.php';
-include '../../../FormBuilder/templates/SubmitDefaultTemplate.php';
-use \FormBuilder\SubmitFormBuilder;
 
 writeHeader();
 $attr = array(
@@ -34,5 +31,3 @@ $form = new SubmitFormBuilder($attr);
 writeCode($form->render());
 writeHtml($form->render());
 writeFooter();
-
-?>

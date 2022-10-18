@@ -6,7 +6,7 @@
  *        
  */
 
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class FileBootstrapTemplate
 {

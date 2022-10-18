@@ -1,42 +1,41 @@
 <?php
 
 /**
- * FormBuilder.php
- * 
- * @version $Id: FormBuilder.php 314 2016-02-19 17:37:02Z chris@ourgourmetlife.com $
- * @package FormBuilder 
- * @copyright 2011-2019 Chris Hubbard
+ * BunyipFormBuilder.php
+ *
+ * @package BunyipFormBuilder
+ * @copyright 2011-2022 Chris Hubbard
  */
 
 /**
- * Description of FormBuilder
+ * Description of BunyipFormBuilder
  * 
- * @author Chris Hubbard <chris@ourgourmetlife.com>
+ * @author Chris Hubbard <chris@ibunyip.com>
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
-use \FormBuilder\ValidatorResults;
-use \FormBuilder\Validator;
+use \BunyipFormBuilder\ValidatorResults;
+use \BunyipFormBuilder\Validator;
 
 class FormBuilder {
 
-    protected $strict = true;
-    protected $method = 'post';
-    protected $action = 'index.php';
-    protected $class = 'vi-form';
-    protected $autofocus = '';
+    protected bool $strict = true;
+    protected string $method = 'post';
+    protected string $action = 'index.php';
+    protected string $class = 'bunyipform';
+    protected string $autofocus = '';
     protected $fieldsets = null;
-    protected $elements = array();
-    protected $externalCss = array();
-    protected $externalJs = array();
+    protected array $elements = array();
+    protected array $externalCss = array();
+    protected array $externalJs = array();
     protected $uid = null;
     protected $uidHelper;
-    protected $dependencies = array();
-    protected $theme = 'default';
+    protected array $dependencies = array();
+    protected string $theme = 'default';
     protected $validator;
     const VICSRF = 'vicsrf';
 
-    protected $attributes = array('accept-charset', 'action', 'autocomplete', 'enctype', 'id', 'method', 'name', 'novalidate', 'target');
+    protected array $attributes = array('accept-charset', 'action', 'autocomplete', 'enctype', 'id', 'method', 'name', 'novalidate', 'target');
 
     /**
      * __construct
@@ -52,10 +51,10 @@ class FormBuilder {
      *  novalidate
      *  target: _blank, _self (default), _parent, _top 
      * 
-     * @param array $attrs An array of key->value pairs
+     * @param array|null $attrs An array of key->value pairs
      * @see http://www.w3schools.com/tags/tag_form.asp
      */
-    public function __construct($attrs = null) {
+    public function __construct(array $attrs = null) {
         if(!is_null($attrs)) {
             $this->setFormAttributes($attrs);
         }
@@ -177,7 +176,7 @@ class FormBuilder {
 
     /**
      * makeUid
-     * This a fairly lame version of a uid.  Would be better to pass in a helper to make a better one.
+     * This a fairly lame version of an uid.  Would be better to pass in a helper to make a better one.
      * But for those times/projects where you don't have a helper class, this will make something.
      * @return string
      */
@@ -200,7 +199,7 @@ class FormBuilder {
 
     /**
      * addElem
-     * @param object $obj Should be one of the FormBuilder element classes
+     * @param object $obj Should be one of the BunyipFormBuilder element classes
      * @param object $fieldset Should be a FormFieldset object.
      */
     public function addElem($obj, $fieldset = null) {
@@ -238,20 +237,22 @@ class FormBuilder {
         return false;
     }
 
-    public function getExternalCss() {
+    public function getExternalCss(): array
+    {
         return array_keys(array_flip($this->externalCss));
     }
 
-    public function getExternalJs() {
+    public function getExternalJs(): array
+    {
         return array_keys(array_flip($this->externalJs));
     }
 
     /**
      * setFormAttributes
      * 
-     * @param array $attrs An array of key->value pairs
+     * @param array|null $attrs An array of key->value pairs
      */
-    public function setFormAttributes($attrs = null)
+    public function setFormAttributes(array $attrs = null): void
     {
         if (!is_null($attrs)) {
             foreach ($attrs as $key => $value) {

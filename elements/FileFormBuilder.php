@@ -1,11 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add a file input into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/file.php
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class FileFormBuilder extends ElementFormBuilder
 {
@@ -18,7 +21,8 @@ class FileFormBuilder extends ElementFormBuilder
     /**
      * 
      */
-    public function getAttributes() {
+    public function getAttributes(): array
+    {
         $attrs = array();
         $req = $this->getRequired();
         if ($req) {

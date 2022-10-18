@@ -1,11 +1,10 @@
 <?php
 
-include 'helpers.php';
+require_once '../Autoloader.php';
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\elements\HiddenCsrfFormbuilder;
 
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/HiddenCsrfFormBuilder.php';
-include '../../../FormBuilder/templates/HiddenCsrfDefaultTemplate.php';
+include 'helpers.php';
 
 writeHeader();
 
@@ -36,5 +35,3 @@ writeCode($form->render());
 writeHtml($form->render());
 
 writeFooter();
-
-?>

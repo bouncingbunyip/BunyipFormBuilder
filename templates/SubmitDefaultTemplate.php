@@ -1,21 +1,17 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the SubmitFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class SubmitDefaultTemplate
 {
 
-    /**
-     */
-    function __construct()
-    {}
-    
-    function getHtml(SubmitFormBuilder $elem) {
+    public function getHtml($elem) {
         $css = $elem->getCssClass();
         if (!empty($css)) {
             $class = ' '. $elem->getCssClass();

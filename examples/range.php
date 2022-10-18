@@ -1,12 +1,8 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\RangeFormbuilder;
 include 'helpers.php';
-
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/RangeFormBuilder.php';
-include '../../../FormBuilder/templates/RangeDefaultTemplate.php';
-
-use \FormBuilder\RangeFormBuilder;
 
 writeHeader();
 $attr = array(
@@ -28,8 +24,4 @@ $form = new RangeFormBuilder($attr);
 writeCode($form->render());
 writeHtml($form->render());
 
-
 writeFooter();
-
-
-?>

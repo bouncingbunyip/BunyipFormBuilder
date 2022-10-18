@@ -1,21 +1,17 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the FileFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class FileDefaultTemplate
 {
 
-    /**
-     */
-    function __construct()
-    {}
-    
-    function getHtml(FileFormBuilder $elem) {
+    public function getHtml($elem) {
         $label = $elem->getLabel();
         if ($label) {
             $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;

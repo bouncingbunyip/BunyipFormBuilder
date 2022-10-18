@@ -1,21 +1,17 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the ButtonFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class ButtonDefaultTemplate
 {
-
-    /**
-     */
-    function __construct()
-    {}
-    
-    function getHtml(ButtonFormBuilder $elem) {
+    public function getHtml($elem): string
+    {
         if (!empty($elem->getCssClass())) {
             $class = ' '.$elem->getCssClass();
         } else {

@@ -1,11 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add an email input into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/email.php
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class EmailFormBuilder extends ElementFormBuilder
 {

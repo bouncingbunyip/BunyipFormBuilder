@@ -3,17 +3,16 @@
 /**
  * ValidationResults.php
  * 
- * @version $Id: ValidationResults.php 307 2016-02-10 00:00:15Z chris@ourgourmetlife.com $
- * @package VirtualInvite 
- * @copyright 2011-2016 Chris Hubbard 
+ * @package BunyipFormBuilder 
+ * @copyright 2011 - 2022 Chris Hubbard 
  */
 
 /**
  * Description of ValidationResults
  *
- * @author Chris Hubbard <chris@ourgourmetlife.com>
+ * @author Chris Hubbard <chris@ibunyip.com>
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class ValidationResults {
 

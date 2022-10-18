@@ -1,18 +1,10 @@
 <?php
+require_once '../Autoloader.php';
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\elements\SubmitFormBuilder;
+use BunyipFormBuilder\elements\TextFormBuilder;
 
 include 'helpers.php';
-
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/FieldsetFormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextFormBuilder.php';
-include '../../../FormBuilder/templates/TextDefaultTemplate.php';
-include '../../../FormBuilder/elements/SubmitFormBuilder.php';
-include '../../../FormBuilder/templates/SubmitDefaultTemplate.php';
-
-use \FormBuilder\FormBuilder;
-use \FormBuilder\SubmitFormBuilder;
-use \FormBuilder\TextFormBuilder;
 
 $form = new FormBuilder();
 

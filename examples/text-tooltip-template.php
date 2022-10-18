@@ -2,16 +2,12 @@
 /**
  * 
  */
-include 'helpers.php';
+require_once '../Autoloader.php';
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\elements\TextFormbuilder;
+use BunyipFormBuilder\decorators\HintDecorator;
 
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextFormBuilder.php';
-include '../../../FormBuilder/templates/TextHintTemplate.php';
-include '../../../FormBuilder/decorators/HintDecorator.php';
-use \FormBuilder\FormBuilder;
-use \FormBuilder\HintDecorator;
-use \FormBuilder\TextFormBuilder;
+include 'helpers.php';
 
 writeHeader();
 $attr = array(
@@ -45,4 +41,3 @@ writeCode($form->render());
 writeHtml($form->render());
 
 writeFooter();
-?>

@@ -1,21 +1,17 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * This is the template for the ColorFormBuilder.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\templates;
 
 class ColorDefaultTemplate
 {
 
-    /**
-     */
-    function __construct()
-    {}
-    
-    function getHtml(ColorFormBuilder $elem) {
+    public function getHtml($elem): string {
         $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         $attrs = $elem->getAttributes();
         if ($attrs) {

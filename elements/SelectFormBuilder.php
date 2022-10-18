@@ -1,11 +1,14 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add a select input into a form.  Can include optGroups.
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/select.php
+ * @package BunyipformBuilder
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class SelectFormBuilder extends ElementFormBuilder
 {

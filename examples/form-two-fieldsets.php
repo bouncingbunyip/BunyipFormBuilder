@@ -1,15 +1,11 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\elements\TextFormBuilder;
+
 include 'helpers.php';
 
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/FieldsetFormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextFormBuilder.php';
-include '../../../FormBuilder/templates/TextDefaultTemplate.php';
-
-use \FormBuilder\FormBuilder;
-use \FormBuilder\TextFormBuilder;
 $form = new FormBuilder();
 $first = $form->addFieldset('first', '1id');
 $second = $form->addFieldset('second','2id', '2name');

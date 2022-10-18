@@ -2,18 +2,12 @@
 /**
  * for more info on opentip: http://www.opentip.org/index.html
  */
+require_once '../Autoloader.php';
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\elements\TextFormbuilder;
+use BunyipFormBuilder\decorators\OpentipDecorator;
+
 include 'helpers.php';
-
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextFormBuilder.php';
-include '../../../FormBuilder/templates/TextOpentipTemplate.php';
-
-include '../../../FormBuilder/decorators/OpentipDecorator.php';
-
-use \FormBuilder\FormBuilder;
-use \FormBuilder\OpentipDecorator;
-use \FormBuilder\TextFormBuilder;
 
 writeHeader();
 $attr = array(
@@ -46,4 +40,3 @@ writeCode($form->render());
 writeHtml($form->render());
 
 writeFooter();
-?>

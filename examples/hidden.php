@@ -1,12 +1,8 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\elements\HiddenFormBuilder;
 include 'helpers.php';
-
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/HiddenFormBuilder.php';
-include '../../../FormBuilder/templates/HiddenDefaultTemplate.php';
-
-use \FormBuilder\HiddenFormBuilder;
 
 writeHeader();
 $attr = array(
@@ -57,5 +53,3 @@ writeHtml($actual);
 writeExpect($expect, $actual);
 
 writeFooter();
-
-?>

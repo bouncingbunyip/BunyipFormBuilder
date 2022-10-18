@@ -5,17 +5,12 @@
  * @author jackal
  *        
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder\templates;
 
 class TextAlternateTemplate
 {
 
-    /**
-     */
-    function __construct()
-    {}
-    
-    function getHtml(TextFormBuilder $elem) {
+    function getHtml( $elem) {
         $html = '<label>'. $elem->getLabel(). PHP_EOL;
         $attrs = $elem->getAttributes();
         if ($attrs) {

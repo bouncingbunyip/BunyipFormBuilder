@@ -2,12 +2,12 @@
 
 include 'helpers.php';
 
-include '../../../FormBuilder/FormBuilder.php';
-include '../../../FormBuilder/FieldsetFormBuilder.php';
-include '../../../FormBuilder/ElementFormBuilder.php';
-include '../../../FormBuilder/elements/TextFormBuilder.php';
-include '../../../FormBuilder/templates/TextHintTemplate.php';
-include '../../../FormBuilder/decorators/HintDecorator.php';
+include '../../../BunyipFormBuilder/BunyipFormBuilder.php';
+include '../../../BunyipFormBuilder/FieldsetFormBuilder.php';
+include '../../../BunyipFormBuilder/ElementFormBuilder.php';
+include '../../../BunyipFormBuilder/elements/TextFormBuilder.php';
+include '../../../BunyipFormBuilder/templates/TextHintTemplate.php';
+include '../../../BunyipFormBuilder/decorators/HintDecorator.php';
 
 $form = new \FormBuilder\FormBuilder();
 $attributes = array('class'=>'hint--bottom-right', 'trigger'=>'Hint', 'text'=> 'This is the tooltip text');
