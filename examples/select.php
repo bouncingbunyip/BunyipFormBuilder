@@ -39,5 +39,3 @@ writeCode($form->render());
 writeHtml($form->render());
 
 writeFooter();
-
-?>

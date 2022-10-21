@@ -64,6 +64,7 @@ if (!empty($_POST)) {
         <a href="button.php" class="complete">button</a><br>
         <a href="checkbox.php" class="complete">checkbox</a><br>
         <a href="color.php" class="complete">color</a><br>
+        <a href="datalist.php" class="complete">datalist</a><br>
         <a href="date.php" class="complete">date</a><br>
         <a href="email.php" class="complete">email</a><br>
         <a href="file.php" class="complete">file</a><br>
@@ -86,7 +87,6 @@ if (!empty($_POST)) {
         Unsupported HTML Elements:
     </h2>
     <div>
-        <a href="" class="incomplete">datalist</a><br>
         <a href="" class="incomplete">datetime</a><br>
         <a href="" class="incomplete">datetime-local</a><br>
         <a href="" class="incomplete">image</a><br>
