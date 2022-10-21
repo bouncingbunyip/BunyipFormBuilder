@@ -8,7 +8,7 @@
  * @see http://aehlke.github.io/tag-it/
  * 
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class TextTagItFormBuilder extends ElementFormBuilder
 {

@@ -10,8 +10,8 @@ writeHeader();
 
 $attr = array(
     'value'=>FormBuilder::getCsrf(),
-    'id'=>FormBuilder::VICSRF,
-    'name'=>FormBuilder::VICSRF
+    'id'=>FormBuilder::BUNYIPCSRF,
+    'name'=>FormBuilder::BUNYIPCSRF
 );
 $form = new HiddenCsrfFormBuilder($attr);
 writeCode($form->render());
@@ -28,7 +28,7 @@ writeHtml($form->render());
 
 $attr = array(
     'value'=>FormBuilder::getCsrf(),
-    'name'=>FormBuilder::VICSRF
+    'name'=>FormBuilder::BUNYIPCSRF
 );
 $form = new HiddenCsrfFormBuilder($attr);
 writeCode($form->render());

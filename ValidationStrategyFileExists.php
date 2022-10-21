@@ -9,7 +9,7 @@
 
 /**
  * Description of ValidationStrategyFileExists
- * @todo remove PATH_TO_VI and replace with something else
+ * @todo remove PATH_TO_LIB and replace with something else
  * @author Chris Hubbard <chris@ibunyip.com>
  */
 
@@ -21,7 +21,7 @@ class ValidationStrategyFileExists implements ValidationStrategyInterface {
     
     public function test($path) {
         $this->path = $path;
-        $file = PATH_TO_VI.$path['orig'];
+        $file = PATH_TO_LIB.$path['orig'];
         if (file_exists($file)) {
             return true;
         } else {

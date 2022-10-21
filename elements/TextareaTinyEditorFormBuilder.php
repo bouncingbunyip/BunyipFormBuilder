@@ -8,7 +8,7 @@
  * @see http://www.scriptiny.com/2010/02/javascript-wysiwyg-editor/ 
  * 
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class TextareaTinyEditorFormBuilder extends ElementFormBuilder
 {

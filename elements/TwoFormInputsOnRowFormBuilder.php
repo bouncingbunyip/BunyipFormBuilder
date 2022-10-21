@@ -5,7 +5,8 @@
  * @author jackal
  *        
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class TwoFormInputsOnRowFormBuilder extends ElementFormBuilder
 {

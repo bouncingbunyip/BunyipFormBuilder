@@ -2,7 +2,7 @@
 
 require_once '../Autoloader.php';
 use BunyipFormBuilder\FormBuilder;
-use BunyipFormBuilder\decorators\HintDecorator;
+use BunyipFormBuilder\decorators\HtmlDecorator;
 use BunyipFormBuilder\elements\{SubmitFormBuilder, TextFormBuilder, PasswordFormBuilder, HiddenCsrfFormBuilder};
 
 include 'helpers.php';
@@ -15,16 +15,16 @@ $attr = array(
 );
 
 $form = new FormBuilder($attr);
-$attributes = array('class'=>'hint--right', 'trigger'=>'Hint', 'text'=> 'This is the tooltip text');
-$tooltip = new HintDecorator($attributes);
+$attributes = array('class'=>'html-deco', 'html'=>'<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/2048px-Mr._Smiley_Face.svg.png" width="50" height="50"/>');
+$html = new HtmlDecorator($attributes);
 
-$fieldset = $form->addFieldset('Log In', 'id', 'name');
+$fieldset = $form->addFieldset('Example Login Form', 'id', 'name');
 
 $attr = array(
     'label'=>'Username',
     'id'=>'username',
     'name'=>'username',
-    'tooltip'=>$tooltip
+    'decorator'=>$html
 );
 $form->addElem(new TextFormBuilder($attr), $fieldset);
 

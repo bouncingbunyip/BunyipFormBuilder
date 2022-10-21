@@ -7,8 +7,8 @@
  * @package BunyipFormBuilder
  * @copyright 2011 - 2020
  */
-include OGL_PATH . 'lib/ValidationStrategyInterface.php';
-include OGL_PATH . 'lib/ValidationStrategyPhoneUsa.php';
+include  'lib/ValidationStrategyInterface.php';
+include  'lib/ValidationStrategyPhoneUsa.php';
 
 class ValidationStrategyPhoneUsaTest extends PHPUnit_Framework_TestCase
 {

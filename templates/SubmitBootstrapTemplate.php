@@ -6,7 +6,7 @@
  *
  */
 
-namespace FormBuilder; 
+namespace BunyipFormBuilder; 
 
 class SubmitBootstrapTemplate
 {
@@ -19,11 +19,8 @@ class SubmitBootstrapTemplate
      * </div>
      * </div>
      */
-    function __construct()
-    {
-    }
 
-    function getHtml(SubmitFormBuilder $elem)
+    public function getHtml(SubmitFormBuilder $elem)
     {
         $css = $elem->getCssClass();
         if (!empty($css)) {

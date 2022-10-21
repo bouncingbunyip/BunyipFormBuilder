@@ -15,7 +15,7 @@ writeHtml($form->render());
 $attr = array(
     'label'=>'Name',
     'id'=>'name-id',
-    'name'=>'name'
+    'name'=>'name',
 );
 $form = new TextFormBuilder($attr);
 writeCode($form->render());

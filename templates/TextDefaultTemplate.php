@@ -30,7 +30,11 @@ class TextDefaultTemplate
             $str = null;
         }
         $html .= '<input type="text" id="'. $elem->getId() .'" name="'. $elem->getName() .'" value="'. $elem->getValue() .'"'. $str .'>'.PHP_EOL;
-        
+
+        if (!empty($elem->decorator)) {
+            $html .= $elem->decorator->render();
+        }
+
         $error = $elem->getError();
         if (!empty($error)) {
             $html .= '<span class="'. $elem->getCssError() .'">'. $elem->getError() .'</span>';

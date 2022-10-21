@@ -27,13 +27,13 @@ class ElementFormBuilder
     
     /**
      * __construct
-     * In general usage, this class will never be called directly.  It should be called through it's 
+     * In general usage, this class will never be called directly.  It should be called through its
      * child classes.
      * @param array|null $attrs An array of the attributes to pass to the Element class
      */
     function __construct(array $attrs = []) {
         if (is_array($attrs)) {
-            foreach ($attrs as $key=>$value) {
+            foreach ($attrs as $key => $value) {
                 $this->$key = $value;
             }
         }

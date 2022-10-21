@@ -5,7 +5,7 @@
  * @author jackal
  *        
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder\templates;
 
 class TwoFormInputsOnRowTemplate
 {
@@ -19,7 +19,7 @@ class TwoFormInputsOnRowTemplate
     /**
      * getHtml
      */
-    function getHtml(TwoFormInputsOnRowFormBuilder $elem) {
+    public function getHtml($elem) {
         $html = '<style>'. PHP_EOL;
         $html .= $elem->getThisCss() . PHP_EOL;
         $html .= '</style>' .PHP_EOL;

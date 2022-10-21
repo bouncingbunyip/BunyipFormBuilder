@@ -1,15 +1,15 @@
 <?php
 
 /**
- *
- * @author jackal
- *        
+ * Use this to add arbitrary HTML into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
 
 /**
  * Basic HTML container that can be added after an input element
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder\decorators;
 
 class HtmlDecorator
 {

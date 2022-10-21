@@ -52,6 +52,8 @@ if (!empty($_POST)) {
         <a href="form-one-fieldset.php">Form with one fieldset</a><br>
         <a href="form-two-fieldsets.php">Form with two fieldsets</a><br>
         <a href="form-nested-fieldsets.php">Form with nested fieldsets</a><br>
+        <a href="form-reset.php">Form with reset button</a><br>
+        <a href="login-html-deco.php">Form with HTML decorator</a><br>
         <hr>
         <a href="form-login.php">Login Form</a><br>
     </div>
@@ -70,6 +72,7 @@ if (!empty($_POST)) {
         <a href="password.php" class="complete">password</a><br>
         <a href="radio.php" class="complete">radio</a><br>
         <a href="range.php" class="complete">range</a><br>
+        <a href="reset.php" class="complete">reset</a><br>
         <a href="select.php" class="complete">select</a><br>
         <a href="select-optgroup.php" class="complete">select with optgroup</a><br>
         <a href="submit.php" class="complete">submit</a><br>
@@ -88,7 +91,6 @@ if (!empty($_POST)) {
         <a href="" class="incomplete">datetime-local</a><br>
         <a href="" class="incomplete">image</a><br>
         <a href="" class="incomplete">month</a><br>
-        <a href="" class="incomplete">reset</a><br>
         <a href="" class="incomplete">search</a><br>
         <a href="" class="incomplete">tel</a><br>
         <a href="" class="incomplete">time</a><br>

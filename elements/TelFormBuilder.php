@@ -1,11 +1,15 @@
 <?php
 
 /**
- *
- * @author jackal
- *
+ * Use this to add a telephone input into a form
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @example examples/???.php
+ * @package BunyipformBuilder
+ * @todo this needs to be finished
  */
-namespace FormBuilder;
+
+namespace BunyipFormBuilder;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class TelFormBuilder extends ElementFormBuilder
 {
@@ -15,9 +19,6 @@ class TelFormBuilder extends ElementFormBuilder
     protected $error;
     public $template = 'TelDefaultTemplate';
 
-    /**
-     *
-     */
     public function getAttributes()
     {
         $attrs = array();

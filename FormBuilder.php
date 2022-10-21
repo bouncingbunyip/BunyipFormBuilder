@@ -33,7 +33,7 @@ class FormBuilder {
     protected array $dependencies = array();
     protected string $theme = 'default';
     protected $validator;
-    const VICSRF = 'vicsrf';
+    const BUNYIPCSRF = 'BUNYIPCSRF';
 
     protected array $attributes = array('accept-charset', 'action', 'autocomplete', 'enctype', 'id', 'method', 'name', 'novalidate', 'target');
 
@@ -397,7 +397,7 @@ class FormBuilder {
         } elseif (strstr($name, 'Model')) {
             $obj = new $name(null, getDb());
         } else {
-            /** this next fragment of code was an attempt to provide the Session to the form to validate the vicsrf token didn't work... */
+            /** this next fragment of code was an attempt to provide the Session to the form to validate the BUNYIPCSRF token didn't work... */
 //            if ($name === 'Session') {
 //                $params = $this->getDependency('Session');
 //            } else {

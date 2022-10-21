@@ -42,8 +42,8 @@ $form->addElem(new PasswordFormBuilder($attr), $fieldset);
 
 $attr = array(
     'value'=>FormBuilder::getCsrf(),
-    'id'=>FormBuilder::VICSRF,
-    'name'=>FormBuilder::VICSRF
+    'id'=>FormBuilder::BUNYIPCSRF,
+    'name'=>FormBuilder::BUNYIPCSRF
 );
 $form->addElem(new HiddenCsrfFormBuilder($attr));
 
