@@ -82,6 +82,9 @@ if (!empty($_POST)) {
         (<a href="text-opentip-template.php">text opentip template</a>)<br>
         (<a href="text-tooltip-template.php">text tooltip template</a>)<br>
         <a href="textarea.php" class="complete">textarea</a><br>
+        <hr>
+        <a href="text-bootstrap.php">Bootstrap text</a><br>
+
     </div>
     <h2>
         Unsupported HTML Elements:

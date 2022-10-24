@@ -24,7 +24,8 @@ class ElementFormBuilder
     protected $required;
     protected $error;
     protected $csserror = 'err-msg';
-    
+    protected $theme;
+
     /**
      * __construct
      * In general usage, this class will never be called directly.  It should be called through its
@@ -60,11 +61,22 @@ class ElementFormBuilder
     }    
 
     public function render() {
-        $template = 'BunyipFormBuilder\templates\\'. $this->template;
-        //echo 'TEMPLATE:' .$template .'<br>';
+        $template = $this->getTemplate();
+        //out($template);
+
         $tpl = new $template;
         $html = $tpl->getHtml($this);
         return $html;
+    }
+
+    public function getTemplate() {
+        if (isset($this->theme)) {
+            $theme = $this->theme . '\\';
+        } else {
+            $theme = '';
+        }
+        $template = 'BunyipFormBuilder\templates\\'. $theme . $this->template;
+        return $template;
     }
     
     public function setClass($class) {
@@ -133,5 +145,9 @@ class ElementFormBuilder
 
     public function getCssError() {
         return $this->csserror;
+    }
+
+    public function setTheme($theme) {
+        $this->theme = $theme;
     }
 }

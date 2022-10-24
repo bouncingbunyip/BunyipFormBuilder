@@ -5,7 +5,7 @@
  * @author jackal
  *        
  */
-namespace FormBuilder;
+namespace BunyipFormBuilder;
 
 class BootstrapSelectFormBuilder extends ElementFormBuilder
 {

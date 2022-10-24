@@ -5,18 +5,10 @@
  * @author jackal
  *        
  */
-namespace FormBuilder;
-
-use SebastianBergmann\CodeCoverage\Report\PHP;
+namespace BunyipFormBuilder\templates;
 
 class BootstrapTwoTextInputsTemplate
 {
-
-    /**
-     * 
-     */
-    function __construct()
-    {}
     
     /**
      * getHtml
