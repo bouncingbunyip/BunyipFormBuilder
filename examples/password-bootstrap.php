@@ -1,19 +1,19 @@
 <?php
 
 require_once '../Autoloader.php';
-use BunyipFormBuilder\elements\TextFormbuilder;
+use BunyipFormBuilder\elements\PasswordFormbuilder;
 include 'helpers.php';
 
 writeHeader();
 
 $attr = array(
-    'name'=>'name',
-    'label'=>'Username',
-    'placeholder'=>"Username"
+    'name'=>'password',
+    'label'=>'Password',
+    'placeholder'=>"****"
 );
-$form = new TextFormBuilder($attr);
+$form = new PasswordFormBuilder($attr);
 $form->setTheme('Bootstrap');
-$form->setTemplate('TextTemplate');
+$form->setTemplate('PasswordTemplate');
 writeCode($form->render());
 writeHtml($form->render());
 

@@ -10,6 +10,9 @@
 namespace BunyipFormBuilder\elements;
 use BunyipFormBuilder\ElementFormBuilder;
 
+/**
+ * doesn't currently support aria-* attributes
+ */
 class TextFormBuilder extends ElementFormBuilder
 {
     protected $required;
