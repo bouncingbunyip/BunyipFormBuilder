@@ -2,9 +2,7 @@
 /**
  * RadioBootstrapTemplate.php
  *
- * @version $Id: $
- * @package FormBulider
- * @copyright 2011 - 2020
+ * @deprecated use Bootstrap/RadioTemplate instead
  */
 
 /**
@@ -27,6 +25,9 @@
 
 namespace BunyipFormBuilder;
 
+/**
+ * @deprecated
+ */
 class RadioBootstrapTemplate
 {
 

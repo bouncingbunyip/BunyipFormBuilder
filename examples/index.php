@@ -84,6 +84,9 @@ if (!empty($_POST)) {
         <a href="textarea.php" class="complete">textarea</a><br>
         <hr>
         <a href="text-bootstrap.php">Bootstrap text</a><br>
+        <a href="password-bootstrap.php">Bootstrap password</a><br>
+        <a href="select-bootstrap.php">Bootstrap select</a><br>
+        <a href="radio-bootstrap.php">Bootstrap radio</a><br>
 
     </div>
     <h2>

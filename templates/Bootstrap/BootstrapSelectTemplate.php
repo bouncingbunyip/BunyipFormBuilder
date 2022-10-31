@@ -2,11 +2,14 @@
 
 /**
  *
- * @author jackal
+ * @deprecated use the Bootstrap/SelectTemplate instead
  *        
  */
 namespace BunyipFormBuilder;
 
+/**
+ * @deprecated
+ */
 class BootstrapSelectTemplate
 {
 
