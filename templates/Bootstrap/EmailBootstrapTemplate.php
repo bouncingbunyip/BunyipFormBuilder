@@ -2,13 +2,14 @@
 /**
  * EmailBootstrapTemplate.php
  *
- * @version $Id: $
- * @package FormBulider
- * @copyright 2011 - 2020
+ * @deprecated use Bootstrap/EmailTemplate instead
  */
 
 namespace BunyipFormBuilder;
 
+/**
+ * @deprecated
+ */
 class EmailBootstrapTemplate
 {
     /**
@@ -23,7 +24,7 @@ class EmailBootstrapTemplate
     {
     }
 
-    function getHtml(EmailFormBuilder $elem)
+    function getHtml($elem)
     {
         $html = '<div class="form-group">' . PHP_EOL;
         $html .= '    <label for="' . $elem->getId() . '" class="col-sm-4 control-label">' . $elem->getLabel() . '</label>' . PHP_EOL;

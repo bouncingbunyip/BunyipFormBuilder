@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>
@@ -87,6 +87,8 @@ if (!empty($_POST)) {
         <a href="password-bootstrap.php">Bootstrap password</a><br>
         <a href="select-bootstrap.php">Bootstrap select</a><br>
         <a href="radio-bootstrap.php">Bootstrap radio</a><br>
+        <a href="email-bootstrap.php">Bootstrap email</a><br>
+        <a href="textarea-bootstrap.php">Bootstrap textarea</a><br>
 
     </div>
     <h2>
@@ -125,7 +127,7 @@ if (!empty($_POST)) {
         Other Testing Stuff:
     </h2>
     <div>
-        <a href="adhoc-test.php" class="incomplete">Adhoc</a><br>
+        <a href="adhoc.php" class="incomplete">Adhoc</a><br>
         <a href="twoforminputsonrow-test.php" class="incomplete">Two inputs on a row</a><br>
         <a href="twoforminputsonrowgrid-test.php" class="incomplete">Two inputs on a row using grid</a><br>
     </div>

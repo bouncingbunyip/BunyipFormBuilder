@@ -48,7 +48,7 @@ $text = $form2->render();
 $attr = array(
     'left' => $select,
     'right' => $text,
-    'template' => 'BootstrapTwoTextInputsTemplate'
+    'template' => 'TwoTextInputsOnGridTemplate'
 );
 $form->addElem(new TwoFormInputsOnRowFormBuilder($attr));
 

@@ -3,7 +3,7 @@
 /**
  * Use this to add adhoc HTML into a form
  * @author Chris Hubbard <chris@ibunyip.com>
- * @example examples/adhoc-test.php
+ * @example examples/adhoc.php
  * @package BunyipformBuilder
  */
 

@@ -7,13 +7,15 @@
  */
 namespace BunyipFormBuilder\templates;
 
-class BootstrapTwoTextInputsTemplate
+use BunyipFormBuilder\templates;
+
+class TwoTextInputsOnGridTemplate
 {
     
     /**
      * getHtml
      */
-    function getHtml(ElementFormBuilder $elem) {
+    function getHtml($elem) {
         $html = '<!-- start bootstraptwotextinputs -->'. PHP_EOL;
 //        $html .= '<div class="form-group row">'. PHP_EOL;
 //        $html .= '    <div class="col">'. PHP_EOL;
