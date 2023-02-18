@@ -49,7 +49,7 @@ class HintDecorator
         }
     }
     
-    public function render() {
+    public function render() : string {
         $html = '<div class="'. $this->class.'" aria-label="'. $this->text.'">'.$this->trigger.'</div>'.PHP_EOL;
         return $html;
     }
@@ -57,10 +57,9 @@ class HintDecorator
      * getDependencies
      * For this to work, the decorator needs to be contained within a form, won't work if it's just on an element
      * <link href="https://unpkg.com/hint.css@2.7.0/hint.min.css" media="screen" rel="stylesheet" type="text/css" />
-     * @return multitype:multitype:string
+     * @return array
      */
-    public function getDependencies() {
-        $depend = array(0=>array('path'=>'https://unpkg.com/hint.css@2.7.0/hint.min.css', 'type'=>'css'));
-        return $depend;
+    public function getDependencies() : array {
+        return array(0=>array('path'=>'https://unpkg.com/hint.css@2.7.0/hint.min.css', 'type'=>'css'));
     }
 }
