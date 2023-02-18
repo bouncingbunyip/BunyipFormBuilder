@@ -9,7 +9,6 @@
 
 /**
  * Description of ValidationStrategyFileExists
- * @todo remove PATH_TO_LIB and replace with something else
  * @author Chris Hubbard <chris@ibunyip.com>
  */
 
@@ -21,8 +20,7 @@ class ValidationStrategyFileExists implements ValidationStrategyInterface {
     
     public function test($path) {
         $this->path = $path;
-        $file = PATH_TO_LIB.$path['orig'];
-        if (file_exists($file)) {
+        if (file_exists($path)) {
             return true;
         } else {
             return false;
@@ -30,6 +28,6 @@ class ValidationStrategyFileExists implements ValidationStrategyInterface {
     }
     
     public function getMessage() {
-        return 'did not find a file located at: '. $this->path['orig'];
+        return 'did not find a file located at: '. $this->path;
     }
 }
