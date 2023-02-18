@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: jackal
+ * User: Chris Hubbard <chris@ibunyip.com>
  * Date: 4/11/16
  * Time: 6:43 PM
  */

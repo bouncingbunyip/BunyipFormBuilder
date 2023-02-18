@@ -2,7 +2,7 @@
 
 /**
  *
- * @author jackal
+ * @author Chris Hubbard <chris@ibunyip.com>
  *        
  * This class and the corresponding template can be used to create a 'tag it' input.
  * @see http://aehlke.github.io/tag-it/

@@ -2,8 +2,8 @@
 
 /**
  *
- * @author jackal
- *        
+ * @author Chris Hubbard <chris@ibunyip.com>
+ * @package BunyipformBuilder
  */
 namespace BunyipFormBuilder\templates;
 

@@ -1,12 +1,15 @@
 <?php
 
 /**
+ * BootstrapTextareaTemplate
  *
- * @author jackal
- *        
+ * @deprecated use Bootstrap/TextareaTemplate instead
  */
-namespace BunyipFormBuilder;
 
+namespace BunyipFormBuilder;
+/**
+ * @deprecated
+ */
 class BootstrapTextareaTemplate
 {
 

@@ -2,7 +2,7 @@
 
 /**
  *
- * @author jackal
+ * @author Chris Hubbard <chris@ibunyip.com>
  *        
  */
 namespace BunyipFormBuilder;

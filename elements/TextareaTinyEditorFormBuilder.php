@@ -2,7 +2,7 @@
 
 /**
  *
- * @author jackal
+ * @author Chris Hubbard <chris@ibunyip.com>
  *        
  * This class and the corresponding template can be used to create a 'Tiny Editor' input.
  * @see http://www.scriptiny.com/2010/02/javascript-wysiwyg-editor/ 
