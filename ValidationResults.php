@@ -16,7 +16,7 @@ namespace BunyipFormBuilder;
 
 class ValidationResults {
 
-    public $fields = false;
+    public $fields = [];
     public $post = array();
 
     public function __construct($post = null) {

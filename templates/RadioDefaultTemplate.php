@@ -12,7 +12,14 @@ class RadioDefaultTemplate
 {
     
     public function getHtml($elem) {
-        $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
+		
+		$class = $elem->getLabelClass();
+		if ($class) {
+			$class_html = ' class="'.$class.'"';
+		} else {
+			$class_html = ' ';
+		}
+        $html = '<div class="control"><label'. $class_html .' for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         $selected_value = $elem->getSelected();
         
         $options = $elem->getOptions();
@@ -26,7 +33,7 @@ class RadioDefaultTemplate
                     $selected = '';
                 }
 
-                $css = $elem->getCssClass();
+                $css = $elem->getCssClass('class');
                 if (!empty($css)) {
                     $label = '<label '. $css . '>';
                 } else {
@@ -39,7 +46,7 @@ class RadioDefaultTemplate
         if (!empty($error)) {
             $html .= '<span class="'. $elem->getCssError() .'">'. $error .'</span>';
         }
-        $html .= '<br style="clear:both" />';
+        $html .= '</div><br style="clear:both" />';
         return $html;        
     }
 }

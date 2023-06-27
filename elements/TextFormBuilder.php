@@ -31,9 +31,13 @@ class TextFormBuilder extends ElementFormBuilder
         if ($focus) {
             array_push($attrs, $focus);
         }
-        $css = $this->getCssClass();
+        $css = $this->getCssClass('class');
         if ($css) {
             array_push($attrs, $css);
+        }
+        $labelcss = $this->getCssClass('labelCss');
+        if ($labelcss) {
+            array_push($attrs, $labelcss);
         }
         return $attrs;
     }

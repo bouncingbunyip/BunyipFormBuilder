@@ -5,7 +5,7 @@
  * @author Chris Hubbard <chris@ibunyip.com>
  *        
  */
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\templates;
 
 class TextTagItTemplate
 {
@@ -28,7 +28,7 @@ class TextTagItTemplate
      * @see https://github.com/aehlke/tag-it/blob/master/README.markdown for more documentation
      * @return string Returns the HTML corresponding to TagIt input
      */
-    function getHtml(TextTagItFormBuilder $elem) {
+    function getHtml($elem) {
 //vd($elem);        
         $html = "<script>
     $(function(){

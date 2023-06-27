@@ -44,7 +44,7 @@ class Validator {
     
     public function isValidPhone($data) {
         if (empty($this->strategies['phone'])) {
-            $this->attach(new \FormBuilder\ValidationStrategyPhoneUsa, 'phone');
+            $this->attach(new \BunyipFormBuilder\ValidationStrategyPhoneUsa, 'phone');
         }
         foreach ($this->strategies['phone'] as $strategy) {
             if (!$strategy->test($data)) {
@@ -211,7 +211,7 @@ class Validator {
     	return true;
     }
     
-    public function attach(ValidationStrategyInterface $strategy, $context) {
+    public function attach($strategy, $context) {
         if (isset($this->strategies[$context])) {
             array_push($this->strategies[$context], $strategy);
         } else {
@@ -243,4 +243,8 @@ class Validator {
         }
         return true;
     }
+	
+	public function validateWithCallback($callback, $data) {
+		return $callback($data);
+	}
 }

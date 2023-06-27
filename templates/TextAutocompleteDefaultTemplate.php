@@ -5,7 +5,7 @@
  * @author Chris Hubbard <chris@ibunyip.com>
  *        
  */
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\templates;
 
 class TextAutocompleteDefaultTemplate
 {

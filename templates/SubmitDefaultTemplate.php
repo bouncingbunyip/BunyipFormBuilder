@@ -12,9 +12,9 @@ class SubmitDefaultTemplate
 {
 
     public function getHtml($elem) {
-        $css = $elem->getCssClass();
+        $css = $elem->getCssClass('class');
         if (!empty($css)) {
-            $class = ' '. $elem->getCssClass();
+            $class = ' '. $elem->getCssClass('class');
         } else {
             $class = '';
         }

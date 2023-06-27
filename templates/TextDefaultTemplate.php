@@ -19,7 +19,13 @@ class TextDefaultTemplate
     {
         $label = $elem->getLabel();
         if ($label) {
-            $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
+			$class = $elem->getLabelClass();
+			if ($class) {
+				$class_html = ' class="'.$class.'"';
+			} else {
+				$class_html = ' ';
+			}
+            $html = '<label'. $class_html .' for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         } else {
             $html = '';
         }

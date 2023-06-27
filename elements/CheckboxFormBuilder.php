@@ -12,7 +12,7 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class CheckboxFormBuilder extends ElementFormBuilder
 {
-    protected $options;
+    public $options;
     
     public $template = 'CheckboxDefaultTemplate';
     

@@ -12,8 +12,8 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class SelectFormBuilder extends ElementFormBuilder
 {
-    protected $options;
-    protected $optGroup;
+    public $options;
+    public $optGroup;
         
     public $template = 'SelectDefaultTemplate';
     

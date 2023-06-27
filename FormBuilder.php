@@ -252,6 +252,7 @@ class FormBuilder {
      * 
      * @param array|null $attrs An array of key->value pairs
      */
+	#[AllowDynamicProperties]
     public function setFormAttributes(array $attrs = null): void
     {
         if (!is_null($attrs)) {

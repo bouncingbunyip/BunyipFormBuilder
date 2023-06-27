@@ -20,11 +20,15 @@ class ElementFormBuilder
     protected $id;
     protected $name;
     protected $value;
+	protected $labelCss;
     protected $class;
     protected $required;
     protected $error;
     protected $csserror = 'err-msg';
     protected $theme;
+	public $selected;
+	public $source;
+	public $options;
 
     /**
      * __construct
@@ -79,10 +83,6 @@ class ElementFormBuilder
         return $template;
     }
     
-    public function setClass($class) {
-        $this->class = $class;
-    }
-
     public function setRequired($required) {
         $this->required = $required;
     }
@@ -96,19 +96,31 @@ class ElementFormBuilder
         return $required;
     }
 
+    public function setClass($class) {
+        $this->class = $class;
+    }
+
     public function getClass() {
         return $this->class;
     }
+	
+    public function setLabelCss($labelCss) {
+        $this->labelCss = $labelCss;
+    }
 
-    public function getCssClass() {
-        $class = null;
-        if (isset($this->class)) {
-            $class[] = $this->class;
+	public function getLabelClass() {
+		return $this->labelCss;
+	}
+
+    public function getCssClass($key = 'class') {
+        $classes = null;
+        if (isset($this->$key)) {
+            $classes[] = $this->$key;
         }
         if (!empty($this->error)) {
-            $class[] = 'error';
+            $classes[] = 'error';
         }
-        $retval = is_null($class) ? false : 'class="'. implode(' ', $class) .'"';
+        $retval = is_null($classes) ? false : 'class="'. implode(' ', $classes) .'"';
         return $retval;
     }
     

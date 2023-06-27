@@ -11,6 +11,8 @@ namespace BunyipFormBuilder\templates;
 class SelectDefaultTemplate
 {
 
+	public $selected_value;
+	
     /**
      * 
      * @param $elem

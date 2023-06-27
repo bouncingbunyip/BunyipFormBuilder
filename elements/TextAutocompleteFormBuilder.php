@@ -20,7 +20,9 @@
  * $autoComplete = array('first_name_0_id'=>'key', 'last_name_0_id'=>'key_name');
  * will put the value of 'key' into 'first_name_0_id' and 'key_name' into 'last_name_0_id'
  */
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
+
 
 class TextAutocompleteFormBuilder extends ElementFormBuilder {
 

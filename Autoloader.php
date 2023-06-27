@@ -5,6 +5,7 @@
  * @author Chris Hubbard <chris@ibunyip.com>
  * @package BunyipFormBuilder
  */
+namespace BunyipFormBuilder;
 
 /**
  * Autoloader

@@ -12,10 +12,27 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class RadioFormBuilder extends ElementFormBuilder
 {
-    protected $options;
+    public $options;
     
     public $template = 'RadioDefaultTemplate';
     
+    public function getAttributes() {
+        $attrs = array();
+        $req = $this->getRequired();
+        if ($req) {
+            array_push($attrs, $req);
+        }
+        $css = $this->getCssClass('class');
+        if ($css) {
+            array_push($attrs, $css);
+        }
+        $labelcss = $this->getCssClass('labelCss');
+        if ($labelcss) {
+            array_push($attrs, $labelcss);
+        }
+        return $attrs;
+    }
+	
     /**
      * getOptions
      * These options become the radio choices
