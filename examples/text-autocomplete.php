@@ -1,6 +1,6 @@
 <?php
 
-require_once '../Autoloader.php';
+require_once '../vendor/autoload.php';
 use BunyipFormBuilder\Formbuilder;
 use BunyipFormBuilder\elements\TextAutocompleteFormbuilder;
 include 'helpers.php';

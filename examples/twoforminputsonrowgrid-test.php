@@ -1,6 +1,6 @@
 <?php
 
-require_once '../Autoloader.php';
+require_once '../vendor/autoload.php';
 use BunyipFormBuilder\Formbuilder;
 use BunyipFormBuilder\elements\SelectFormbuilder;
 use BunyipFormBuilder\elements\TextFormbuilder;

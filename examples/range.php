@@ -1,6 +1,6 @@
 <?php
 
-require_once '../Autoloader.php';
+require_once '../vendor/autoload.php';
 use BunyipFormBuilder\elements\RangeFormbuilder;
 include 'helpers.php';
 

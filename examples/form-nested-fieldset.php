@@ -4,14 +4,8 @@
  * 
  * The code in BunyipFormBuilder does not (yet) support parsing nested Fieldsets
  */
+require_once '../vendor/autoload.php';
 include 'helpers.php';
-
-include '../../../BunyipFormBuilder/BunyipFormBuilder.php';
-include '../../../BunyipFormBuilder/FieldsetFormBuilder.php';
-include '../../../BunyipFormBuilder/ElementFormBuilder.php';
-include '../../../BunyipFormBuilder/elements/TextFormBuilder.php';
-include '../../../BunyipFormBuilder/templates/TextTemplate.php';
-include '../../../BunyipFormBuilder/decorators/HintDecorator.php';
 
 use \FormBuilder\FormBuilder;
 use \FormBuilder\HintDecorator;

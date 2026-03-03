@@ -4,7 +4,7 @@
  * The 'expect' HTML comes from: http://v4-alpha.getbootstrap.com/components/forms/
  */
 
-require_once '../Autoloader.php';
+require_once '../vendor/autoload.php';
 use BunyipFormBuilder\FormBuilder;
 use BunyipFormBuilder\elements\TextFormBuilder;
 include 'helpers.php';

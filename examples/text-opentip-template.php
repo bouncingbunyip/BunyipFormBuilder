@@ -2,7 +2,7 @@
 /**
  * for more info on opentip: http://www.opentip.org/index.html
  */
-require_once '../Autoloader.php';
+require_once '../vendor/autoload.php';
 use BunyipFormBuilder\FormBuilder;
 use BunyipFormBuilder\elements\TextFormbuilder;
 use BunyipFormBuilder\decorators\OpentipDecorator;
