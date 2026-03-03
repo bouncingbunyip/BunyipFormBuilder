@@ -23,6 +23,7 @@ function writeHeader() {
     	
     }
     </style> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
@@ -56,9 +57,11 @@ function whereAmI($str) {
     $d->close();
 }
 
-function out($data) {
+function out($data, $exit=true) {
     echo '<pre>';
     var_dump($data);
     echo '</pre>';
-    exit;
+    if($exit) {
+        exit;
+    }
 }

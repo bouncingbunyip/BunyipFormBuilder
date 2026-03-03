@@ -13,7 +13,6 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class TelFormBuilder extends ElementFormBuilder
 {
-    protected $required;
     protected $autofocus;
     protected $class;
     protected $error;

@@ -9,13 +9,12 @@
  */
 
 namespace BunyipFormBuilder;
-include '../../FormBuilder.php';
-include '../../ElementFormBuilder.php';
 
 use PHPUnit\Framework\TestCase;
 
 class ElementFormBuilderTest extends TestCase
 {
+    private array $data;
 
     /**
      * Prepares the environment before running a test.
@@ -44,7 +43,7 @@ class ElementFormBuilderTest extends TestCase
 
     public function testConstruct()
     {
-        $elem = new \FormBuilder\ElementFormBuilder($this->data);
+        $elem = new ElementFormBuilder($this->data);
         $this->assertEquals($elem->getLabel(), $this->data['label']);
         $this->assertEquals($elem->getId(), $this->data['id']);
     }
@@ -52,7 +51,7 @@ class ElementFormBuilderTest extends TestCase
     public function testConstructFail()
     {
         $array = array();
-        $elem = new \FormBuilder\ElementFormBuilder($array);
+        $elem = new ElementFormBuilder($array);
         $this->assertNotEquals($elem->getLabel(), 'label');
         $this->assertNotEquals($elem->getId(), 'id');
     }
@@ -60,14 +59,15 @@ class ElementFormBuilderTest extends TestCase
     public function testSetClass()
     {
         unset($this->data['error']);
-        $elem = new \FormBuilder\ElementFormBuilder($this->data);
+        $elem = new ElementFormBuilder($this->data);
         $elem->setClass('foo');
         $this->assertEquals('class="foo"', $elem->getCssClass());
     }
 
     public function testSetRequired()
     {
-        $elem = new \FormBuilder\ElementFormBuilder(($this->data));
+        unset($this->data['required']);
+        $elem = new ElementFormBuilder(($this->data));
         $this->assertEquals(false, $elem->getRequired());
         $elem->setRequired(true);
         $this->assertEquals('required="required"', $elem->getRequired());
@@ -75,7 +75,8 @@ class ElementFormBuilderTest extends TestCase
 
     public function testSetRequiredFalses()
     {
-        $elem = new \FormBuilder\ElementFormBuilder(($this->data));
+        unset($this->data['required']);
+        $elem = new ElementFormBuilder(($this->data));
         $this->assertEquals(false, $elem->getRequired());
         $elem->setRequired('true');
         $this->assertEquals(false, $elem->getRequired());
@@ -83,14 +84,14 @@ class ElementFormBuilderTest extends TestCase
 
     public function testGetId()
     {
-        $elem = new \FormBuilder\ElementFormBuilder($this->data);
+        $elem = new ElementFormBuilder($this->data);
         $this->assertEquals('id', $elem->getId());
     }
 
     public function testGetIdNoId()
     {
         unset($this->data['id']);
-        $elem = new \FormBuilder\ElementFormBuilder($this->data);
+        $elem = new ElementFormBuilder($this->data);
         $this->assertEquals('name', $elem->getId());
     }
 }

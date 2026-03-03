@@ -11,7 +11,9 @@ use BunyipFormBuilder\ElementFormBuilder;
 class TextareaFormBuilder extends ElementFormBuilder
 {
     public $template = 'TextareaDefaultTemplate';
-    
+    public $cols; // the number of columns in the textarea
+    public $rows; // the number of rows in the textarea
+
     public function getRows() {
         if (!empty($this->rows)) {
             return $this->rows;

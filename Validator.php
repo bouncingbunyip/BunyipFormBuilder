@@ -17,11 +17,9 @@
  */
 namespace BunyipFormBuilder;
 
-include_once 'ValidationStrategyInterface.php';
-
 class Validator {
 
-    public $fails = false;
+    public $fails = [];
     public $strategies;
     protected $results;
 
@@ -44,7 +42,7 @@ class Validator {
     
     public function isValidPhone($data) {
         if (empty($this->strategies['phone'])) {
-            $this->attach(new \BunyipFormBuilder\ValidationStrategyPhoneUsa, 'phone');
+            $this->attach(new \BunyipFormBuilder\strategies\ValidationStrategyPhoneUsa, 'phone');
         }
         foreach ($this->strategies['phone'] as $strategy) {
             if (!$strategy->test($data)) {
@@ -76,8 +74,10 @@ class Validator {
      * @return boolean 
      */
     public function isValidDate($date, $in_future = false) {
-        $dt = new \ViDateTime($date);
-        if ($dt->date) {
+
+        $dt = \DateTime::createFromFormat('Y-m-d', $date);
+
+        if ($dt) {
             $retval = true;
         } else {
             $this->fails['date'][] = 'Invalid date';

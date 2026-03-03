@@ -14,23 +14,22 @@ class TextTemplate
 
     /**
      * getHtml
-     * @see https://getbootstrap.com/docs/5.2/forms/overview/
-     * <label for="basic-url" class="form-label">Username</label>
-     * <div class="input-group mb-3">
-     * <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+     * @see https://getbootstrap.com/docs/5.3/forms-control/
+     * <div class="mb-3">
+     * <label for="exampleFormControlInput1" class="form-label">Email address</label>
+     * <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
      * </div>
-
      */
     public function getHtml($elem): string {
         //out($elem);
-        $html = '';
+        $html = '<div class="mb-3">';
         $label = $elem->getLabel();
         if ($label) {
             $html .= '<label class="form-label" for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         }
-        $html .= '<div class="input-group mb-3">'. PHP_EOL;
 
         $attrs = $elem->getAttributes();
+        //out($attrs);
         if ($attrs) {
             $str = ' '. implode(' ', $attrs);
         } else {
@@ -46,7 +45,8 @@ class TextTemplate
         }
         if (isset($elem->tooltip)) {
             $html .= $elem->tooltip->render();
-        }        
+        }
+
         return $html;
     }
 

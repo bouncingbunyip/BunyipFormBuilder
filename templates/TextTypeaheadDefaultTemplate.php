@@ -5,7 +5,7 @@
  * @author Chris Hubbard <chris@ibunyip.com>
  *        
  */
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\templates;
 
 class TextTypeaheadDefaultTemplate
 {
@@ -41,32 +41,27 @@ class TextTypeaheadDefaultTemplate
 //        return $html;
 //    }
     
-    public function getHtml() {
-    $html = <<<HTML
-<div id="the-basics">
-  <label for="states">States</label>
-  <input class="typeahead" id="states" type="text" placeholder="States of USA">
+    public function getHtml($elem) {
+        $id    = $elem->getId();
+        $label = $elem->getLabel();
+        $name  = $elem->getName();
+
+        $html = <<<HTML
+<div id="typeahead-{$id}">
+  <label for="{$id}">{$label}</label>
+  <input class="typeahead" id="{$id}" name="{$name}" type="text" placeholder="States of USA">
 </div>
 
 <script>
-   var substringMatcher = function(strs) {
-    return function findMatches(q, cb) {
-    var matches, substringRegex;
-
-    // an array that will be populated with substring matches
-    matches = [];
-
-    // regex used to determine if a string contains the substring `q`
-    substrRegex = new RegExp(q, 'i');
-
-    // iterate through the pool of strings and for any string that
-    // contains the substring `q`, add it to the `matches` array
+var substringMatcher = function(strs) {
+  return function findMatches(q, cb) {
+    var matches = [];
+    var substrRegex = new RegExp(q, 'i');
     $.each(strs, function(i, str) {
       if (substrRegex.test(str)) {
         matches.push(str);
       }
     });
-
     cb(matches);
   };
 };
@@ -82,17 +77,17 @@ var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
   'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
 ];
 
-$('#the-basics .typeahead').typeahead({
+$('#typeahead-{$id} .typeahead').typeahead({
   hint: true,
   highlight: true,
   minLength: 1
 },
 {
-  name: 'states',
+  name: '{$id}',
   source: substringMatcher(states)
 });
 </script>
 HTML;
-    return $html;
+        return $html;
     }
 }

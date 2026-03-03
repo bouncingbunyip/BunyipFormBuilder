@@ -10,42 +10,43 @@ include 'helpers.php';
 writeHeader();
 /** ----basic form-----------------------------------------------------------**/
 $attr = array(
-    'label'=>'Name',
+    'class'=>'bunyipform',
     'id'=>'name-id',
     'name'=>'name'
 );
 $form = new FormBuilder($attr);
-$expect = '<form class="bunyipform" action="index.php" id="name-id" method="post" name="name">
+$expect = '<form action="index.php" class="bunyipform" id="name-id" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
 
 writeCode($actual);
+//writeCode($expect);
 writeHtml($actual);
 writeExpect($expect, $actual);
 /** ----accept-charset-------------------------------------------------------**/
 $attr = array(
-    'label'=>'Name',
+    'class'=>'bunyipform',
     'accept-charset'=>'UTF-8',
     'name'=>'name'
 );
 $form = new FormBuilder($attr);
-$expect = '<form class="bunyipform" accept-charset="UTF-8" action="index.php" method="post" name="name">
+$expect = '<form accept-charset="UTF-8" action="index.php" class="bunyipform" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
 
 writeCode($actual);
+//writeCode($expect);
 writeHtml($actual);
 writeExpect($expect, $actual);
 /** ----action---------------------------------------------------------------**/
 $attr = array(
-    'label'=>'Name',
     'action'=>'form.php',
     'name'=>'name'
 );
 $form = new FormBuilder($attr);
-$expect = '<form class="bunyipform" action="form.php" method="post" name="name">
+$expect = '<form action="form.php" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -59,7 +60,7 @@ $attr = array(
     'name'=>'name'
 );
 $form = new FormBuilder($attr);
-$expect = '<form class="bunyipform" action="index.php" autocomplete="on" method="post" name="name">
+$expect = '<form action="index.php" autocomplete="on" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -73,11 +74,12 @@ $attr = array(
     'name'=>'name'
 );
 $form = new FormBuilder($attr);
-$expect = '<form class="bunyipform" action="index.php" autocomplete="off" method="post" name="name">
+$expect = '<form action="index.php" autocomplete="off" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
 writeCode($actual);
+
 writeHtml($actual);
 writeExpect($expect, $actual);
 /** ----enctype--------------------------------------------------------------**/
@@ -87,7 +89,7 @@ $attr = array(
     'name'=>'name'
 );
 $form = new FormBuilder($attr);
-$expect = '<form class="bunyipform" action="index.php" enctype="application/x-www-form-urlencoded" method="post" name="name">
+$expect = '<form action="index.php" enctype="application/x-www-form-urlencoded" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -101,7 +103,7 @@ $attr = array(
     'name'=>'name'
 );
 $form = new FormBuilder($attr);
-$expect = '<form class="bunyipform" action="index.php" enctype="application/x-www-form-urlencoded" method="post" name="name">
+$expect = '<form action="index.php" enctype="application/x-www-form-urlencoded" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -128,7 +130,7 @@ $attr = array(
     'name'=>'name'
 );
 $form = new FormBuilder($attr);
-$expect = '<form class="bunyipform" action="form.php" id="name-id" method="post" name="name">
+$expect = '<form action="form.php" id="name-id" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -143,7 +145,7 @@ $attr = array(
     'name'=>'name'
 );
 $form = new FormBuilder($attr);
-$expect = '<form class="bunyipform" action="form.php" method="post" name="name" novalidate>
+$expect = '<form action="form.php" method="post" name="name" novalidate>
 </form>
 ';
 $actual = $form->render();
@@ -158,7 +160,7 @@ $attr = array(
     'name'=>'name'
 );
 $form = new FormBuilder($attr);
-$expect = '<form class="bunyipform" action="form.php" method="post" name="name" novalidate>
+$expect = '<form action="form.php" method="post" name="name" novalidate>
 </form>
 ';
 $actual = $form->render();
@@ -173,7 +175,7 @@ $attr = array(
     'name'=>'name'
 );
 $form = new FormBuilder($attr);
-$expect = '<form class="bunyipform" action="form.php" method="post" name="name" target="_self">
+$expect = '<form action="form.php" method="post" name="name" target="_self">
 </form>
 ';
 $actual = $form->render();
@@ -188,7 +190,7 @@ $attr = array(
     'name'=>'name'
 );
 $form = new FormBuilder($attr);
-$expect = '<form class="bunyipform" action="form.php" method="post" name="name">
+$expect = '<form action="form.php" method="post" name="name">
 </form>
 ';
 $actual = $form->render();
@@ -205,7 +207,7 @@ $attr = array(
 $form = new FormBuilder($attr);
 $form->setStrict(false);
 $form->setFormAttributes(array('foo'=>'bar'));
-$expect = '<form class="bunyipform" action="form.php" method="post" name="name" foo="bar">
+$expect = '<form action="form.php" method="post" name="name" foo="bar">
 </form>
 ';
 $actual = $form->render();

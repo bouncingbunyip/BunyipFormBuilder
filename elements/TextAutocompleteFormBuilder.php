@@ -26,7 +26,6 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class TextAutocompleteFormBuilder extends ElementFormBuilder {
 
-    protected $required;
     protected $autofocus;
     protected $class;
     protected $error;

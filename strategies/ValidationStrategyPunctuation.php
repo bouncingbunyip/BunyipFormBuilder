@@ -13,7 +13,7 @@
  * @author Chris Hubbard <chris@ibunyip.com>
  */
 
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\strategies;
 
 class ValidationStrategyPunctuation implements ValidationStrategyInterface {
     
@@ -42,5 +42,3 @@ class ValidationStrategyPunctuation implements ValidationStrategyInterface {
         return 'Must contain at least '. $this->count .' punctuation symbols';
     }
 }
-
-?>

@@ -9,11 +9,8 @@
 
 namespace BunyipFormBuilder;
 
-include '../../../ElementFormBuilder.php';
-include '../../../elements/ButtonFormBuilder.php';
-include '../../../templates/ButtonDefaultTemplate.php';
-
 use PHPUnit\Framework\TestCase;
+use BunyipFormBuilder\elements\ButtonFormBuilder;
 
 class ButtonFormBuilderTest extends TestCase
 {

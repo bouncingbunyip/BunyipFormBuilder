@@ -12,7 +12,6 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class HiddenFormBuilder extends ElementFormBuilder
 {
-    protected $required;
     protected $autofocus;
     protected $class;
     protected $error;

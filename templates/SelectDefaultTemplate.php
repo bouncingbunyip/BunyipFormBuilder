@@ -21,7 +21,7 @@ class SelectDefaultTemplate
     public function getHtml($elem): string {
         $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         $class = $elem->getCssClass();
-        $html .= '<select name="'. $elem->getName() .'" '. $elem->getRequired() . $class .'>'.PHP_EOL;
+        $html .= '<select name="'. $elem->getName() .'" '. $elem->getRequired() .' '. $class .'>'.PHP_EOL;
         $this->selected_value = $elem->getSelected();
         $optGroup = $elem->getOptGroup();
         if ($optGroup) {

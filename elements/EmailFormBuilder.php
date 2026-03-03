@@ -12,8 +12,7 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class EmailFormBuilder extends ElementFormBuilder
 {
-    protected $required;
-    protected $autofocus;
+    public ?string $autofocus;
     protected $class;
     protected $error;
     public $template = 'EmailDefaultTemplate';

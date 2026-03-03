@@ -13,10 +13,10 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class DatePickerFormBuilder extends ElementFormBuilder
 {
-    protected $required;
     protected $autofocus;
     protected $class;
     protected $error;
+    public $datepicker = null;
     public $template = 'DatePickerDefaultTemplate';
 
     public function getAttributes() {

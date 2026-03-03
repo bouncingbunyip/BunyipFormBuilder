@@ -12,7 +12,7 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class DatalistFormBuilder extends ElementFormBuilder
 {
-    protected $options;
+    public $options;
     protected $list;
         
     public $template = 'DatalistDefaultTemplate';

@@ -12,10 +12,10 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class ButtonFormBuilder extends ElementFormBuilder
 {
-    protected $required;
     protected $autofocus;
     protected $class;
     protected $error;
+    public $onclick = null;
     public $template = 'ButtonDefaultTemplate';
 
     public function getOnClick() {

@@ -1,440 +1,291 @@
 <?php
-require_once PATH_TO_LIB . 'Validator.php';
-require_once PATH_TO_LIB . 'ValidationStrategyInterface.php';
-require_once PATH_TO_LIB . 'ValidationStrategyPhoneUsa.php';
-require_once PATH_TO_LIB . 'ValidationStrategyPhoneUk.php';
-require_once PATH_TO_LIB . 'ValidationStrategyLength.php';
-require_once PATH_TO_LIB . 'ValidationStrategyNumbers.php';
-require_once PATH_TO_LIB . 'ValidationStrategyPunctuation.php';
-require_once PATH_TO_LIB . 'ValidationStrategyUpperCase.php';
-require_once PATH_TO_LIB . 'ValidationStrategyEventThumbnail.php';
-require_once PATH_TO_LIB . 'ValidationStrategyFileExists.php';
-
-require_once PATH_TO_LIB . 'ViDateTime.php';
-require_once PATH_TO_FIXTURES . 'StubbedModel.php';
-
 
 /**
- * Validator test case.
+ * ValidatorTest.php
+ *
+ * @package BunyipFormBuilder
+ *
+ * Note: tests for ValidationStrategyEventThumbnail (a VirtualInvite-specific
+ * strategy) and ViDateTime (VirtualInvite-specific helper) have been removed;
+ * they belong in the VirtualInvite test suite.
+ *
+ * Date strings must use Y-m-d format as required by isValidDate().
  */
-class ValidatorTest extends PHPUnit_Framework_TestCase
+
+namespace BunyipFormBuilder;
+
+use PHPUnit\Framework\TestCase;
+use BunyipFormBuilder\strategies\ValidationStrategyLength;
+use BunyipFormBuilder\strategies\ValidationStrategyNumbers;
+use BunyipFormBuilder\strategies\ValidationStrategyUpperCase;
+use BunyipFormBuilder\strategies\ValidationStrategyPhoneUsa;
+use BunyipFormBuilder\strategies\ValidationStrategyPhoneUk;
+
+class ValidatorTest extends TestCase
 {
+    private Validator $validator;
 
-    /**
-     *
-     * @var Validator
-     */
-    private $validator;
-
-    /**
-     * Prepares the environment before running a test.
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
-        parent::setUp();
-        $this->validator = new Validator(/* parameters */);
+        $this->validator = new Validator();
     }
 
-    /**
-     * Cleans up the environment after running a test.
-     */
-    protected function tearDown()
-    {
-        $this->validator = null;
-        parent::tearDown();
-    }
-
-    /**
-     * Constructs the test case.
-     */
-    public function __construct()
+    protected function tearDown(): void
     {
     }
 
-    /**
-     * Tests Validator->isValidEmail()
-     */
-    public function testIsValidEmail()
+    // -------------------------------------------------------------------------
+    // isValidEmail
+    // -------------------------------------------------------------------------
+
+    public function testIsValidEmail(): void
     {
-        $email = 'test@ourgourmetlife.com';
-        $result = $this->validator->isValidEmail($email);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidEmail('test@ourgourmetlife.com'));
     }
 
-    public function testIsValidEmailFalse()
+    public function testIsValidEmailFalse(): void
     {
-        $email = 'testourgourmetlife.com';
-        $result = $this->validator->isValidEmail($email);
-        $this->assertFalse($result);
+        $this->assertFalse($this->validator->isValidEmail('testourgourmetlife.com'));
     }
 
-    public function testIsValidEmailNullValue()
+    public function testIsValidEmailNullValue(): void
     {
-        $email = NULL;
-        $result = $this->validator->isValidEmail($email);
-        $this->assertFalse($result);
+        $this->assertFalse($this->validator->isValidEmail(null));
     }
 
+    // -------------------------------------------------------------------------
+    // isValidPhone
+    // -------------------------------------------------------------------------
 
-    /**
-     * Tests Validator->isValidPhone()
-     */
-    public function testIsValidPhone()
+    public function testIsValidPhone(): void
     {
-        $phone = '800 555 1212';
-        $result = $this->validator->isValidPhone($phone);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidPhone('800 555 1212'));
     }
 
-    public function testIsValidPhoneBrackets()
+    public function testIsValidPhoneBrackets(): void
     {
-        $phone = '(800) 555 1212';
-        $result = $this->validator->isValidPhone($phone);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidPhone('(800) 555 1212'));
     }
 
-    public function testIsValidPhoneCrammed()
+    public function testIsValidPhoneCrammed(): void
     {
-        $phone = '8005551212';
-        $result = $this->validator->isValidPhone($phone);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidPhone('8005551212'));
     }
 
-    public function testIsValidPhoneHyphen()
+    public function testIsValidPhoneHyphen(): void
     {
-        $phone = '800-555-1212';
-        $result = $this->validator->isValidPhone($phone);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidPhone('800-555-1212'));
     }
 
-    public function testIsValidPhoneFalse()
+    public function testIsValidPhoneFalse(): void
     {
-        $this->assertFalse($this->validator->fails);
-        $phone = '800';
-        $result = $this->validator->isValidPhone($phone);
-        $this->assertFalse($result);
+        $this->assertEmpty($this->validator->fails);
+        $this->assertFalse($this->validator->isValidPhone('800'));
         $this->assertStringStartsWith('Needs', $this->validator->fails['phone'][0]);
     }
 
-    public function testIsValidPhoneNull()
+    public function testIsValidPhoneNull(): void
     {
-        $this->assertFalse($this->validator->fails);
-        $phone = NULL;
-        $result = $this->validator->isValidPhone($phone);
-        $this->assertFalse($result);
+        $this->assertEmpty($this->validator->fails);
+        $this->assertFalse($this->validator->isValidPhone(null));
         $this->assertStringStartsWith('Needs', $this->validator->fails['phone'][0]);
     }
 
-    /**
-     * Tests Validator->isValidNumber()
-     */
-    public function testIsValidNumber()
+    // -------------------------------------------------------------------------
+    // isValidNumber
+    // -------------------------------------------------------------------------
+
+    public function testIsValidNumberInt(): void
     {
-        $number = 1234;
-        $result = $this->validator->isValidNumber($number);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidNumber(1234));
     }
 
-    public function testIsValidNumberInvalid()
+    public function testIsValidNumberStringInt(): void
     {
-        $number = "1234";
-        $result = $this->validator->isValidNumber($number);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidNumber('1234'));
     }
 
-    public function testIsValidNumberLetters()
+    public function testIsValidNumberLetters(): void
     {
-        $number = "asdb";
-        $result = $this->validator->isValidNumber($number);
-        $this->assertFalse($result);
+        $this->assertFalse($this->validator->isValidNumber('asdb'));
     }
 
-    public function testIsValidNumberNull()
+    public function testIsValidNumberNull(): void
     {
-        $number = NULL;
-        $result = $this->validator->isValidNumber($number);
-        $this->assertFalse($result);
+        $this->assertFalse($this->validator->isValidNumber(null));
     }
 
-    public function testIsValidNumberFalse()
+    public function testIsValidNumberFalse(): void
     {
-        $number = FALSE;
-        $result = $this->validator->isValidNumber($number);
-        $this->assertFalse($result);
+        $this->assertFalse($this->validator->isValidNumber(false));
     }
 
-    /**
-     * Tests Validator->isValidDate()
-     */
-    public function testIsValidDate()
+    // -------------------------------------------------------------------------
+    // isValidDate  (Y-m-d format required)
+    // -------------------------------------------------------------------------
+
+    public function testIsValidDate(): void
     {
-        $date = '01/01/2000';
-        $result = $this->validator->isValidDate($date);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidDate('2000-01-01'));
     }
 
-    public function testIsValidDateInvalidDate()
+    public function testIsValidDateInvalidDate(): void
     {
-        $date = '51/51/2000';
-        $result = $this->validator->isValidDate($date);
-        $this->assertFalse($result);
+        $this->assertFalse($this->validator->isValidDate('not-a-date'));
     }
 
-    public function testIsValidDateFuture()
+    public function testIsValidDateFuture(): void
     {
-        $date = '01/01/2100';
-        $result = $this->validator->isValidDate($date, true);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidDate('2100-01-01', true));
     }
 
-    public function testIsValidDateDateNotFuture()
+    public function testIsValidDateDateNotFuture(): void
     {
-        $date = '01/01/2000';
-        $result = $this->validator->isValidDate($date, true);
-        $this->assertFalse($result);
+        $this->assertFalse($this->validator->isValidDate('2000-01-01', true));
     }
 
-    public function testIsValidDateInvalidDateFuture()
+    public function testIsValidDateInvalidDateFuture(): void
     {
-        $date = '51/51/2000';
-        $result = $this->validator->isValidDate($date, true);
-        $this->assertFalse($result);
+        $this->assertFalse($this->validator->isValidDate('not-a-date', true));
     }
 
-    /**
-     * Tests Validator->validateTableId()
-     */
-//    public function testValidateTableId()
-//    {
-//        $model = new StubbedModel;
-//        $method = 'getId';
-//        $id = 1;
-//        $result = $this->validator->validateTableId($model, $method, $id);
-//        $this->assertTrue($result);
-//    }
-//
-//    public function testValidateTableIdFalse()
-//    {
-//        $model = new StubbedModel;
-//        $method = 'getId';
-//        $id = 2;
-//        $result = $this->validator->validateTableId($model, $method, $id);
-//        $this->assertFalse($result);
-//    }
-//
-//    public function testValidateTableIdInvalidMethod()
-//    {
-//        $model = new StubbedModel;
-//        $method = 'NotAMethod';
-//        $id = 1;
-//        $result = $this->validator->validateTableId($model, $method, $id);
-//        $this->assertFalse($result);
-//    }
+    // -------------------------------------------------------------------------
+    // validateZipcode
+    // -------------------------------------------------------------------------
 
-    /**
-     * Tests Validator->validateStateId()
-     */
-    public function testValidateStateId()
+    public function testValidateZipcode(): void
     {
-        // TODO Auto-generated ValidatorTest->testValidateStateId()
-        $this->markTestIncomplete("validateStateId test not implemented");
-
-        $this->validator->validateStateId(/* parameters */);
+        $this->assertTrue($this->validator->validateZipcode('00213'));
     }
 
-    /**
-     * Tests Validator->validateZipcode()
-     * @covers Validator::validateZipcode
-     */
-    public function testValidateZipcode()
+    public function testValidateZipcodeWithCountrycode(): void
     {
-        $zip = '00213';
-        $result = $this->validator->validateZipcode($zip);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->validateZipcode('00213', 'US'));
     }
 
-    public function testValidateZipcodeWithCountycode()
+    public function testValidateZipcodeWithNonUSCountrycode(): void
     {
-        $zip = '00213';
-        $result = $this->validator->validateZipcode($zip, 'US');
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->validateZipcode('anything', 'CA'));
     }
 
-    public function testValidateZipcodeWithNonUSCountycode()
+    public function testValidateZipcodeBadCode(): void
     {
-        $zip = 'anything';
-        $result = $this->validator->validateZipcode($zip, 'CA');
-        $this->assertTrue($result);
+        $this->assertFalse($this->validator->validateZipcode('00zz3'));
     }
 
-    public function testValidateZipcodeBadCode()
+    // -------------------------------------------------------------------------
+    // isValidName
+    // -------------------------------------------------------------------------
+
+    public function testIsValidName(): void
     {
-        $zip = '00zz3';
-        $result = $this->validator->validateZipcode($zip);
-        $this->assertFalse($result);
+        $this->assertTrue($this->validator->isValidName('Eugenia'));
     }
 
-    /**
-     * Tests Validator->isValidName()
-     */
-    public function testIsValidName()
+    public function testIsValidNameNull(): void
     {
-        $name = 'Eugenia';
-        $result = $this->validator->isValidName($name);
-        $this->assertTrue($result);
+        $this->assertFalse($this->validator->isValidName(null));
     }
 
-    public function testIsValidNameNull()
+    public function testIsValidNameTooShort(): void
     {
-        $name = NULL;
-        $result = $this->validator->isValidName($name);
-        $this->assertFalse($result);
+        $this->assertFalse($this->validator->isValidName(''));
     }
 
-    public function testIsValidTooShort()
+    public function testIsValidNameTooLong(): void
     {
-        $name = '';
-        $result = $this->validator->isValidName($name);
-        $this->assertFalse($result);
+        $this->assertFalse($this->validator->isValidName(str_repeat('E', 130)));
     }
 
-    public function testIsValidTooLong()
+    public function testIsValidNameMixedAlphanumeric(): void
     {
-        $name = 'EeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeEeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
-        $result = $this->validator->isValidName($name);
-        $this->assertFalse($result);
+        $this->assertTrue($this->validator->isValidName('abc123'));
     }
 
-    public function testIsValidMixedCharacters()
+    public function testIsValidNameBadCharacters(): void
     {
-        $name = 'abc123';
-        $result = $this->validator->isValidName($name);
-        $this->assertTrue($result);
+        $this->assertFalse($this->validator->isValidName('abc123!@#'));
     }
 
-    public function testIsValidBadMixedCharacters()
+    public function testIsValidNameWithMiddleInitial(): void
     {
-        $name = 'abc123!@#';
-        $result = $this->validator->isValidName($name);
-        $this->assertFalse($result);
+        $this->assertTrue($this->validator->isValidName('Jeyna M Fey'));
     }
 
-    public function testIsValidAbbrevInitial()
+    public function testIsValidNameWithSuffix(): void
     {
-        $name = 'Jeyna M Fey';
-        $result = $this->validator->isValidName($name);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidName('Jeyna Fey Jr'));
     }
 
-    public function testIsValidAbbrevSuffix()
+    public function testIsValidNameWithPeriodInitial(): void
     {
-        $name = 'Jeyna Fey Jr';
-        $result = $this->validator->isValidName($name);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidName('Jeyna M. Fey'));
     }
 
-    public function testIsValidAbbrevInitialWithPeriod()
+    public function testIsValidNameWithPeriodSuffix(): void
     {
-        $name = 'Jeyna M. Fey';
-        $result = $this->validator->isValidName($name);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidName('Jeyna Fey Jr.'));
     }
 
-    public function testIsValidAbbrevSuffixWithPeriod()
+    // -------------------------------------------------------------------------
+    // isValidImagePath
+    // -------------------------------------------------------------------------
+
+    public function testIsValidImagePath(): void
     {
-        $name = 'Jeyna Fey Jr.';
-        $result = $this->validator->isValidName($name);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isValidImagePath('upload/events/loretta.png'));
     }
 
-    /**
-     * Tests Validator->isValidImagePath()
-     */
-    public function testIsValidImagePath()
+    public function testIsValidImagePathInvalidExtension(): void
     {
-        $path = 'upload/events/loretta.png';
-        $result = $this->validator->isValidImagePath($path);
-        $this->assertTrue($result);
+        $this->assertFalse($this->validator->isValidImagePath('upload/events/loretta.llama'));
     }
 
-    public function testIsValidImagePathInvalidExtension()
+    // -------------------------------------------------------------------------
+    // isStrongPassword
+    // -------------------------------------------------------------------------
+
+    public function testIsStrongPassword(): void
     {
-        $path = 'upload/events/loretta.llama';
-        $result = $this->validator->isValidImagePath($path);
-        $this->assertFalse($result);
+        $this->assertTrue($this->validator->isStrongPassword('755W^t2dBtZJR!X5'));
     }
 
-    public function testIsValidImagePathWithStrategy()
-    {
-        $path = 'upload/events/loretta.png';
-        $this->validator->attach(new ValidationStrategyEventThumbnail('upload/events/'), 'imagepath');
-        $result = $this->validator->isValidImagePath($path);
-        $this->assertTrue($result);
-    }
-
-    public function testIsValidImagePathWithStrategyFails()
-    {
-        $path = 'upload/women/loretta.png';
-        $this->validator->attach(new ValidationStrategyEventThumbnail('upload/events/'), 'imagepath');
-        $result = $this->validator->isValidImagePath($path);
-        $this->assertFalse($result);
-    }
-
-    /**
-     * Tests Validator->isStrongPassword()
-     */
-    public function testIsStrongPassword()
-    {
-        $password = '755W^t2dBtZJR!X5';
-        $result = $this->validator->isStrongPassword($password);
-        $this->assertTrue($result);
-    }
-
-    public function testIsStrongPasswordWithLengthStrategy()
+    public function testIsStrongPasswordWithLengthStrategy(): void
     {
         $this->validator->attach(new ValidationStrategyLength(6), 'password');
-        $password = '1234567';
-        $result = $this->validator->isStrongPassword($password);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isStrongPassword('1234567'));
     }
 
-    public function testIsStrongPasswordFailWithLengthStrategy()
+    public function testIsStrongPasswordFailWithLengthStrategy(): void
     {
         $this->validator->attach(new ValidationStrategyLength(6), 'password');
-        $password = '12345';
-        $result = $this->validator->isStrongPassword($password);
-        $this->assertFalse($result);
+        $this->assertFalse($this->validator->isStrongPassword('12345'));
     }
 
-    public function testIsStrongPasswordWithNumbersStrategy()
+    public function testIsStrongPasswordWithNumbersStrategy(): void
     {
         $this->validator->attach(new ValidationStrategyNumbers(6), 'password');
-        $password = '1234567';
-        $result = $this->validator->isStrongPassword($password);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isStrongPassword('1234567'));
     }
 
-    public function testIsStrongPasswordFailWithNumbersStrategy()
+    public function testIsStrongPasswordFailWithNumbersStrategy(): void
     {
         $this->validator->attach(new ValidationStrategyNumbers(6), 'password');
-        $password = '12345';
-        $result = $this->validator->isStrongPassword($password);
-        $this->assertFalse($result);
+        $this->assertFalse($this->validator->isStrongPassword('12345'));
     }
 
-    public function testIsStrongPasswordWithMultipleStrategies()
+    public function testIsStrongPasswordWithMultipleStrategies(): void
     {
         $this->validator->attach(new ValidationStrategyLength(6), 'password');
         $this->validator->attach(new ValidationStrategyUpperCase(3), 'password');
-        $password = '123ABC67';
-        $result = $this->validator->isStrongPassword($password);
-        $this->assertTrue($result);
+        $this->assertTrue($this->validator->isStrongPassword('123ABC67'));
     }
 
-    /**
-     * Tests Validator->attach()
-     */
-    public function testAttach()
+    // -------------------------------------------------------------------------
+    // attach
+    // -------------------------------------------------------------------------
+
+    public function testAttach(): void
     {
         $this->assertNull($this->validator->strategies);
         $strategy = new ValidationStrategyPhoneUsa();
@@ -442,53 +293,41 @@ class ValidatorTest extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('Test', $this->validator->strategies);
     }
 
-    public function testAttachMultiple()
+    public function testAttachMultiple(): void
     {
-        $this->assertNull($this->validator->strategies);
         $strategy = new ValidationStrategyPhoneUsa();
         $this->validator->attach($strategy, 'Test');
-        $this->assertArrayHasKey('Test', $this->validator->strategies);
         $this->assertCount(1, $this->validator->strategies['Test']);
-        $strategy = new ValidationStrategyPhoneUk();
-        $this->validator->attach($strategy, 'Test');
+        $this->validator->attach(new ValidationStrategyPhoneUk(), 'Test');
         $this->assertCount(2, $this->validator->strategies['Test']);
     }
 
-    public function testAttachDifferentContexts()
+    public function testAttachDifferentContexts(): void
     {
-        $this->assertNull($this->validator->strategies);
-        $strategy = new ValidationStrategyPhoneUsa();
-        $this->validator->attach($strategy, 'foo');
-        $this->assertArrayHasKey('foo', $this->validator->strategies);
+        $this->validator->attach(new ValidationStrategyPhoneUsa(), 'foo');
         $this->assertCount(1, $this->validator->strategies['foo']);
-        $strategy = new ValidationStrategyPhoneUk();
-        $this->validator->attach($strategy, 'bar');
-        $this->assertArrayHasKey('bar', $this->validator->strategies);
+        $this->validator->attach(new ValidationStrategyPhoneUk(), 'bar');
         $this->assertCount(1, $this->validator->strategies['bar']);
     }
 
-    /**
-     * Tests Validator->getFails()
-     */
-    public function testGetFails()
+    // -------------------------------------------------------------------------
+    // getFails
+    // -------------------------------------------------------------------------
+
+    public function testGetFailsInitiallyEmpty(): void
     {
-        $result = $this->validator->getFails();
-        $this->assertFalse($result);
+        $this->assertEmpty($this->validator->getFails());
     }
 
-    public function testGetFailsWithFail()
+    public function testGetFailsWithFail(): void
     {
-        $email = 'testourgourmetlife.com';
-        $this->validator->isValidEmail($email);
-        $result = $this->validator->getFails('email');
-        $this->assertCount(1, $result);
+        $this->validator->isValidEmail('testourgourmetlife.com');
+        $this->assertCount(1, $this->validator->getFails('email'));
     }
 
-    public function testGetFailsWithFailWithoutKey()
+    public function testGetFailsWithFailWithoutKey(): void
     {
-        $email = 'testourgourmetlife.com';
-        $this->validator->isValidEmail($email);
-        $result = $this->validator->getFails();
-        $this->assertArrayHasKey('email', $result);
+        $this->validator->isValidEmail('testourgourmetlife.com');
+        $this->assertArrayHasKey('email', $this->validator->getFails());
     }
 }

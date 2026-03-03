@@ -4,13 +4,19 @@
  *
  * @author Chris Hubbard <chris@ibunyip.com>
  * @package BunyipFormBuilder
+ *
+ * @deprecated This custom autoloader is superseded by Composer's PSR-4 autoloader.
+ *             Install via Composer and use vendor/autoload.php instead.
+ *             This file is retained for backward compatibility only and will be
+ *             removed in a future release.
  */
 namespace BunyipFormBuilder;
 
 /**
  * Autoloader
  *
- * A simple, basic autoloader to load the various classes used in BunyipFormBuilder
+ * @deprecated Use Composer's autoloader (vendor/autoload.php) instead.
+ *             The PSR-4 mapping "BunyipFormBuilder\\" => "" is defined in composer.json.
  */
 class Autoloader
 {
@@ -25,10 +31,10 @@ class Autoloader
             if (file_exists($file)) {
                 require $file;
                 //echo 'found: '. $file . '<br>';
-                return true;
+                //return true;
             }
             //echo 'did not find: '. $file . '<br>';
-            return false;
+            //return false;
         });
     }
 

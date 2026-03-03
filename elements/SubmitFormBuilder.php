@@ -12,7 +12,6 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class SubmitFormBuilder extends ElementFormBuilder
 {
-    protected $required;
     protected $autofocus;
     protected $class;
     protected $error;

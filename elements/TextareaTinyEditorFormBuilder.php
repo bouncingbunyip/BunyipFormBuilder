@@ -8,11 +8,11 @@
  * @see http://www.scriptiny.com/2010/02/javascript-wysiwyg-editor/ 
  * 
  */
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\elements;
+use BunyipFormBuilder\ElementFormBuilder;
 
 class TextareaTinyEditorFormBuilder extends ElementFormBuilder
 {
-    protected $required;
     protected $autofocus;
     protected $class;
     protected $error;

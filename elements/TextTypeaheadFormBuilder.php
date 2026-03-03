@@ -5,11 +5,12 @@
  * @author Chris Hubbard <chris@ibunyip.com>
  *        
  */
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\elements;
+
+use BunyipFormBuilder\ElementFormBuilder;
 
 class TextTypeaheadFormBuilder extends ElementFormBuilder
 {
-    protected $required;
     protected $autofocus;
     protected $class;
     protected $error;

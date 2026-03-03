@@ -1,87 +1,82 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: Chris Hubbard <chris@ibunyip.com>
- * Date: 4/11/16
- * Time: 6:43 PM
+ * ValidationResultsTest.php
+ *
+ * @package BunyipFormBuilder
  */
-class ValidationResultsTest extends PHPUnit_Framework_TestCase
+
+namespace BunyipFormBuilder;
+
+use PHPUnit\Framework\TestCase;
+
+class ValidationResultsTest extends TestCase
 {
-
-    protected function setUp()
+    protected function setUp(): void
     {
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
     }
 
-    public function testSetPost()
+    public function testInitialFieldsAreEmpty(): void
     {
         $vr = new ValidationResults();
-        $this->assertFalse($vr->fields);
+        $this->assertEmpty($vr->fields);
         $this->assertEmpty($vr->post);
     }
 
-    public function testSetPostWithPost()
+    public function testSetPostWithPost(): void
     {
         $post = array('foo' => 'bar');
         $vr = new ValidationResults($post);
-        $this->assertFalse($vr->fields);
-        $this->assertEquals($vr->getPost(), $post);
+        $this->assertEmpty($vr->fields);
+        $this->assertEquals($post, $vr->getPost());
     }
 
-    public function testFail()
+    public function testFail(): void
     {
         $post = array('foo' => 'bar');
         $vr = new ValidationResults($post);
-        $this->assertFalse($vr->fields);
         $expect = array('foo' => array('foo failed'));
         $vr->fail('foo', 'foo failed');
-        $this->assertEquals($vr->getFails(), $expect);
+        $this->assertEquals($expect, $vr->getFails());
     }
 
-    public function testFailInvalidField()
+    public function testGetFailInvalidField(): void
     {
         $post = array('foo' => 'bar');
         $vr = new ValidationResults($post);
-        $this->assertFalse($vr->fields);
         $vr->fail('foo', 'foo failed');
         $this->assertFalse($vr->getFail('bar'));
     }
 
-    public function testIsValid()
+    public function testIsValidWhenNoFails(): void
     {
         $post = array('foo' => 'bar');
         $vr = new ValidationResults($post);
-        $this->assertFalse($vr->fields);
         $this->assertTrue($vr->isValid());
     }
 
-    public function testIsValidNotValid()
+    public function testIsValidWhenFailed(): void
     {
         $post = array('foo' => 'bar');
         $vr = new ValidationResults($post);
-        $this->assertFalse($vr->fields);
-        $expect = array('foo' => array('foo failed'));
         $vr->fail('foo', 'foo failed');
         $this->assertFalse($vr->isValid());
     }
 
-    public function testGetPostWithoutPost()
+    public function testGetPostWithoutPost(): void
     {
         $vr = new ValidationResults();
-        $this->assertFalse($vr->fields);
-        $this->assertEquals($vr->getPost(), array());
+        $this->assertEquals(array(), $vr->getPost());
     }
 
-    public function testGetPostWithPost()
+    public function testGetPostWithPost(): void
     {
         $post = array('foo' => 'bar');
         $vr = new ValidationResults($post);
-        $this->assertFalse($vr->fields);
-        $this->assertEquals($vr->getPost(), $post);
+        $this->assertEquals($post, $vr->getPost());
     }
-
 }

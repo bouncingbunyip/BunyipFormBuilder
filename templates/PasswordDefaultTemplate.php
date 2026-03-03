@@ -19,6 +19,7 @@ class PasswordDefaultTemplate
         } else {
             $str = null;
         }
+
         $html .= '<input type="password" id="'. $elem->getId() .'" name="'. $elem->getName() .'" value="'. $elem->getValue() .'"'. $str .'>'.PHP_EOL;
         
         $error = $elem->getError();

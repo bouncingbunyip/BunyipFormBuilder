@@ -9,9 +9,6 @@
 
 namespace BunyipFormBuilder;
 
-include_once '../../FormBuilder.php';
-//include '../../FieldsetFormBuilder.php';
-
 use PHPUnit\Framework\TestCase;
 
 class FormBuilderTest extends TestCase

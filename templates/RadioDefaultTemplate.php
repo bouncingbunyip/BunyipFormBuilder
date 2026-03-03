@@ -19,7 +19,7 @@ class RadioDefaultTemplate
 		} else {
 			$class_html = ' ';
 		}
-        $html = '<div class="control"><label'. $class_html .' for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
+        $html = '<div class="control">'. $elem->getLabel() . PHP_EOL;
         $selected_value = $elem->getSelected();
         
         $options = $elem->getOptions();
@@ -37,7 +37,7 @@ class RadioDefaultTemplate
                 if (!empty($css)) {
                     $label = '<label '. $css . '>';
                 } else {
-                    $label = '';
+                    $label = '<label>';
                 }
                 $html .= $label . '<input type="radio" name="'. $elem->getName() .'" value="'.$option['value'].'"'. $selected .'>'. $option['label'].'</label>'.PHP_EOL;
             }

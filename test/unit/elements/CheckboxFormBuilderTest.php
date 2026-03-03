@@ -9,10 +9,8 @@
 
 namespace BunyipFormBuilder;
 
-include '../../../ElementFormBuilder.php';
-include '../../../elements/CheckboxFormBuilder.php';
-
 use PHPUnit\Framework\TestCase;
+use BunyipFormBuilder\elements\CheckboxFormBuilder;
 
 class CheckboxFormBuilderTest extends TestCase
 {

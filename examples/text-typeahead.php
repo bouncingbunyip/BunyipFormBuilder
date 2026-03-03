@@ -1,14 +1,10 @@
 <?php
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\elements\TextTypeaheadFormBuilder;
+
 include 'helpers.php';
-
-include '../../../BunyipFormBuilder/BunyipFormBuilder.php';
-include '../../../BunyipFormBuilder/ElementFormBuilder.php';
-include '../../../BunyipFormBuilder/elements/TextTypeaheadFormBuilder.php';
-include '../../../BunyipFormBuilder/templates/TextTypeaheadDefaultTemplate.php';
-
-use \FormBuilder\FormBuilder;
-use \FormBuilder\TextTypeaheadFormBuilder;
 
 writeHeader();
 $attr = array(
@@ -19,10 +15,8 @@ $attr = array(
 );
 
 $form = new FormBuilder($attr);
-$form->registerExternal('//code.jquery.com/jquery-1.10.2.js', 'js');
-$form->registerExternal('//code.jquery.com/ui/1.11.4/jquery-ui.js', 'js');
-$form->registerExternal('addons/typeahead/typeahead.js', 'js');
-$form->registerExternal('addons/typeahead/typeahead.css', 'css');
+$form->registerExternal('//code.jquery.com/jquery-3.7.1.min.js', 'js');
+$form->registerExternal('//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js', 'js');
 
 /**
  * fieldName (String) becomes the input 'name'
@@ -72,6 +66,3 @@ $form->addElem(new TextTypeaheadFormBuilder($attr));
 writeCode($form->render());
 writeHtml($form->render());
 writeFooter();
-
-
-?>

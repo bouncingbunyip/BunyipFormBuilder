@@ -13,7 +13,7 @@
  * @author Chris Hubbard <chris@ibunyip.com>
  */
 
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\strategies;
 
 class ValidationStrategyPhoneUk implements ValidationStrategyInterface {
     
@@ -39,5 +39,3 @@ class ValidationStrategyPhoneUk implements ValidationStrategyInterface {
         return 'Needs to be a valid UK phone number.';
     }
 }
-
-?>

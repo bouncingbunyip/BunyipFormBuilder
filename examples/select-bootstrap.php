@@ -21,7 +21,7 @@ $attr = array(
 );
 $form = new SelectFormBuilder($attr);
 $form->setTheme('Bootstrap');
-$form->setTemplate('SelectTemplate');
+$form->setTemplate('SelectDefaultTemplate');
 writeCode($form->render());
 writeHtml($form->render());
 
@@ -38,7 +38,7 @@ $attr = array(
 );
 $form = new SelectFormBuilder($attr);
 $form->setTheme('Bootstrap');
-$form->setTemplate('SelectTemplate');
+$form->setTemplate('SelectDefaultTemplate');
 
 writeCode($form->render());
 writeHtml($form->render());

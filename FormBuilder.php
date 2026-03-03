@@ -19,11 +19,17 @@ use \BunyipFormBuilder\Validator;
 
 class FormBuilder {
 
-    protected bool $strict = true;
-    protected string $method = 'post';
-    protected string $action = 'index.php';
-    protected string $class = 'bunyipform';
-    protected string $autofocus = '';
+    protected $strict = true;
+//    protected string $method = 'post';
+//    protected string $action = 'index.php';
+//    protected string $class = 'bunyipform';
+//    protected string $autofocus = '';
+//    protected string $id;
+//    protected string $name;
+//    protected string $acceptcharset;
+//    protected string $autocomplete;
+//    protected string $enctype;
+//    protected string $novalidate;
     protected $fieldsets = null;
     protected array $elements = array();
     protected array $externalCss = array();
@@ -31,11 +37,23 @@ class FormBuilder {
     protected $uid = null;
     protected $uidHelper;
     protected array $dependencies = array();
-    protected string $theme = 'default';
+    protected string $theme = '';
     protected $validator;
     const BUNYIPCSRF = 'BUNYIPCSRF';
 
-    protected array $attributes = array('accept-charset', 'action', 'autocomplete', 'enctype', 'id', 'method', 'name', 'novalidate', 'target');
+    protected array $attributes = array(
+        'accept-charset'=>null,
+        'action'=>'index.php',
+        'autocomplete'=>null,
+        'autofocus'=>null,
+        'class'=>null,
+        'enctype'=>null,
+        'id'=>null,
+        'method'=>'post',
+        'name'=>null,
+        'novalidate'=>null,
+        'target'=>null
+    );
 
     /**
      * __construct
@@ -55,9 +73,11 @@ class FormBuilder {
      * @see http://www.w3schools.com/tags/tag_form.asp
      */
     public function __construct(array $attrs = null) {
+//        out($attrs, false);
         if(!is_null($attrs)) {
             $this->setFormAttributes($attrs);
         }
+//        out($this->attributes);
     }
 
     public function setValidator(Validator $validator) {
@@ -90,47 +110,48 @@ class FormBuilder {
 
     public function setMethod($method = 'post')
     {
-        $this->method = $method;
+        $this->attributes['method'] = $method;
     }
 
     public function getMethod()
     {
         if (!$this->strict) {
-            return $this->method;
+            return $this->attributes['method'];
         } else {
-            if (in_array($this->method, array('get', 'post'))) {
-                return $this->method;
+            if (in_array($this->attributes['method'], array('get', 'post'))) {
+                return $this->attributes['method'];
             } else {
                 return 'post';
             }
         }
     }
 
-    public function setAction($action) {
-        $this->action = $action;
+    public function setAction($action)
+    {
+        $this->attributes['action'] = $action;
     }
 
     public function getAction()
     {
-        return $this->action;
+        return $this->attributes['action'];
     }
 
     public function setClass($class) {
-        $this->class = $class;
+        $this->attributes['class'] = $class;
     }
 
     public function getClass()
     {
-        return $this->class;
+        return $this->attributes['class'];
     }
     
     public function setAutofocus($inputname) {
-        $this->autofocus = $inputname;
+        $this->attributes['autofocus'] = $inputname;
     }
 
     public function getAutofocus()
     {
-        return $this->autofocus;
+        return $this->attributes['autofocus'];
     }
 
     public function setFieldset($fieldset) {
@@ -250,20 +271,22 @@ class FormBuilder {
     /**
      * setFormAttributes
      * 
-     * @param array|null $attrs An array of key->value pairs
+     * @param array|null $attrs An array of key->value pairs which become the attributes of the <form> tag
      */
-	#[AllowDynamicProperties]
     public function setFormAttributes(array $attrs = null): void
     {
         if (!is_null($attrs)) {
             foreach ($attrs as $key => $value) {
+                //out([$key, $value], false);
                 if ($this->strict) {
-                    if (in_array($key, $this->attributes)) {
-                        $this->$key = $value;
+                    if (array_key_exists($key, $this->attributes)) {
+                        $this->attributes[$key] = $value;
+                    } else {
+                        //out('key: '. $key .' not in attributes', false);
                     }
                 } else {
-                    array_push($this->attributes, $key);
-                    $this->$key = $value;
+                    //array_push($this->attributes, $key);
+                    $this->attributes[$key] = $value;
                 }
             }
         }
@@ -277,29 +300,36 @@ class FormBuilder {
      */
     public function getFormAttributes() {
         $str = array('');
-        foreach ($this->attributes as $attr) {
-            if (!empty($this->$attr)) {
-                switch ($attr) {
+        foreach ($this->attributes as $key=>$value) {
+            if (!empty($this->attributes[$key])) {
+                switch ($key) {
+                    case 'accept-charset':
+                        $valid = array('ISO-8859-1', 'UTF-8');
+                        if (!in_array($this->attributes[$key], $valid)) {
+                            $this->attributes[$key] = 'UTF-8';
+                        }
+                        $str[] = $key . '="' . $this->attributes[$key] .'"';
+                        break;
                     case 'autocomplete':
                         $valid = array('on', 'off');
-                        if (!in_array($this->$attr, $valid)) {
-                            $this->$attr = 'off';
+                        if (!in_array($this->attributes[$key], $valid)) {
+                            $this->attributes[$key] = 'off';
                         }
-                        $str[] = $attr . '="' . $this->$attr . '"';
+                        $str[] = $key . '="' . $this->attributes[$key] . '"';
                         break;
                     case 'enctype':
                         $valid = array('application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain');
-                        if (!in_array($this->$attr, $valid)) {
-                            $this->$attr = 'application/x-www-form-urlencoded';
+                        if (!in_array($this->attributes[$key], $valid)) {
+                            $this->attributes[$key] = 'application/x-www-form-urlencoded';
                         }
-                        $str[] = $attr . '="' . $this->$attr . '"';
+                        $str[] = $key . '="' . $this->attributes[$key] . '"';
                         break;
                     case 'method':
                         $valid = array('get', 'post');
-                        if (!in_array($this->$attr, $valid)) {
-                            $this->$attr = 'post';
+                        if (!in_array($this->attributes[$key], $valid)) {
+                            $this->attributes[$key] = 'post';
                         }
-                        $str[] = $attr . '="' . $this->$attr . '"';
+                        $str[] = $key . '="' . $this->attributes[$key] . '"';
                         break;
                     case 'novalidate':
                         $str[] = 'novalidate';
@@ -309,13 +339,13 @@ class FormBuilder {
                      */
                     case 'target':
                         $valid = array('_blank', '_self', '_parent', '_top');
-                        if (!in_array($this->$attr, $valid)) {
-                            $this->$attr = '_self';
+                        if (!in_array( $this->attributes[$key], $valid)) {
+                            $this->attributes[$key] = '_self';
                         }
-                        $str[] = $attr . '="' . $this->$attr . '"';
+                        $str[] = $key . '="' . $this->attributes[$key] . '"';
                         break;
                     default:
-                        $str[] = $attr . '="' . $this->$attr . '"';
+                        $str[] = $key . '="' . $this->attributes[$key] . '"';
                         break;
                 }
             }
@@ -343,23 +373,25 @@ class FormBuilder {
         $js = $this->getExternalJs();
         if ($js) {
             foreach ($js as $script) {
-                $html .= '<script type="text/javascript" src="' . $script . '"></script>' . PHP_EOL;
+                $html .= '<script type="text/javascript" src="' . $script . '"  type="text/javascript"></script>' . PHP_EOL;
             }
         }
         $attrs = $this->getFormAttributes();
-        if (!is_null($this->class)) {
-            $class = ' class="' . $this->class . '"';
-        } else {
-            $class = '';
-        }
-        $html .= '<form' . $class . $attrs . '>' . PHP_EOL;
+
+//        if (!is_null($this->attributes['class'])) {
+//            $class = ' class="' . $this->attributes['class'] . '"';
+//        } else {
+//            $class = '';
+//        }
+        $html .= '<form' . $attrs . '>' . PHP_EOL;
         if ($this->fieldsets) {
             foreach ($this->fieldsets as $fieldset) {
                 $html .= $this->renderFieldset($fieldset);
             }
         }
         foreach ($this->elements as $element) {
-            $html .= $element->render();
+
+            $html .= $element->render($this->getTheme());
         }
         $html .= '</form>' . PHP_EOL;
         return $html;
@@ -374,7 +406,7 @@ class FormBuilder {
             if (is_a($element, 'FieldsetFormBuilder')) {
                 $partial .= $this->renderFieldset($element);
             } else {
-                $partial .= $element->render();
+                $partial .= $element->render($this->getTheme());
             }
         }
         $html = $fieldset->render($partial);
@@ -387,26 +419,24 @@ class FormBuilder {
     }
 
     /**
-     * @todo Need to pull the Model code out of this method, this class shouldn't be instantiating objects
-     * @param $name
+     * getDependency
+     *
+     * Returns a previously registered dependency. Callers must register
+     * dependencies via setDependency() before calling this method.
+     * Subclasses may override this to provide their own resolution logic
+     * (e.g. lazy-instantiation of framework-specific objects).
+     *
+     * @param string $name The dependency key used when calling setDependency().
      * @return mixed
+     * @throws \RuntimeException if the dependency has not been registered.
      */
-    public function getDependency($name)
-    {
-        if (array_key_exists($name, $this->dependencies)) {
-            return $this->dependencies[$name];
-        } elseif (strstr($name, 'Model')) {
-            $obj = new $name(null, getDb());
-        } else {
-            /** this next fragment of code was an attempt to provide the Session to the form to validate the BUNYIPCSRF token didn't work... */
-//            if ($name === 'Session') {
-//                $params = $this->getDependency('Session');
-//            } else {
-//                $params = NULL;
-//            }
-//            $obj = new $name($params);
+    public function getDependency($name) {
+        if (!array_key_exists($name, $this->dependencies)) {
+            throw new \RuntimeException(
+                'No dependency registered for "' . $name . '". '
+                . 'Call setDependency(\'' . $name . '\', $object) before calling getDependency().'
+            );
         }
-        $this->setDependency($name, $obj);
-        return $obj;
+        return $this->dependencies[$name];
     }
 }

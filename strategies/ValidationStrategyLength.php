@@ -12,7 +12,7 @@
  *
  * @author Chris Hubbard <chris@ibunyip.com>
  */
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\strategies;
 
 class ValidationStrategyLength implements ValidationStrategyInterface {
 

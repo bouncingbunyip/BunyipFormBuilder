@@ -10,7 +10,6 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class TwoFormInputsOnRowFormBuilder extends ElementFormBuilder
 {
-    protected $required;
     protected $autofocus;
     protected $class;
     protected $error;

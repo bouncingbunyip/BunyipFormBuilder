@@ -12,11 +12,10 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class RangeFormBuilder extends ElementFormBuilder
 {
-    protected $required;
     protected $autofocus;
     protected $class;
     protected $error;
-    protected $value = '50';
+    protected ?string $value = '50';
     protected $min = 0;
     protected $max = 100;
     

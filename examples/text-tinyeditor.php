@@ -1,18 +1,13 @@
 <?php
 
+require_once '../Autoloader.php';
+
+use BunyipFormBuilder\elements\SubmitFormBuilder;
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\elements\TextareaTinyEditorFormBuilder;
 include 'helpers.php';
 
-include '../../../BunyipFormBuilder/BunyipFormBuilder.php';
-include '../../../BunyipFormBuilder/ElementFormBuilder.php';
-include '../../../BunyipFormBuilder/elements/TextareaTinyEditorFormBuilder.php';
-include '../../../BunyipFormBuilder/templates/TextareaTinyEditorTemplate.php';
 
-include '../../../BunyipFormBuilder/elements/SubmitFormBuilder.php';
-include '../../../BunyipFormBuilder/templates/SubmitDefaultTemplate.php';
-
-use \FormBuilder\FormBuilder;
-use \FormBuilder\TextareaTinyEditorFormBuilder;
-use \FormBuilder\SubmitFormBuilder;
 
 writeHeader();
 $attr = array(

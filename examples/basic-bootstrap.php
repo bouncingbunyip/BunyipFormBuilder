@@ -4,16 +4,14 @@
  * The 'expect' HTML comes from: http://v4-alpha.getbootstrap.com/components/forms/
  */
 
+require_once '../Autoloader.php';
+use BunyipFormBuilder\FormBuilder;
+use BunyipFormBuilder\elements\TextFormBuilder;
 include 'helpers.php';
 
-include '../../../BunyipFormBuilder/BunyipFormBuilder.php';
-include '../../../BunyipFormBuilder/FieldsetFormBuilder.php';
-include '../../../BunyipFormBuilder/ElementFormBuilder.php';
-include '../../../BunyipFormBuilder/elements/TextFormBuilder.php';
-include '../../../BunyipFormBuilder/templates/TextDefaultTemplate.php';
-include '../../../BunyipFormBuilder/decorators/HintDecorator.php';
-
 $form = new FormBuilder();
+$form->setTheme('Bootstrap');
+$form->setTemplate('TextTemplate');
 
 $fieldset = $form->addFieldset();
 

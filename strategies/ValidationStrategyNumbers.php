@@ -13,7 +13,7 @@
  * @author Chris Hubbard <chris@ibunyip.com>
  */
 
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\strategies;
 
 class ValidationStrategyNumbers implements ValidationStrategyInterface {
     

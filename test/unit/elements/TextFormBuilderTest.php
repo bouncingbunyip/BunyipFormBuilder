@@ -3,31 +3,13 @@
 
 namespace BunyipFormBuilder;
 
-include '../../../ElementFormBuilder.php';
-include '../../../elements/TextFormBuilder.php';
-include '../../../templates/TextDefaultTemplate.php';
-
 use PHPUnit\Framework\TestCase;
+use BunyipFormBuilder\elements\TextFormBuilder;
 /**
  * TextFormBuilder test case.
  */
 class TextFormBuilderTest extends TestCase
 {
-
-    public function testBasicButton() {
-        $attr = array(
-            'value'=>'Name',
-            'id'=>'name-id',
-            'name'=>'name'
-        );
-        $form = new ButtonFormBuilder($attr);
-        $expect = '<input type="button" id="name-id" name="name" value="Name">';
-        $actual = $form->render();
-        $this->assertEquals(trim($expect), trim($actual));
-    }
-
-
-    
     public function testRender() {
         $attr = array(
             'label'=>'Name',
@@ -42,9 +24,10 @@ class TextFormBuilderTest extends TestCase
         $form = new TextFormBuilder($attr);
 
         $expected = '<label for="name-id">Name</label>
-<input type="text" id="name-id" name="name" value="Big Bob" required="required" autofocus class="name error">';
+<input type="text" id="name-id" name="name" value="Big Bob" required="required" autofocus class="name error">
+<span class="err-msg">There is an error here</span>';
         
-        $actual = $this->TextFormBuilder->render();
+        $actual = $form->render();
         $this->assertEquals($expected, $actual);
     }
 }

@@ -8,7 +8,7 @@
 
 namespace BunyipFormBuilder\templates;
 
-class TextDefaultTemplate
+class TextTemplate
 {
 
     /**
@@ -23,13 +23,14 @@ class TextDefaultTemplate
 			if ($class) {
 				$class_html = ' class="'.$class.'"';
 			} else {
-				$class_html = ' ';
+				$class_html = '';
 			}
             $html = '<label'. $class_html .' for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         } else {
             $html = '';
         }
         $attrs = $elem->getAttributes();
+
         if ($attrs) {
             $str = ' '. implode(' ', $attrs);
         } else {

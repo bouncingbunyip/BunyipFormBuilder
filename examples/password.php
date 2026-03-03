@@ -22,4 +22,15 @@ $form = new PasswordFormBuilder($attr);
 writeCode($form->render());
 writeHtml($form->render());
 
+$attr = array(
+    'label'=>'Required Password',
+    'id'=>'req-id',
+    'name'=>'req-name',
+    'value'=>'hijklmn',
+    'required'=>true
+);
+$form = new PasswordFormBuilder($attr);
+writeCode($form->render());
+writeHtml($form->render());
+
 writeFooter();

@@ -58,6 +58,31 @@ if (!empty($_POST)) {
         <a href="form-login.php">Login Form</a><br>
     </div>
     <h2>
+        Examples of Bootstrap Themed HTML Elements:
+    </h2>
+    <div>
+        <a href="text-bootstrap.php">Bootstrap text</a><br>
+        <a href="password-bootstrap.php">Bootstrap password</a><br>
+        <a href="select-bootstrap.php">Bootstrap select</a><br>
+        <a href="radio-bootstrap.php">Bootstrap radio</a><br>
+        <a href="email-bootstrap.php">Bootstrap email</a><br>
+        <a href="textarea-bootstrap.php">Bootstrap textarea</a><br>
+
+        <a href="button-bootstrap.php" class="incomplete">button</a><br>
+        <a href="checkbox.php" class="incomplete">checkbox</a><br>
+        <a href="color.php" class="incomplete">color</a><br>
+        <a href="datalist.php" class="incomplete">datalist</a><br>
+        <a href="email.php" class="incomplete">email</a><br>
+        <a href="file.php" class="incomplete">file</a><br>
+        <a href="hidden.php" class="incomplete">hidden</a><br>
+        <a href="number.php" class="incomplete">number</a><br>
+        <a href="range.php" class="incomplete">range</a><br>
+        <a href="reset.php" class="incomplete">reset</a><br>
+        <a href="select-optgroup.php" class="incomplete">select with optgroup</a><br>
+        <a href="submit.php" class="incomplete">submit</a><br>
+
+    </div>
+    <h2>
         Examples of HTML Elements:
     </h2>
     <div>
@@ -82,14 +107,6 @@ if (!empty($_POST)) {
         (<a href="text-opentip-template.php">text opentip template</a>)<br>
         (<a href="text-tooltip-template.php">text tooltip template</a>)<br>
         <a href="textarea.php" class="complete">textarea</a><br>
-        <hr>
-        <a href="text-bootstrap.php">Bootstrap text</a><br>
-        <a href="password-bootstrap.php">Bootstrap password</a><br>
-        <a href="select-bootstrap.php">Bootstrap select</a><br>
-        <a href="radio-bootstrap.php">Bootstrap radio</a><br>
-        <a href="email-bootstrap.php">Bootstrap email</a><br>
-        <a href="textarea-bootstrap.php">Bootstrap textarea</a><br>
-
     </div>
     <h2>
         Unsupported HTML Elements:

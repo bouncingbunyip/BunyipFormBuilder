@@ -15,11 +15,12 @@ use BunyipFormBuilder\ElementFormBuilder;
  */
 class TextFormBuilder extends ElementFormBuilder
 {
-    protected $required;
-    protected $autofocus;
+    protected ?string $autofocus;
     protected $class;
     protected $error;
-    public $template = 'TextDefaultTemplate';
+    public $decorator;
+    public $tooltip;
+    public $template = 'TextTemplate';
 
     public function getAttributes() {
         $attrs = array();
@@ -35,10 +36,11 @@ class TextFormBuilder extends ElementFormBuilder
         if ($css) {
             array_push($attrs, $css);
         }
-        $labelcss = $this->getCssClass('labelCss');
-        if ($labelcss) {
-            array_push($attrs, $labelcss);
+        $placeholder = $this->getPlaceholder();
+        if ($placeholder) {
+            array_push($attrs, $placeholder);
         }
+
         return $attrs;
     }
 }

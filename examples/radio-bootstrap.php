@@ -20,7 +20,7 @@ $attr = array(
 );
 $form = new RadioFormBuilder($attr);
 $form->setTheme('Bootstrap');
-$form->setTemplate('RadioTemplate');
+$form->setTemplate('RadioDefaultTemplate');
 
 writeCode($form->render());
 writeHtml($form->render());

@@ -3,54 +3,44 @@
 /**
  * ValidationStrategyPhoneUsaTest.php
  *
- * @version $Id: $
  * @package BunyipFormBuilder
- * @copyright 2011 - 2020
  */
-include  'lib/ValidationStrategyInterface.php';
-include  'lib/ValidationStrategyPhoneUsa.php';
 
-class ValidationStrategyPhoneUsaTest extends PHPUnit_Framework_TestCase
+namespace BunyipFormBuilder;
+
+use PHPUnit\Framework\TestCase;
+use BunyipFormBuilder\strategies\ValidationStrategyPhoneUsa;
+
+class ValidationStrategyPhoneUsaTest extends TestCase
 {
+    protected ValidationStrategyPhoneUsa $validator;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->validator = new ValidationStrategyPhoneUsa();
     }
 
-    /**
-     * Cleans up the environment after running a test.
-     */
-    protected function tearDown()
+    protected function tearDown(): void
     {
-        $this->validator = null;
     }
 
-    /**
-     * tests the main 'test' method on the validation class with common formats
-     */
-    public function testTest()
+    public function testCommonFormats(): void
     {
-        $examples = array(
+        $examples = [
             '415.902.2146',
             '(415) 902 2146',
             '415 902 2146',
             '414-902-2146',
             '(415) 902-2146',
-            '4159022146'
-        );
+            '4159022146',
+        ];
         foreach ($examples as $data) {
-            $this->assertTrue($this->validator->test($data));
+            $this->assertTrue($this->validator->test($data), "Expected valid: $data");
         }
     }
 
-    public function testWeirdFormatTest()
+    public function testWeirdFormatPasses(): void
     {
-        $examples = array(
-            '415..902..2146',
-        );
-        foreach ($examples as $data) {
-            $this->assertTrue($this->validator->test($data));
-        }
+        $this->assertTrue($this->validator->test('415..902..2146'));
     }
 }

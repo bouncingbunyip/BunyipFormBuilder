@@ -8,9 +8,9 @@
  */
 
 namespace BunyipFormBuilder;
-include '../../../ElementFormBuilder.php';
-include '../../../elements/ColorFormBuilder.php';
+
 use PHPUnit\Framework\TestCase;
+use BunyipFormBuilder\elements\ColorFormBuilder;
 
 class ColorFormBuilderTest extends TestCase
 {

@@ -16,7 +16,7 @@ class SelectChosenFormBuilder extends ElementFormBuilder
     protected $options;
     protected $optGroup;
     protected $chosenOptions;
-    protected $placeholder = 'Choose an option...';
+    protected ?string $placeholder = 'Choose an option...';
     public $template = 'SelectChosenTemplate';
     
     /**

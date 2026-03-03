@@ -39,6 +39,12 @@ class OpentipDecorator
     public $text;
     public $trigger;
     public $class;
+    public $delay;
+    public $hideDelay;
+    public $stem;
+    public $fixed;
+    public $offset;
+    public $title;
     
     /**
      * 

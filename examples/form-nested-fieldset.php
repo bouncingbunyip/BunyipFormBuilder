@@ -10,7 +10,7 @@ include '../../../BunyipFormBuilder/BunyipFormBuilder.php';
 include '../../../BunyipFormBuilder/FieldsetFormBuilder.php';
 include '../../../BunyipFormBuilder/ElementFormBuilder.php';
 include '../../../BunyipFormBuilder/elements/TextFormBuilder.php';
-include '../../../BunyipFormBuilder/templates/TextDefaultTemplate.php';
+include '../../../BunyipFormBuilder/templates/TextTemplate.php';
 include '../../../BunyipFormBuilder/decorators/HintDecorator.php';
 
 use \FormBuilder\FormBuilder;

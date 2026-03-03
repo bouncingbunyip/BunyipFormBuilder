@@ -12,11 +12,10 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class ColorFormBuilder extends ElementFormBuilder
 {
-    protected $required;
     protected $autofocus;
     protected $class;
     protected $error;
-    protected $value = '#ff0000';
+    protected ?string $value = '#ff0000';
     public $template = 'ColorDefaultTemplate';
 
     public function getAttributes() {

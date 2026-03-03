@@ -16,25 +16,45 @@ namespace BunyipFormBuilder;
 
 class ElementFormBuilder
 {
-    protected $label;
-    protected $id;
-    protected $name;
-    protected $value;
+    /**
+     * @var string|null This the label that will be used with the form element
+     */
+    protected ?string $label = null;
+
+    /**
+     * @var string|null This is the id of the form element, for example id="foo"
+     */
+    protected ?string $id = null;
+
+    /**
+     * @var string|null This is the name of the form element, for example name="foo"
+     */
+    protected ?string $name = null;
+    /**
+     * @var string|null This is the value of the form element, for example value="foo"
+     */
+    protected ?string $value = null;
+    protected ?string $placeholder = null;
 	protected $labelCss;
     protected $class;
-    protected $required;
+    public $required = false;
+    protected $autocomplete;
     protected $error;
     protected $csserror = 'err-msg';
     protected $theme;
 	public $selected;
 	public $source;
 	public $options;
+    /**
+     * @var  name of the template to use for this element.  Templates are found in the templates/ folder
+     */
+    public $template;
 
     /**
      * __construct
      * In general usage, this class will never be called directly.  It should be called through its
      * child classes.
-     * @param array|null $attrs An array of the attributes to pass to the Element class
+     * @param array $attrs An array of the attributes to pass to the Element class
      */
     function __construct(array $attrs = []) {
         if (is_array($attrs)) {
@@ -64,9 +84,9 @@ class ElementFormBuilder
         return $this->value;
     }    
 
-    public function render() {
+    public function render($theme = null) {
+        $this->theme = $theme;
         $template = $this->getTemplate();
-        //out($template);
 
         $tpl = new $template;
         $html = $tpl->getHtml($this);
@@ -74,7 +94,7 @@ class ElementFormBuilder
     }
 
     public function getTemplate() {
-        if (isset($this->theme)) {
+        if (isset($this->theme) && !empty($this->theme)) {
             $theme = $this->theme . '\\';
         } else {
             $theme = '';
@@ -146,7 +166,14 @@ class ElementFormBuilder
         }    
         return false;
     }
-    
+
+    public function getPlaceholder()
+    {
+        if (!empty($this->placeholder)) {
+            return 'placeholder = "'. $this->placeholder .'"';
+        }
+        return false;
+    }
     public function setTemplate($name) {
         $this->template = $name;
     }

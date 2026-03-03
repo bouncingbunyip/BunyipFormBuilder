@@ -68,7 +68,7 @@ class FieldsetFormBuilder {
         $this->elements[] = $obj;
     }
 
-    public function addFieldset(FormFieldset $fieldset)
+    public function addFieldset($fieldset)
     {
         $this->fieldsets[] = $fieldset;
     }

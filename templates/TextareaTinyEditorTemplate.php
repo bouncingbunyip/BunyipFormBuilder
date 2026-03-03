@@ -5,7 +5,7 @@
  * @author Chris Hubbard <chris@ibunyip.com>
  *        
  */
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\templates   ;
 
 class TextareaTinyEditorTemplate
 {
@@ -23,11 +23,11 @@ class TextareaTinyEditorTemplate
      *   $this->registerExternal('/thirdparty/TinyEditor/tiny.editor.packed.js', 'js');
      *   $this->registerExternal('/thirdparty/TinyEditor/style.css', 'css');
      * 
-     * @param TextareaTinyEditorBuilder $elem
+     * @param  $elem
      * @see http://www.scriptiny.com/2010/02/javascript-wysiwyg-editor/ for more documentation
      * @return string Returns the HTML with support for Tiny Editor embedded in textarea
      */
-    function getHtml(TextareaTinyEditorFormBuilder $elem) {
+    function getHtml( $elem) {
         $html = '<label for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
         $attrs = $elem->getAttributes();
         if ($attrs) {

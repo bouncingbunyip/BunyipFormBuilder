@@ -12,7 +12,7 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class PasswordFormBuilder extends ElementFormBuilder
 {
-    protected $required;
+    //protected bool $required = false;
     protected $autofocus;
     protected $class;
     protected $error;

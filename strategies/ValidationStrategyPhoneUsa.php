@@ -13,7 +13,7 @@
  * @author Chris Hubbard <chris@ibunyip.com>
  */
 
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\strategies;
 
 class ValidationStrategyPhoneUsa implements ValidationStrategyInterface {
 
@@ -37,7 +37,7 @@ class ValidationStrategyPhoneUsa implements ValidationStrategyInterface {
 
     public function removeInvalid($data)
     {
-        $data = preg_replace("/[^0-9]/", "", $data);
+        $data = preg_replace("/[^0-9]/", "", (string) $data);
         return $data;
     }
 

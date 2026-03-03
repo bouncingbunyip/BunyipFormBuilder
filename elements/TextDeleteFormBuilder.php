@@ -12,7 +12,6 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class TextDeleteFormBuilder extends ElementFormBuilder
 {
-    protected $required;
     protected $autofocus;
     protected $action;
     protected $deleteId;

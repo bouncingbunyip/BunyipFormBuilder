@@ -13,7 +13,7 @@
  * @author Chris Hubbard <chris@ibunyip.com>
  */
 
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\strategies;
 
 class ValidationStrategyUpperCase implements ValidationStrategyInterface {
     
@@ -37,5 +37,3 @@ class ValidationStrategyUpperCase implements ValidationStrategyInterface {
         return 'Must contain at least '. $this->count .' upper case characters';
     }
 }
-
-?>

@@ -12,15 +12,16 @@
  * @author Chris Hubbard <chris@ibunyip.com>
  */
 
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\strategies;
 
 class ValidationStrategyFileExists implements ValidationStrategyInterface {
 
     protected $path;
     
     public function test($path) {
+        //vd($path);
         $this->path = $path;
-        if (file_exists($path)) {
+        if (file_exists($path['orig'])) {
             return true;
         } else {
             return false;
