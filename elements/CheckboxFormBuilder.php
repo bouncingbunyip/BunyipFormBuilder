@@ -14,7 +14,7 @@ class CheckboxFormBuilder extends ElementFormBuilder
 {
     public $options;
     
-    public $template = 'CheckboxDefaultTemplate';
+    public $template = 'CheckboxTemplate';
     
     /**
      * getOptions

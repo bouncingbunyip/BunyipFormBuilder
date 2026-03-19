@@ -19,7 +19,7 @@ class NumberFormBuilder extends ElementFormBuilder
     protected $min = 0;
     protected $max = 100;
     
-    public $template = 'NumberDefaultTemplate';
+    public $template = 'NumberTemplate';
     
     public function getMin() {
         return $this->min;

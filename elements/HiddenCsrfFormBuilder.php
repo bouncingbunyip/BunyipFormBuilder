@@ -13,6 +13,6 @@ use BunyipFormBuilder\ElementFormBuilder;
 class HiddenCsrfFormBuilder extends ElementFormBuilder
 {
     protected $error;
-    public $template = 'HiddenCsrfDefaultTemplate';
+    public $template = 'HiddenCsrfTemplate';
 
 }

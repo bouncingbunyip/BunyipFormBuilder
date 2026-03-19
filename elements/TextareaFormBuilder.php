@@ -10,7 +10,7 @@ use BunyipFormBuilder\ElementFormBuilder;
 
 class TextareaFormBuilder extends ElementFormBuilder
 {
-    public $template = 'TextareaDefaultTemplate';
+    public $template = 'TextareaTemplate';
     public $cols; // the number of columns in the textarea
     public $rows; // the number of rows in the textarea
 

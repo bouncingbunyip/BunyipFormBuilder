@@ -15,7 +15,7 @@ class EmailFormBuilder extends ElementFormBuilder
     public ?string $autofocus;
     protected $class;
     protected $error;
-    public $template = 'EmailDefaultTemplate';
+    public $template = 'EmailTemplate';
     public $help_text;
     
     /**

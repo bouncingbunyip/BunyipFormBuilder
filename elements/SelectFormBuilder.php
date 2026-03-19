@@ -15,7 +15,7 @@ class SelectFormBuilder extends ElementFormBuilder
     public $options;
     public $optGroup;
         
-    public $template = 'SelectDefaultTemplate';
+    public $template = 'SelectTemplate';
     
     /**
      * getOptions

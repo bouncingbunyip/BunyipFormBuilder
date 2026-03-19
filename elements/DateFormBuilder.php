@@ -15,7 +15,7 @@ class DateFormBuilder extends ElementFormBuilder
     protected $autofocus;
     protected $class;
     protected $error;
-    public $template = 'DateDefaultTemplate';
+    public $template = 'DateTemplate';
     
 
     public function getAttributes() {

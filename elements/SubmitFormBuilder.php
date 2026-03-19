@@ -15,6 +15,6 @@ class SubmitFormBuilder extends ElementFormBuilder
     protected $autofocus;
     protected $class;
     protected $error;
-    public $template = 'SubmitDefaultTemplate';
+    public $template = 'SubmitTemplate';
 
 }

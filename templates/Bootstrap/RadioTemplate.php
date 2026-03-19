@@ -11,6 +11,7 @@ namespace BunyipFormBuilder\templates\Bootstrap;
 
 class RadioTemplate
 {
+    public $selected_value;
 
     /**
      * getHtml
@@ -30,6 +31,7 @@ class RadioTemplate
      */
     public function getHtml($elem): string {
         $this->selected_value = $elem->getSelected();
+        $divClass = $elem->getInline() ? 'form-check form-check-inline' : 'form-check';
         $html = '';
         $options = $elem->getOptions();
         if ($options) {
@@ -42,7 +44,7 @@ class RadioTemplate
                 } else {
                     $selected = '';
                 }
-                $html .= '<div class="form-check">'.PHP_EOL;
+                $html .= '<div class="' . $divClass . '">'.PHP_EOL;
                 $html .= '        <input class="form-check-input" id="' . $elem->getName() . '-' . $counter . '" type="radio" name="' . $elem->getName() . '" value="' . $option['value'] . '"' . $selected . '> '. PHP_EOL;
                 $html .= '        <label class="form-check-label" for="' . $elem->getName() . '-' . $counter . '">' . PHP_EOL;
                 $html .= '        ' . $option['label'] . PHP_EOL;

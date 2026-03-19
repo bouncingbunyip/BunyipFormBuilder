@@ -14,7 +14,7 @@ class TextTypeaheadFormBuilder extends ElementFormBuilder
     protected $autofocus;
     protected $class;
     protected $error;
-    public $template = 'TextTypeaheadDefaultTemplate';
+    public $template = 'TextTypeaheadTemplate';
     
     /**
      * 

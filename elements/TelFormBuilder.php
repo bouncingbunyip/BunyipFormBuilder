@@ -16,7 +16,7 @@ class TelFormBuilder extends ElementFormBuilder
     protected $autofocus;
     protected $class;
     protected $error;
-    public $template = 'TelDefaultTemplate';
+    public $template = 'TelTemplate';
     public $help_text;
 
     public function getAttributes()

@@ -13,5 +13,5 @@ use BunyipFormBuilder\ElementFormBuilder;
 class ResetFormBuilder extends ElementFormBuilder
 {
     protected $class;
-    public $template = 'ResetDefaultTemplate';
+    public $template = 'ResetTemplate';
 }

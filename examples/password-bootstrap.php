@@ -13,7 +13,7 @@ $attr = array(
 );
 $form = new PasswordFormBuilder($attr);
 $form->setTheme('Bootstrap');
-$form->setTemplate('PasswordDefaultTemplate');
+$form->setTemplate('PasswordTemplate');
 writeCode($form->render());
 writeHtml($form->render());
 

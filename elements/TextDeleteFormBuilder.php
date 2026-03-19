@@ -17,7 +17,7 @@ class TextDeleteFormBuilder extends ElementFormBuilder
     protected $deleteId;
     protected $class;
     protected $error;
-    public $template = 'TextDeleteDefaultTemplate';
+    public $template = 'TextDeleteTemplate';
     protected $method;
     protected $form_name;
 

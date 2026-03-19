@@ -19,7 +19,7 @@ class RangeFormBuilder extends ElementFormBuilder
     protected $min = 0;
     protected $max = 100;
     
-    public $template = 'RangeDefaultTemplate';
+    public $template = 'RangeTemplate';
     
     public function getMin() {
         return $this->min;

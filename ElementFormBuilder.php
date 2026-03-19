@@ -85,7 +85,9 @@ class ElementFormBuilder
     }    
 
     public function render($theme = null) {
-        $this->theme = $theme;
+        if ($theme !== null) {
+            $this->theme = $theme;
+        }
         $template = $this->getTemplate();
 
         $tpl = new $template;
@@ -93,14 +95,16 @@ class ElementFormBuilder
         return $html;
     }
 
-    public function getTemplate() {
-        if (isset($this->theme) && !empty($this->theme)) {
-            $theme = $this->theme . '\\';
-        } else {
-            $theme = '';
+    public function getTemplate(): string
+    {
+        $theme  = !empty($this->theme) ? $this->theme : 'Basic';
+        $themed = 'BunyipFormBuilder\templates\\' . $theme . '\\' . $this->template;
+
+        if ($theme !== 'Basic' && !class_exists($themed)) {
+            // Fall back to Basic template when themed version doesn't exist
+            $themed = 'BunyipFormBuilder\templates\Basic\\' . $this->template;
         }
-        $template = 'BunyipFormBuilder\templates\\'. $theme . $this->template;
-        return $template;
+        return $themed;
     }
     
     public function setRequired($required) {

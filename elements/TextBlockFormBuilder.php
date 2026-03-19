@@ -15,7 +15,7 @@ class TextBlockFormBuilder extends ElementFormBuilder
     protected $content;
     protected $class;
     protected $error;
-    public $template = 'TextBlockDefaultTemplate';
+    public $template = 'TextBlockTemplate';
 
     public function getContent() {
         return $this->content;

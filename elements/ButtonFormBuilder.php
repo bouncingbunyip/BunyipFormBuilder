@@ -16,13 +16,23 @@ class ButtonFormBuilder extends ElementFormBuilder
     protected $class;
     protected $error;
     public $onclick = null;
-    public $template = 'ButtonDefaultTemplate';
+    public $type = 'button';
+    public $template = 'ButtonTemplate';
+    public $attributes = [];
 
-    public function getOnClick() {
-        if (!empty($this->onclick)) {
-            return $this->onclick;
-        } else {
-            return false;
-        }
+    public function getOnClick(): string|false {
+        return !empty($this->onclick) ? $this->onclick : false;
+    }
+
+    public function getType(): string {
+        return $this->type;
+    }
+
+    /**
+     * Returns extra HTML attributes as an array of pre-rendered strings,
+     * e.g. ['disabled', 'data-bs-toggle="modal"'].
+     */
+    public function getAttributes(): array|false {
+        return !empty($this->attributes) ? $this->attributes : false;
     }
 }

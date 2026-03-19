@@ -29,7 +29,7 @@ class TextAutocompleteFormBuilder extends ElementFormBuilder {
     protected $autofocus;
     protected $class;
     protected $error;
-    public $template = 'TextAutocompleteDefaultTemplate';
+    public $template = 'TextAutocompleteTemplate';
 
     /**
      * 

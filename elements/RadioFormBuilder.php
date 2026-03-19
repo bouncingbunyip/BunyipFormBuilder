@@ -13,8 +13,14 @@ use BunyipFormBuilder\ElementFormBuilder;
 class RadioFormBuilder extends ElementFormBuilder
 {
     public $options;
-    
-    public $template = 'RadioDefaultTemplate';
+    public bool $inline = false;
+
+    public $template = 'RadioTemplate';
+
+    public function getInline(): bool
+    {
+        return $this->inline;
+    }
     
     public function getAttributes() {
         $attrs = array();

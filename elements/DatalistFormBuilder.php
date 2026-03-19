@@ -15,7 +15,7 @@ class DatalistFormBuilder extends ElementFormBuilder
     public $options;
     protected $list;
         
-    public $template = 'DatalistDefaultTemplate';
+    public $template = 'DatalistTemplate';
     
     /**
      * getOptions

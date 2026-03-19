@@ -15,6 +15,6 @@ class HiddenFormBuilder extends ElementFormBuilder
     protected $autofocus;
     protected $class;
     protected $error;
-    public $template = 'HiddenDefaultTemplate';
+    public $template = 'HiddenTemplate';
 
 }

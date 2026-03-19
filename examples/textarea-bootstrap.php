@@ -14,7 +14,7 @@ $attr = array(
 );
 $form = new TextareaFormBuilder($attr);
 $form->setTheme('Bootstrap');
-$form->setTemplate('TextareaDefaultTemplate');
+$form->setTemplate('TextareaTemplate');
 
 writeCode($form->render());
 writeHtml($form->render());
@@ -28,7 +28,7 @@ $attr = array(
 );
 $form = new TextareaFormBuilder($attr);
 $form->setTheme('Bootstrap');
-$form->setTemplate('TextareaDefaultTemplate');
+$form->setTemplate('TextareaTemplate');
 writeCode($form->render());
 writeHtml($form->render());
 

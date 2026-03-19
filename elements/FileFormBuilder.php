@@ -15,7 +15,7 @@ class FileFormBuilder extends ElementFormBuilder
     protected $autofocus;
     protected $class;
     protected $error;
-    public $template = 'FileDefaultTemplate';
+    public $template = 'FileTemplate';
     
     /**
      * 

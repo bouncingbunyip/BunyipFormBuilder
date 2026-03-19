@@ -16,7 +16,7 @@ class ColorFormBuilder extends ElementFormBuilder
     protected $class;
     protected $error;
     protected ?string $value = '#ff0000';
-    public $template = 'ColorDefaultTemplate';
+    public $template = 'ColorTemplate';
 
     public function getAttributes() {
         $attrs = array();

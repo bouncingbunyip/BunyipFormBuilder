@@ -16,7 +16,7 @@ class PasswordFormBuilder extends ElementFormBuilder
     protected $autofocus;
     protected $class;
     protected $error;
-    public $template = 'PasswordDefaultTemplate';
+    public $template = 'PasswordTemplate';
 
     public function getAttributes() {
         $attrs = array();
