@@ -13,15 +13,14 @@ class BootstrapRowFormBuilder extends ElementFormBuilder
     protected $class;
     protected $error;
     public $template = 'BootstrapRowTemplate';
+    public $formRowElements;
 
     public function __construct($elements = null)
     {
         $this->formRowElements = $elements;
-        //parent::__construct($attrs);
-
     }
 
-    public function render() {
+    public function render($theme = null) {
         $html= '<div class="form-row">'. PHP_EOL;
         foreach ($this->formRowElements['elems'] as $elem) {
             $html .= $elem->render();

@@ -16,6 +16,7 @@ class EmailFormBuilder extends ElementFormBuilder
     protected $class;
     protected $error;
     public $template = 'EmailDefaultTemplate';
+    public $help_text;
     
     /**
      * 

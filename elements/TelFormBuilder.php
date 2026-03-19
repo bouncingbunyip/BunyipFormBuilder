@@ -8,7 +8,7 @@
  * @todo this needs to be finished
  */
 
-namespace BunyipFormBuilder;
+namespace BunyipFormBuilder\elements;
 use BunyipFormBuilder\ElementFormBuilder;
 
 class TelFormBuilder extends ElementFormBuilder
@@ -17,6 +17,7 @@ class TelFormBuilder extends ElementFormBuilder
     protected $class;
     protected $error;
     public $template = 'TelDefaultTemplate';
+    public $help_text;
 
     public function getAttributes()
     {
