@@ -17,7 +17,7 @@ class DatePickerFormBuilder extends ElementFormBuilder
     protected $class;
     protected $error;
     public $datepicker = null;
-    public $template = 'DatePickerTemplate';
+    public $template = 'DateTemplate';
 
     public function getAttributes() {
         $attrs = array();

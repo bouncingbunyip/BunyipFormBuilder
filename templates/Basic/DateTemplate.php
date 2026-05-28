@@ -21,7 +21,7 @@ class DateTemplate {
         $html .= '<input type="date" id="' . $elem->getId() . '" name="' . $elem->getName() . '" value="' . $elem->getValue() .'"'. $str .'>' . PHP_EOL;
         $error = $elem->getError();
         if (!empty($error)) {
-            $html .= '<span class="'. $elem->getCssError() .'">' . $error . '</span>';
+            $html .= '<span class="' . $elem->getCssError() . '">' . $error . '</span>' . PHP_EOL;
         }
         $html .= '<br style="clear:both" />';
         return $html;

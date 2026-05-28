@@ -46,7 +46,7 @@ class RadioTemplate
         if (!empty($error)) {
             $html .= '<span class="'. $elem->getCssError() .'">'. $error .'</span>';
         }
-        $html .= '</div><br style="clear:both" />';
+        $html .= '</div>';
         return $html;
     }
 }

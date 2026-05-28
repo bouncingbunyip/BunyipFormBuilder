@@ -32,7 +32,9 @@ class RadioTemplate
     public function getHtml($elem): string {
         $this->selected_value = $elem->getSelected();
         $divClass = $elem->getInline() ? 'form-check form-check-inline' : 'form-check';
-        $html = '';
+        $label = $elem->getLabel();
+        $html  = '<div class="mb-3">' . PHP_EOL;
+        $html .= !empty($label) ? '    <label class="form-label">' . $label . '</label>' . PHP_EOL : '';
         $options = $elem->getOptions();
         if ($options) {
             $counter = 0;
@@ -44,41 +46,21 @@ class RadioTemplate
                 } else {
                     $selected = '';
                 }
-                $html .= '<div class="' . $divClass . '">'.PHP_EOL;
-                $html .= '        <input class="form-check-input" id="' . $elem->getName() . '-' . $counter . '" type="radio" name="' . $elem->getName() . '" value="' . $option['value'] . '"' . $selected . '> '. PHP_EOL;
-                $html .= '        <label class="form-check-label" for="' . $elem->getName() . '-' . $counter . '">' . PHP_EOL;
-                $html .= '        ' . $option['label'] . PHP_EOL;
-                $html .= '        </label>' . PHP_EOL;
-                $html .= '</div>' . PHP_EOL;
+                $html .= '    <div class="' . $divClass . '">' . PHP_EOL;
+                $html .= '        <input class="form-check-input" id="' . $elem->getName() . '-' . $counter . '" type="radio" name="' . $elem->getName() . '" value="' . $option['value'] . '"' . $selected . '>' . PHP_EOL;
+                $html .= '        <label class="form-check-label" for="' . $elem->getName() . '-' . $counter . '">' . $option['label'] . '</label>' . PHP_EOL;
+                $html .= '    </div>' . PHP_EOL;
                 $counter++;
             }
         }
-
-
-//        $label = $elem->getLabel();
-//        $html .= '<input type="text" id="'. $elem->getId() .'" name="'. $elem->getName() .'" value="'. $elem->getValue() .'"'. $str .'>'.PHP_EOL;
-//        if ($label) {
-//            $html .= '<label class="form-label" for="'. $elem->getId() .'">'. $elem->getLabel() .'</label>'. PHP_EOL;
-//        }
-//        $html .= '</div>';
-//
-//        $attrs = $elem->getAttributes();
-//        if ($attrs) {
-//            $str = ' '. implode(' ', $attrs);
-//        } else {
-//            $str = null;
-//        }
-//        $html .= '    <input type="text" id="'. $elem->getId() .'" name="'. $elem->getName() .'" value="'. $elem->getValue() .'"'. $str .'>'.PHP_EOL;
-
         $error = $elem->getError();
         if (!empty($error)) {
-            $html .= '<div class="invalid-feedback">
-        '. $elem->getError() .'
-      </div>';
+            $html .= '    <div class="invalid-feedback">' . $error . '</div>' . PHP_EOL;
         }
         if (isset($elem->tooltip)) {
             $html .= $elem->tooltip->render();
-        }        
+        }
+        $html .= '</div>' . PHP_EOL;
         return $html;
     }
 }
